@@ -7,4 +7,6 @@ const API = axios.create({
 
 export const getAllRooms = () => API.get('/api/rooms')
 
+export const getAllInformtions = () => API.get('/api/informations')
+
 export default API

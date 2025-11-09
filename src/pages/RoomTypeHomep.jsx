@@ -75,13 +75,4 @@ const RoomTypeHomep = () => {
     )
 }
 
-{/* <div className='relative group w-[45vh] h-100 bg-cover bg-center' style={{ backgroundImage: `url(${standardImg})` }}>
-                    <div className='h-100 p-8 flex flex-col justify-between bg-black/10 hover:bg-black/40 transition duration-100'>
-                        <h2 className='text-white font-semibold text-lg max-w-xs'>Standard Room</h2>
-                        <div>
-                            <p className='opacity-0 group-hover:opacity-100 transition-opacity duration-500 py-7 text-[9px] text-white'>Enjoy simple comfort with complete amenities in our Standard Room. Designed with a modern and warm feel, this room is ideal for guests who prioritize convenience and comfort while relaxing.</p>
-                            <p className='text-xs text-white font-semibold'>CHECK ROOM</p>
-                        </div>
-                    </div>
-                </div> */}
 export default RoomTypeHomep
