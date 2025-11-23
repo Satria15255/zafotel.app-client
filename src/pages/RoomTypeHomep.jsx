@@ -3,11 +3,13 @@ import { FaCity, FaCalendarCheck } from "react-icons/fa";
 import { LuBedDouble, LuUtensils, LuWifi } from "react-icons/lu";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import { TiWiFi } from "react-icons/ti";
-import standardImg from '../assets/roomtype/standardtype_11zon.jpg'
 import { getAllRooms } from '../Api';
+import { useNavigate } from 'react-router-dom';
 
 const RoomTypeHomep = () => {
     const [rooms, setRooms] = useState([])
+    const [mainImage, setMainImage] = useState("")
+    const navigate = useNavigate()
 
     const fetchRooms = async () => {
         try {
@@ -18,6 +20,12 @@ const RoomTypeHomep = () => {
             console.log(err)
         }
     }
+
+    useEffect(() => {
+        if (rooms && rooms.image && rooms.image.length > 0) {
+            setMainImage(rooms.image[0])
+        }
+    })
 
     useEffect(() => {
         fetchRooms()
@@ -59,11 +67,11 @@ const RoomTypeHomep = () => {
                                 </div>
                                 <div className='flex gap-4'>
                                     <button className='py-2 px-7 bg-gray-900 border text-white hover:bg-white hover:text-black transition duration-100 flex items-center gap-2'><FaCalendarCheck />Book Now</button>
-                                    <button className='py-2 px-7 bg-yellow-300 border text-white hover:bg-white hover:text-black transition duration-100'>View Room →</button>
+                                    <button onClick={() => navigate(`/rooms/${room._id}`)} className='py-2 px-7 bg-yellow-300 border text-white hover:bg-white hover:text-black transition duration-100'>View Room →</button>
                                 </div>
                             </div>
                             <div>
-                                <img src={standardImg} alt='standardType' />
+                                <img src={room.image[0]} alt='standardType' />
                             </div>
                         </CarouselItem>
                     ))}
