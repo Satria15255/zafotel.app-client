@@ -2,8 +2,8 @@ import React from 'react'
 
 const AboutUs = () => {
     return (
-        <div className='h-auto bg-white p-6'>
-            <div className='grid grid-cols-3 place-items-center p-10'>
+        <div className='h-auto bg-white p-3 md:p-6'>
+            <div className='grid grid-cols-1 md:grid-cols-3 place-items-center space-y-4'>
                 <div className='flex'>
                     <p className='text-[180px] flex items-center justify-center text-gray-300'>[  <span className='text-6xl text-black flex items-center justify-center mt-10 font-bold font-sans'>
                         10
@@ -16,15 +16,15 @@ const AboutUs = () => {
                 </div>
                 <div className=' justify-center'>
                     <p className='mb-6 text-yellow-500 font-semibold'>ABOUT US</p>
-                    <p className='text-5xl max-w-xs font-serif'>Where Every Stay Feels Special.</p>
+                    <p className='text-3xl md:text-5xl max-w-xs font-serif'>Where Every Stay Feels Special.</p>
                 </div>
-                <div>
-                    <p className='font-serif text-xs'><span className='font-bold text-lg'>Zafotel</span> is a place where every guest comes as a visitor and leaves as family.
+                <div className='mt-5 md:mt-0'>
+                    <p className='font-serif text-[12px] md:text-xs'><span className='font-bold text-sm md:text-lg'>Zafotel</span> is a place where every guest comes as a visitor and leaves as family.
                         We believe that true comfort lies not only in a soft bed and a clean room, but in a warm atmosphere that makes you feel at home.
                         Enjoy the tranquility, friendly service, and modern amenities we provide to accompany your every journey.</p>
 
-                    <p className='font-serif text-xs mt-6'>At Zafotel, we don't just provide a place to stay—we create a space where you can rest, smile, and feel at ease.</p>
-                    <button className='py-2 px-9 border rounded-full bg-black text-white font-bold font-sans text-xs mt-5 hover:bg-white hover:text-black transition duration-100'> READ MORE ——▸</button>
+                    <p className='font-serif text-[12px] md:text-xs mt-6'>At Zafotel, we don't just provide a place to stay—we create a space where you can rest, smile, and feel at ease.</p>
+                    <button className='py-2 px-9 border rounded-full bg-black text-white font-sans text-[10px] md:text-xs mt-5 hover:bg-white hover:text-black transition duration-100'> READ MORE ——▸</button>
                 </div>
             </div>
 

@@ -46,25 +46,25 @@ const testimonial = [
 
 const Testimoni = () => {
     return (
-        <div className='h-screen border flex flex-col justify-center border-yellow-300 p-5'>
+        <div className='h-auto md:h-screen border flex flex-col justify-center border-yellow-300 p-5'>
             <div>
-                <p className='text-4xl text-center font-semibold'>Testimonial</p>
-                <p className='text-xl font-sans text-[#FFD700] text-center p-6'>We are trusted by more than 1000+ customers</p>
+                <p className='text-xl md:text-4xl text-center font-serif '>Testimonial</p>
+                <p className='text-[10px] md:text-xl font-sans text-[#FFD700] text-center md:p-6'>We are trusted by more than 1000+ customers</p>
             </div>
             <div className='w-full max-w-8xl overflow-x-auto scrollbar-hide'>
                 <div className='flex gap-6 py-6'>
                     {testimonial.map((t, index) => (
-                        <div key={index} className='min-w-[400px] max-w-sm h-60 flex flex-col justify-between p-5 shadow-lg border border-gray-100 rounded-3xl'>
+                        <div key={index} className='min-w-[250px] md:min-w-[400px] max-w-lg h-40 md:h-60 flex flex-col justify-between p-5 shadow-lg border border-gray-100 rounded-3xl'>
                             <div className='flex justify-between'>
-                                <PiUserCircleDuotone size={40} />
-                                <p className='text-sm'>{t.date}</p>
+                                <PiUserCircleDuotone size={20} />
+                                <p className='text-[9px] md:text-sm'>{t.date}</p>
                             </div>
                             <div>
-                                <p className='text-sm'>{t.text}</p>
+                                <p className='text-[9px] md:text-sm'>{t.text}</p>
                             </div>
                             <div className='flex justify-between'>
-                                <p className='text-sm'>{t.name}</p>
-                                <div className='flex'>
+                                <p className='text-[9px] md:text-sm'>{t.name}</p>
+                                <div className='flex text-[10px]'>
                                     <PiStarFill />
                                     <PiStarFill />
                                     <PiStarFill />

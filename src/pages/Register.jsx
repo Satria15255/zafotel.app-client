@@ -22,6 +22,7 @@ const Register = () => {
     return (
         <div className='h-screen flex flex-col items-center justify-center'>
             <div className='w-120 h-auto  border rounded-xl p-5 z-50 inset-0 bg-white'>
+                <p onClick={() => navigate('/')} className='text-gray-500 text-left mb-2'>X</p>
                 <div className='flex justify-center items-center'>
                     <p className='font-serif text-xl'>Register</p>
                 </div>

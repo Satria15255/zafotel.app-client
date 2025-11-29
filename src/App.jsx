@@ -14,6 +14,9 @@ import MainLayout from './layout/MainLayout'
 import BookingReview from './components/BookingReview'
 import Register from './pages/Register'
 import Login from './pages/Login'
+import RoomPages from './pages/Room'
+import AboutUsPages from './pages/AboutUsPage'
+import InformationsPages from './pages/InformationsPage'
 import RoomManagement from './admin/pages/RoomManagement'
 import InformManagement from './admin/pages/InformManagement'
 import UploadRoomForm from './admin/components/UploadRoomForm'
@@ -57,9 +60,13 @@ function App() {
               <Information />
           </div>
         } />
+          <Route path='/rooms' element={<RoomPages />} />
           <Route path='/rooms/:id' element={<RoomDetail />} />
+          <Route path='/about' element={<AboutUsPages />} />
+          <Route path='/informations' element={<InformationsPages />} />
           <Route path='/informations/:id' element={<InformationDetail />} />
           <Route path='/bookings-review' element={<BookingReview />} />
+
         </Route>
 
         <Route path='/register' element={<Register />} />
