@@ -33,8 +33,8 @@ const AboutUsPage = () => {
                     </div>
                 </div>
             </div>
-            <div className='px-10 mt-12'>
-                <div>
+            <div className='md:px-10 mt-12'>
+                <div className='px-6'>
                     <p className='text-lg md:text-xl text-yellow-500 font-serif mt-6'>WELCOME TO ZAFOTEL</p>
                     <p className='text-xl md:text-3xl font-semibold py-4'>Luxury Hotel in the Heart of the City</p>
                     <p className='font-serif text-[12px] md:text-lg'><span className='font-bold text-sm md:text-lg'>Zafotel</span> is a place where every guest comes as a visitor and leaves as family.
@@ -50,9 +50,9 @@ const AboutUsPage = () => {
                     </div>
                     <p className='text-sm md:text-lg mt-2 font-semibold'>4,9/5 </p>
                 </div>
-                <div className='w-full'>
-                    <p className='text-lg md:text-xl text-yellow-500 font-serif mt-12'>WHY CHOSE ZAFOTEL?</p>
-                    <div className='grid grid-cols-1 md:grid-cols-4 mt-12 px-6 pb-12 h-auto  border-b border-[#FFD700]  space-y-4'>
+                <div className='w-full  border-b border-[#FFD700]'>
+                    <p className='text-lg md:text-xl text-yellow-500 px-6 font-serif mt-12'>WHY CHOSE ZAFOTEL?</p>
+                    <div className='grid grid-cols-1 md:grid-cols-4 mt-12 pb-12 h-auto space-y-4'>
                         <div className='flex flex-col items-center justify-between w-70 h-40 '>
                             <div className='flex flex-col items-center'>
                                 <PiMapPinAreaLight size={60} className='text-yellow-300' />
@@ -86,7 +86,7 @@ const AboutUsPage = () => {
                     </div>
                 </div>
                 <div>
-                    <p className='text-lg md:text-xl text-yellow-500 font-serif mt-12'>ZAFOTEL FACILITIES</p>
+                    <p className='text-lg md:text-xl text-yellow-500 px-6 font-serif mt-12'>ZAFOTEL FACILITIES</p>
                     <div className='grid grid-cols-1 md:grid-cols-3 place-items-center cursor-default'>
                         <div className='w-80 h-30 md:h-60 gap-2 hover:text-[#FFD700] transition duration-100 flex justify-center items-center font-semibold'>
                             <PiPersonSimpleSwimLight size={60} className='text-yellow-300' />

@@ -33,7 +33,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className='border-t border-gray-500'>
-                <p className='text-center text-[8px] md:text-sm text-white py-3'>Copyright© 2025 Zafaris.Co All rights reserved.</p>
+                <p className='text-center text-[8px] md:text-sm text-white py-3'>Copyright© 2025 zafotel.com All rights reserved.</p>
             </div>
         </div>
     )

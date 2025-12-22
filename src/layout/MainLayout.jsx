@@ -3,10 +3,10 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { Outlet } from 'react-router-dom'
 
-const MainLayout = () => {
+const MainLayout = ({ user, onToggleModals, onLogout }) => {
     return (
         <div>
-            <Navbar />
+            <Navbar user={user} onToggleModals={onToggleModals} onLogout={onLogout} />
             <Outlet />
             <Footer />
         </div>

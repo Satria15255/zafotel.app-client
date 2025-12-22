@@ -1,6 +1,5 @@
 import React from 'react'
-import { FaBookOpen, FaRunning, FaSwimmer, FaCoffee, FaBusAlt } from "react-icons/fa";
-import { MdAccessTime, MdAirportShuttle, MdMeetingRoom } from "react-icons/md";
+import { MdAccessTime } from "react-icons/md";
 import { PiBuildingApartmentLight, PiBusLight, PiCoffeeLight, PiFlowerLotusLight, PiPersonSimpleSwimLight } from "react-icons/pi";
 import { GiLotus } from "react-icons/gi";
 

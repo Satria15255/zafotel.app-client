@@ -19,13 +19,14 @@ const Room = () => {
         fetchRoom()
     }, [])
     return (
-        <div>
+        <div className='w-full'>
             <div className='w-full h-full bg-center bg-cover z-0' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
                 <div className='h-80 flex flex-col justify-center items-center bg-black/20 w-full p-9'>
                     <p className='text-xl text-white'>Home / Rooms</p>
                 </div>
             </div>
             <div>
+                <p className='text-sm md:text-xl font-serif p-2 mt-2'>Chose your dream room</p>
                 <RoomsCard rooms={rooms} />
             </div>
         </div>
