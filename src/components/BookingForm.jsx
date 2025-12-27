@@ -19,14 +19,21 @@ const BookingForm = ({ room }) => {
                 checkInDate,
                 checkOutDate,
                 unitsBooked,
-                totalNight,
-                totalPrice
             }
         })
     }
 
+    const checkin = new Date(checkInDate)
+    const checkout = new Date(checkOutDate)
+
+    const totalNights = Math.ceil(
+        (checkout - checkin) / (1000 * 60 * 60 * 24)
+    )
+
+    const totalPrice = room.price * totalNights * unitsBooked
+
     return (
-        <div className='border rounded-xl w-full h-screen p-5'>
+        <div className='border rounded-xl w-full h-auto md:h-screen p-5'>
             <p className='font-serif text-lg'>Booking Form</p>
             <div className='space-y-6 mt-5'>
                 <div className='flex flex-col gap-3'>

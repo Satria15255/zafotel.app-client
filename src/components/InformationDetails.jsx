@@ -23,7 +23,7 @@ const InformationDetails = () => {
     return (
         <div>
             <div style={{ backgroundImage: `url(${information.image})` }} className='w-full h-auto bg-cover bg-center'>
-                <div className='bg-black/50 w-full h-120 flex items-center justify-center'>
+                <div className='bg-black/50 w-full h-80 flex items-center justify-center'>
                     <p className='text-white text-xl'>Home / Informations</p>
                 </div>
             </div>

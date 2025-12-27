@@ -42,5 +42,6 @@ export const deletedInformations = (id) => API.delete(`/api/informations/${id}`)
 export const createBookings = (data) => API.post('/api/bookings', data)
 export const getUserBookings = () => API.get('/api/bookings/mybookingsroom')
 export const getAllBookings = () => API.get('/api/bookings')
+export const getBookingById = (id) => API.get(`/api/bookings/${id}`)
 
 export default API

@@ -29,6 +29,7 @@ import { useEffect, useState } from 'react'
 import AdminRoute from './components/AdminRoute'
 import AdminLoginPage from './pages/AdminLogin'
 import AccountModals from './components/AccountModals'
+import SuccesBook from './pages/SuccesBook'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -106,7 +107,7 @@ function App() {
           <Route path='/informations/:id' element={<InformationDetail />} />
           <Route path='/mybookings' element={<MyBookingsRoom />} />
           <Route path='/bookings-review' element={<BookingReview />} />
-
+          <Route path='/booking-success/:id' element={<SuccesBook />} />
 
         </Route>
 

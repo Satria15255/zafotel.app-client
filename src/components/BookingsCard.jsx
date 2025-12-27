@@ -2,7 +2,7 @@ import React from 'react'
 
 const BookingsCard = ({ bookings }) => {
     return (
-        <div className='space-y-5 px-20 my-10 '>
+        <div className='space-y-5 px-3 lg:px-20 my-10 '>
             {bookings.map((booking) => (
                 <div key={booking._id} className='grid grid-cols-1 md:grid-cols-2 justify-between border rounded-xl'>
                     <div className='flex flex-col w-full'>

@@ -34,30 +34,30 @@ const RoomTypeHomep = () => {
 
 
     return (
-        <div className='h-auto md:h-screen p-10 bg-gray-900 flex flex-col justify-center items-center'>
+        <div className='h-auto lg:h-screen p-10 bg-gray-900 flex flex-col justify-center items-center'>
             <div className='mb-5 md:mb-10'>
-                <p className='text-white font-serif text-xl md:text-3xl text-center'>Room and Suit Collections</p>
-                <p className='text-[#FFD700] text-[10px] md:text-sm text-center mt-2  '>Find your dream type room with collections here</p>
+                <p className='text-white font-serif text-xl md:text-2xl lg:text-3xl text-center'>Room and Suit Collections</p>
+                <p className='text-[#FFD700] text-[10px] md:text-xs lg:text-sm text-center mt-2  '>Find your dream type room with collections here</p>
             </div>
 
             <Carousel className='w-auto'>
                 <CarouselContent>
                     {rooms.map((room, index) => (
-                        <CarouselItem key={index} className='grid grid-cols-1 md:grid-cols-2 bg-white'>
-                            <div>
-                                <img src={room.image[0]} alt='standardType' />
+                        <CarouselItem key={index} className='grid grid-cols-1 lg:grid-cols-2 bg-white'>
+                            <div className='w-full md:h-80 lg:h-auto'>
+                                <img src={room.image[0]} alt='standardType' className='md:w-full md:h-full object-cover' />
                             </div>
                             <div className='p-2 px-6 space-y-3 flex flex-col justify-around'>
                                 <p className='text-sm md:text-lg h-10 text-[#FFD700]'>Start From : <span className='text-lg md:text-2xl'>${room.price}/Night</span></p>
                                 <p className='text-xl md:text-3xl font-serif'>{room.name}</p>
-                                <p className='text-xs md:text-lg font-light max-w-lg'>Enjoy simple comfort with complete amenities in our Standard Room. Designed with a modern and warm feel, this room is ideal for guests who prioritize convenience and comfort while relaxing.</p>
+                                <p className='text-xs md:text-sm lg:text-lg font-light lg:max-w-lg'>{room.description}</p>
                                 <div className='grid gap-2 grid-cols-2'>
                                     {room.details.amenities.slice(0, 4).map((amenities) => {
                                         const key = amenities.toLowerCase().trim()
                                         return (
                                             <div key={amenities} className='flex items-center gap-1 items-center'>
                                                 {FacilityIcon[key]}
-                                                <p className='text-[10px] md:text-sm'>{amenities}</p>
+                                                <p className='text-[10px] md:text-xs lg:text-sm'>{amenities}</p>
                                             </div>
                                         )
                                     })}
