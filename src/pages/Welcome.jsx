@@ -9,7 +9,7 @@ const Welcome = () => {
         <div className='h-auto md:h-auto grid gird-cols-1 md:grid-cols-2 p-2 md:p-8 md:px-10 border border-yellow-400'>
             <div className='flex justify-center gap-2 md:gap-6'>
                 <img src="/assets/aboutus.jpg" alt="" className='w-35 h-45 md:w-45 md:h-65 lg:w-[45vh] lg:h-100 mb-12 object-cover' />
-                <img src="/assets/aboutus.jpg" alt="" className='w-35 h-45 md:w-45 md:h-65 lg:w-[45vh] lg:h-100 mt-12 object-cover' />
+                <img src="/assets/aboutus2.jpg" alt="" className='w-35 h-45 md:w-45 md:h-65 lg:w-[45vh] lg:h-100 mt-12 object-cover' />
             </div>
             <div className='ml-6'>
                 <p className='text-lg lg:text-xl text-yellow-500 font-serif mt-6'>WELCOME TO ZAFOTEL</p>

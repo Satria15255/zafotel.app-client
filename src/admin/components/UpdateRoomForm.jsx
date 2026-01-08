@@ -42,8 +42,10 @@ const UpdateRoomForm = ({ room, onClose, onSuccess }) => {
         formData.append("amenities", form.amenities)
         formData.append("facilities", form.facilities)
         formData.append("bookedUnits", form.bookedUnits)
-        if (image) {
-            formData.append("image", image)
+        if (image && image.length > 0) {
+            image.forEach((file) => {
+                formData.append("image", file)
+            })
         }
         try {
             await updateRooms(room._id, formData)

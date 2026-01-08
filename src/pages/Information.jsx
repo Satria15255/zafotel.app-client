@@ -31,7 +31,7 @@ const Information = () => {
                     {informations.map((info, index) => (
                         <div key={index} className='w-60 h-auto lg:w-100 lg:h-100 flex flex-col justify-between rounded-xs border border-gray-300 shadow-lg cursor-pointer'>
                             <div className='flex flex-col justify-between'>
-                                <img src={info.image} className='w-full h-auto object-cover object-center' />
+                                <img src={info.image} className='w-full h-60 object-cover object-center' />
                                 <div className='p-4'>
                                     <p className='text-xs lg:text-sm h-10 font-semibold'>{info.title}</p>
                                     <p className='text-[10px] lg:text-sm text-gray-500 py-4'>{new Date(info.createdAt).toLocaleDateString()}</p>
