@@ -7,11 +7,11 @@ const InformationsCard = ({ informations }) => {
     return (
         <div>
             <div className='w-full h-auto'>
-                <div className='grid grid-cols-1 md:grid-cols-3 gap-5 place-items-center'>
+                <div className='grid grid-cols-1 gap-5 place-items-center'>
                     {informations.map((info, index) => (
-                        <div key={index} className='w-60 lg:w-100 h-auto flex flex-col justify-between rounded-xs border border-gray-300 shadow-lg cursor-pointer'>
+                        <div key={index} className='w-80 md:w-60 lg:w-100 h-auto flex flex-col justify-between rounded-xs border border-gray-300 shadow-lg cursor-pointer'>
                             <div className='flex flex-col justify-between'>
-                                <img src={info.image} className='w-full h-60 object-cover object-center' />
+                                <img src={info.image} className='w-full h-50 md:h-auto object-cover object-center' />
                                 <div className='p-4'>
                                     <p className='text-xs lg:text-sm h-10 font-semibold'>{info.title}</p>
                                     <p className='text-[10px] lg:text-sm text-gray-500 py-4'>{new Date(info.createdAt).toLocaleDateString()}</p>

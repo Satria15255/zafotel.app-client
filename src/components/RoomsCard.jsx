@@ -15,7 +15,7 @@ const RoomsCard = ({ rooms }) => {
                             <div className='w-full md:h-80 lg:h-auto'>
                                 <img src={room.image[0]} alt='standardType' className='md:w-full md:h-full object-cover rounded-lg' />
                         </div>
-                        <div className='py-1 p-2 md:px-6 flex flex-col justify-around'>
+                            <div className='py-5 p-2 md:px-6 flex flex-col justify-around'>
                             <p className='text-sm md:text-lg h-10 text-[#FFD700]'>Start From : <span className='text-lg md:text-2xl'>${room.price}/Night</span></p>
                             <p className='text-lg md:text-3xl font-serif'>{room.name}</p>
                                 <p className='text-[10px] lg:max-w-lg md:text-sm lg:text-lg font-light py-2'>{room.description}</p>

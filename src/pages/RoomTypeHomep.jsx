@@ -44,8 +44,8 @@ const RoomTypeHomep = () => {
                 <CarouselContent>
                     {rooms.map((room, index) => (
                         <CarouselItem key={index} className='grid grid-cols-1 lg:grid-cols-2 bg-white'>
-                            <div className='w-full md:h-80 lg:h-auto'>
-                                <img src={room.image[0]} alt='standardType' className='md:w-full md:h-full object-cover' />
+                            <div className='w-full h-50 md:h-80 lg:h-auto'>
+                                <img src={room.image[0]} alt='standardType' className='w-full h-full object-cover' />
                             </div>
                             <div className='p-2 px-6 space-y-3 flex flex-col justify-around'>
                                 <p className='text-sm md:text-lg h-10 text-[#FFD700]'>Start From : <span className='text-lg md:text-2xl'>${room.price}/Night</span></p>

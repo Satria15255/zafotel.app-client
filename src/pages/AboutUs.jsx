@@ -5,7 +5,7 @@ const AboutUs = () => {
     const navigate = useNavigate()
 
     return (
-        <div className='h-auto bg-white p-3 md:p-6'>
+        <div className='h-auto bg-white p-3 mb-9 md:p-6'>
             <div className='grid grid-cols-1 md:grid-cols-3 place-items-center space-y-4'>
                 <div className='flex'>
                     <p className='text-[180px] flex mb-10 justify-center text-gray-300'>[  <span className='text-6xl text-black flex items-center mt-10 justify-center font-bold font-sans'>

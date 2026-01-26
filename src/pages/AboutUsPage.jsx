@@ -1,7 +1,46 @@
 import React from 'react'
-import { PiStarFill, PiStarHalfFill, PiCrownLight, PiDiamondsFourLight, PiLampLight, PiMapPinAreaLight, PiBuildingApartmentLight, PiBusLight, PiCoffeeLight, PiFlowerLotusLight, PiPersonSimpleSwimLight } from "react-icons/pi";
+import { PiStarFill, PiStarHalfFill, PiBuildingApartmentLight, PiBusLight, PiCoffeeLight, PiFlowerLotusLight, PiPersonSimpleSwimLight } from "react-icons/pi";
 import { MdAccessTime } from "react-icons/md";
+import Superiority from './Superiority';
 
+const facilities = [
+    {
+        id: 1,
+        icon: <PiPersonSimpleSwimLight />,
+        title: "Swimming Pool",
+        description: "Enjoy the pool in a calm and comfortable atmosphere."
+    },
+    {
+        id: 2,
+        icon: <PiCoffeeLight />,
+        title: "Cafe & Restaurant",
+        description: "Serve the best flavors from our hand-picked chefs."
+    },
+    {
+        id: 3,
+        icon: <PiFlowerLotusLight />,
+        title: "SPA & Massage",
+        description: "Relax your body and mind with professional spa services."
+    },
+    {
+        id: 4,
+        icon: <MdAccessTime />,
+        title: "24 Hours Recipcionist",
+        description: "Our receptionist is ready to assist you whenever you need him."
+    },
+    {
+        id: 5,
+        icon: <PiBusLight />,
+        title: "Airport Shuttle Service",
+        description: "Convenient and timely airport pick-up and drop-off."
+    },
+    {
+        id: 6,
+        icon: <PiBuildingApartmentLight />,
+        title: "Function Room",
+        description: "multi-purpose room for meetings, events, or private gatherings."
+    }
+]
 
 const AboutUsPage = () => {
     return (
@@ -14,8 +53,8 @@ const AboutUsPage = () => {
             <div>
                 <div className='grid grid-cols-1 md:grid-cols-3 place-items-center space-y-4 mt-8 px-3 lg:px-6'>
                     <div className='flex justify-center gap-2 lg:gap-6 pl-5'>
-                        <img src="/assets/aboutus.jpg" alt="" className='w-35 h-45 md:w-30 md:h-40 lg:w-[30vh] md:h-60 mt-12 object-cover' />
-                        <img src="/assets/aboutus.jpg" alt="" className='w-35 h-45 md:w-30 md:h-40 lg:w-[30vh] md:h-60 mb-12 object-cover' />
+                        <img src="/assets/aboutus.jpg" alt="" className='w-40 rounded-sm h-55 md:w-45 md:h-65 lg:w-[45vh] lg:h-100 mb-12 object-cover' />
+                        <img src="/assets/aboutus2.jpg" alt="" className='w-40 rounded-sm h-55 md:w-45 md:h-65 lg:w-[45vh] lg:h-100 mt-12 object-cover' />
                     </div>
                     <div className='flex'>
                         <p className='text-[140px] lg:text-[180px] flex items-center justify-center text-gray-300'>[  <span className='text-6xl text-black flex items-center justify-center mt-10 font-bold font-sans'>
@@ -33,7 +72,7 @@ const AboutUsPage = () => {
                     </div>
                 </div>
             </div>
-            <div className='md:px-3 lg:px-10 mt-12'>
+            <div className='px-3 lg:px-10 mt-12'>
                 <div className='px-6'>
                     <p className='text-lg md:text-xl text-yellow-500 font-serif mt-6'>WELCOME TO ZAFOTEL</p>
                     <p className='text-xl md:text-3xl font-semibold py-4'>Luxury Hotel in the Heart of the City</p>
@@ -51,83 +90,21 @@ const AboutUsPage = () => {
                     <p className='text-sm md:text-lg mt-2 font-semibold'>4,9/5 </p>
                 </div>
                 <div className='w-full  border-b border-[#FFD700]'>
-                    <p className='text-lg md:text-xl text-yellow-500 px-6 font-serif mt-12'>WHY CHOSE ZAFOTEL?</p>
-                    <div className='grid grid-cols-1 md:grid-cols-4 mt-12 pb-12 h-auto md:h-60 gap-3 px-2 border-b border-[#FFD700] space-y-4'>
-                        <div className='flex flex-col items-center justify-around h-40'>
-                            <div className='flex flex-col items-center'>
-                                <PiMapPinAreaLight size={50} className='text-yellow-300' />
-                                <p className='text-sm lg:text-lg text-center h-12 font-semibold mt-2'>Strategic Location</p>
-                            </div>
-                            <p className='text-xs lg:text-md text-center text-center h-12 max-w-[200px] font-light'>Close to the city center and popular destinations.</p>
-                        </div>
-                        <div className='flex flex-col items-center justify-around h-40'>
-                            <div className="flex flex-col items-center">
-                                <PiCrownLight size={50} className='text-yellow-300' />
-                                <p className='text-sm lg:text-lg text-center h-12 font-semibold mt-2'>Friendly & Professional Service </p>
-                            </div>
-                            <p className='text-xs lg:text-md text-center text-center h-12 max-w-[200px] font-light'>Our friendly and welcoming staff ensure a delightful stay every time</p>
-                        </div>
-                        <div className='flex flex-col items-center justify-around h-40'>
-                            <div className='flex flex-col items-center'>
-                                <PiLampLight size={50} className='text-yellow-300' />
-                                <p className='text-sm lg:text-lg text-center h-12 font-semibold mt-2'>Modern & Comfortable Design </p>
-                            </div>
-                            <p className='text-sm lg:text-md text-center text-center h-12 max-w-[200px] font-light'>Experience a luxurious, modern, and fully equipped space for comfort</p>
-                        </div>
-                        <div className='flex flex-col items-center justify-around h-40'>
-                            <div className='flex flex-col items-center'>
-                                <PiDiamondsFourLight size={50} className='text-yellow-300' />
-                                <p className='text-sm lg:text-lg text-center h-12 font-semibold mt-2'>Complete Amenities </p>
-                            </div>
-                            <p className='text-sm lg:text-md text-center text-center h-12 max-w-[200px] font-light'>From the swimming pool to the spa, everything is for your comfort.</p>
-                        </div>
-                    </div>
+                    <p className='text-lg text-center md:text-xl text-yellow-500 px-6 font-serif mt-12'>Why Chose Zafotel?</p>
+                    <Superiority />
                 </div>
                 <div>
-                    <p className='text-lg md:text-xl text-yellow-500 px-6 font-serif mt-12'>ZAFOTEL FACILITIES</p>
-                    <div className='grid grid-cols-1 md:grid-cols-3 place-items-center cursor-default'>
-                        <div className='w-auto lg:w-80 h-30 md:h-60 gap-2 hover:text-[#FFD700] transition duration-100 flex justify-center items-center font-semibold'>
-                            <PiPersonSimpleSwimLight size={60} className='text-yellow-300' />
-                            <div className='flex flex-col'>
-                                <p className='text-xs lg:text-sm'>Swimming Pool</p>
-                                <p className='text-xs lg:text-sm max-w-[180px] mt-2 font-light'>Enjoy the pool in a calm and comfortable atmosphere.</p>
+                    <p className='text-lg text-center md:text-xl text-yellow-500 px-6 font-serif mt-12'>Zafotel Faciities</p>
+                    <div className='grid grid-cols-1 md:grid-cols-3 cursor-default my-12'>
+                        {facilities.map((f) => (
+                            <div className='w-auto lg:w-80 h-30 md:h-60 gap-7 hover:text-[#FFD700] transition duration-100 flex justify-center items-center font-semibold'>
+                                <span className="text-6xl text-yellow-500">{f.icon}</span>
+                                <div className='flex flex-col'>
+                                    <p className='text-sm lg:text-sm'>{f.title}</p>
+                                    <p className='text-sm lg:text-sm max-w-[180px] mt-2 font-light'>{f.description}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className='w-auto lg:w-80 h-30 md:h-60 gap-2 hover:text-[#FFD700] transition duration-100 flex justify-center items-center font-semibold'>
-                            <PiCoffeeLight size={60} className='text-yellow-300' />
-                            <div className='flex flex-col'>
-                                <p className='text-xs lg:text-sm'>Cafe & Restaurant</p>
-                                <p className='text-xs lg:text-sm max-w-[180px] mt-2 font-light'>Serve the best flavors from our hand-picked chefs.</p>
-                            </div>
-                        </div>
-                        <div className='w-auto lg:w-80 h-30 md:h-60 gap-2 hover:text-[#FFD700] transition duration-100 flex justify-center items-center font-semibold'>
-                            <PiFlowerLotusLight size={60} className='text-yellow-300' />
-                            <div className='flex flex-col'>
-                                <p className='text-xs lg:text-sm'>SPA & Massage</p>
-                                <p className='text-xs lg:text-sm max-w-[180px]  mt-2 font-light'>Relax your body and mind with professional spa services.</p>
-                            </div>
-                        </div>
-                        <div className='w-auto lg:w-80 h-30 md:h-60 gap-2 hover:text-[#FFD700] transition duration-100 flex justify-center items-center font-semibold'>
-                            <MdAccessTime size={60} className='text-yellow-300' />
-                            <div className='flex flex-col'>
-                                <p className='text-xs lg:text-sm'>24 Hours Recipcionist</p>
-                                <p className='text-xs lg:text-sm max-w-[180px]  mt-2 font-light'>Our receptionist is ready to assist you whenever you need him.</p>
-                            </div>
-                        </div>
-                        <div className='w-auto lg:w-80 h-30 md:h-60 gap-2 flex hover:text-[#FFD700] transition duration-100 justify-center items-center font-semibold'>
-                            <PiBusLight size={60} className='text-yellow-300' />
-                            <div className='flex flex-col'>
-                                <p className='text-xs lg:text-sm'>Airport shuttle service</p>
-                                <p className='text-xs lg:text-sm max-w-[180px]  mt-2 font-light'>Convenient and timely airport pick-up and drop-off.</p>
-                            </div>
-                        </div>
-                        <div className='w-auto lg:w-80 h-30 md:h-60 gap-2 flex hover:text-[#FFD700] transition duration-100  justify-center items-center font-semibold'>
-                            <PiBuildingApartmentLight size={60} className='text-yellow-300' />
-                            <div className='flex flex-col'>
-                                <p className='text-xs lg:text-sm'>Function Room</p>
-                                <p className='text-xs lg:text-sm max-w-[180px]  mt-2 font-light'>multi-purpose room for meetings, events, or private gatherings.</p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>
