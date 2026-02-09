@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import RoomsCard from '../components/RoomsCard'
 import { getAllRooms } from '@/Api'
+import { useNavigate } from 'react-router-dom'
 
 const Room = () => {
     const [rooms, setRoom] = useState([])
+    const navigate = useNavigate()
 
     const fetchRoom = async () => {
         try {
@@ -22,7 +24,8 @@ const Room = () => {
         <div className='w-full'>
             <div className='w-full h-full bg-center bg-cover z-0' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
                 <div className='h-80 flex flex-col justify-center items-center bg-black/20 w-full p-9'>
-                    <p className='text-xl text-white'>Home / Rooms</p>
+                    <p className='text-xl text-white'><span onClick={() => navigate("/")}>Home</span> / Rooms</p>
+
                 </div>
             </div>
             <div>

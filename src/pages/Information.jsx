@@ -24,8 +24,8 @@ const Information = () => {
     return (
         <div className='h-auto pb-6'>
             <div className='text-center py-8'>
-                <p className='text-xl md:text-2xl font-serif'>Explore Us</p>
-                <p className='text-[10px] font-serif text-[#FFD700] font-light mt-2'>Find information related to Zafotel by visiting our blog</p>
+                <p className='text-xl md:text-4xl font-serif'>Explore Us</p>
+                <p className='text-[10px] lg:text-xl font-serif text-[#FFD700] font-light mt-2'>Find information related to Zafotel by visiting our blog</p>
             </div>
             <div className='w-full h-auto p-4'> 
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-5 place-items-center'>

@@ -45,9 +45,12 @@ const facilities = [
 const HotelFacilities = () => {
     return (
         <div className='h-auto'>
-            <p className='text-xl text-center text-[#FFD700] font-serif mt-12 mb-7'>
+            <div className="flex flex-col justify-center items-center mt-10 space-y-3">
+                <p className='text-xl lg:text-4xl font-serif '>
                 Facilities
             </p>
+                <p className="text-sm lg:text-xl font-serif text-[#FFD700]">Facilities that you can get and enjoy</p>
+            </div>
             <div className='grid grid-cols-1 md:grid-cols-3 place-items-center cursor-default'>
                 {facilities.map((f) => (
                     <div className='w-auto lg:w-80 h-30 md:h-60 gap-2 hover:text-[#FFD700] transition duration-100 flex justify-center items-center font-semibold'>

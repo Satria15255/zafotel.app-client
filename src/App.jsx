@@ -90,9 +90,9 @@ function App() {
         }} />} >
         <Route path='/' element={
             <div>
-            <Hero />
-            <Superiority />
-            <AboutUs />
+              <Hero />
+              <Superiority />
+              <AboutUs />
             <Welcome />
             <RoomTypeHomep />
             <HotelFacilities />

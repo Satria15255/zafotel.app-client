@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { FaCity, FaCalendarCheck } from "react-icons/fa";
-import { LuBedDouble, LuUtensils, LuWifi } from "react-icons/lu";
+import React, { useEffect, useRef, useState } from 'react'
+import { FaCalendarCheck } from "react-icons/fa";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
-import { TiWiFi } from "react-icons/ti";
+import Autoplay from "embla-carousel-autoplay"
 import { getAllRooms } from '../Api';
 import { useNavigate } from 'react-router-dom';
 import FacilityIcon from '../components/FacilityIcon';
@@ -10,6 +9,9 @@ import FacilityIcon from '../components/FacilityIcon';
 const RoomTypeHomep = () => {
     const [rooms, setRooms] = useState([])
     const [mainImage, setMainImage] = useState("")
+    const plugin = useRef(
+        Autoplay({ delay: 3000, stopOnInteraction: true })
+    )
     const navigate = useNavigate()
 
     const fetchRooms = async () => {
@@ -40,7 +42,11 @@ const RoomTypeHomep = () => {
                 <p className='text-[#FFD700] text-[10px] md:text-xs lg:text-sm text-center mt-2  '>Find your dream type room with collections here</p>
             </div>
 
-            <Carousel className='w-auto'>
+            <Carousel
+                plugins={[plugin.current]}
+                onMouseEnter={plugin.current.stop}
+                onMouseLeave={plugin.current.reset}
+                className='w-auto'>
                 <CarouselContent>
                     {rooms.map((room, index) => (
                         <CarouselItem key={index} className='grid grid-cols-1 lg:grid-cols-2 bg-white'>
@@ -50,7 +56,7 @@ const RoomTypeHomep = () => {
                             <div className='p-2 px-6 space-y-3 flex flex-col justify-around'>
                                 <p className='text-sm md:text-lg h-10 text-[#FFD700]'>Start From : <span className='text-lg md:text-2xl'>${room.price}/Night</span></p>
                                 <p className='text-xl md:text-3xl font-serif'>{room.name}</p>
-                                <p className='text-xs md:text-sm lg:text-lg font-light lg:max-w-lg'>{room.description}</p>
+                                <p className='hidden md:flex text-xs md:text-sm lg:text-lg font-light lg:max-w-lg'>{room.description}</p>
                                 <div className='grid gap-2 grid-cols-2'>
                                     {room.details.amenities.slice(0, 4).map((amenities) => {
                                         const key = amenities.toLowerCase().trim()

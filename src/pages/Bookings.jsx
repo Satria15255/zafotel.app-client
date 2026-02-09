@@ -24,7 +24,8 @@ const Bookings = () => {
         <div className="h-auto">
             <div className='w-full h-full bg-center bg-cover z-0' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
                 <div className='h-80 flex flex-col justify-center items-center bg-black/20 w-full p-9'>
-                    <p className='text-xl text-white'>Home / My Bookings</p>
+                    <p className='text-xl text-white'><span onClick={() => navigate("/")}>Home</span> / My Bookings</p>
+
                 </div>
             </div>
             <BookingsCard bookings={bookings} />

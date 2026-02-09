@@ -2,6 +2,7 @@ import React from 'react'
 import { PiStarFill, PiStarHalfFill, PiBuildingApartmentLight, PiBusLight, PiCoffeeLight, PiFlowerLotusLight, PiPersonSimpleSwimLight } from "react-icons/pi";
 import { MdAccessTime } from "react-icons/md";
 import Superiority from './Superiority';
+import { useNavigate } from 'react-router-dom';
 
 const facilities = [
     {
@@ -43,11 +44,13 @@ const facilities = [
 ]
 
 const AboutUsPage = () => {
+    const navigate = useNavigate()
+
     return (
         <div className='w-full h-auto'>
             <div className='w-full h-full bg-center bg-cover z-0' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
                 <div className='h-80 flex flex-col justify-center items-center bg-black/20 w-full p-9'>
-                    <p className='text-xl text-white'>Home / About</p>
+                    <p className='text-xl text-white'><span onClick={() => navigate("/")}>Home</span> / About</p>
                 </div>
             </div>
             <div>
