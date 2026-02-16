@@ -2,22 +2,21 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PiTextAlignJustifyBold } from "react-icons/pi";
 import SidebarMobile from './SidebarMobile'
-import AccountModals from './AccountModals';
 
 const Navbar = ({ user, onToggleModals, onLogout }) => {
-    const [scrolled, setScrolled] = useState("false")
+    const [scrolled, setScrolled] = useState(false)
     const [openSidebar, setOpenSidebar] = useState(null)
-    const [accountModals, setAccountModals] = useState(null)
     const navigate = useNavigate()
 
     useEffect(() => {
         const handleScroll = () => {
-            const isScrolled = window.scrollY > 50
+            const isScrolled = window.scrollY > 40
             setScrolled(isScrolled)
         }
 
+        handleScroll()
         window.addEventListener("scroll", handleScroll)
-        return () => removeEventListener("scroll", handleScroll)
+        return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 
     const handleSidebar = async () => {
@@ -35,7 +34,7 @@ const Navbar = ({ user, onToggleModals, onLogout }) => {
         }
     }
     return (
-        <div className={`flex justify-between items-center px-3 md:px-8 h-10 md:h-15 rounded-b-lg z-50 inset-0 fixed top-0 transition-all duration-500 ease-in-out ${scrolled ? 'bg-white text-gray-900 shadow-md' : 'bg-transparant text-white'}`}>
+        <div className={`flex justify-between items-center px-3 md:px-8 h-10 md:h-15 rounded-b-lg z-50 inset-0 fixed top-0 transition-all duration-500 bg-transparant ease-in-out ${scrolled ? 'bg-white text-gray-900 shadow-md' : 'bg-transparant text-white'}`}>
             <div>
                 <p onClick={() => navigate('/')} className='text-lg md:text-xl font-bold cursor-pointer'><span className='text-xl md:text-3xl font-serif text-[#FDD700]'>Z</span>afotel</p>
             </div>

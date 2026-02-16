@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getRoomById } from '../Api';
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import BookingForm from './BookingForm';
 import FacilityIcon from './FacilityIcon';
 
@@ -9,6 +9,7 @@ const RoomDetails = () => {
     const { id } = useParams()
     const [mainImage, setMainImage] = useState("")
     const image = room?.image || []
+    const navigate = useNavigate()
 
     const fetchRoomDetail = async () => {
         try {
@@ -34,10 +35,10 @@ const RoomDetails = () => {
 
     return (
         <div>
-            <div className='w-full h-60 md:h-full bg-cover bg-center' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
-                <div className='bg-black/50 w-full h-60 flex flex-col justify-center items-center'>
+            <div className='w-full h-60 md:h-full bg-cover bg-center ' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
+                <div className='bg-black/50 w-full h-60 flex flex-col cursor-pointer justify-center items-center'>
                     <p className='text-xl md:text-4xl font-serif text-white'>Rooms Details</p>
-                    <p className='text-white text-xs md:text-sm'>Home / {room.name}</p>
+                    <p className='text-white text-xs md:text-sm'><span onClick={() => navigate("/")}>Home</span> / {room.name}</p>
                 </div>
             </div>
             <div className='flex w-full justify-center py-7 px-2'>

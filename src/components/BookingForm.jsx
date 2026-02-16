@@ -33,7 +33,7 @@ const BookingForm = ({ room }) => {
     const totalPrice = room.price * totalNights * unitsBooked
 
     return (
-        <div className='border rounded-xl w-full h-auto md:h-screen p-5'>
+        <div className='border rounded-xl w-full h-auto  p-5'>
             <p className='font-serif text-lg'>Booking Form</p>
             <div className='space-y-6 mt-5'>
                 <div className='flex flex-col gap-3'>
