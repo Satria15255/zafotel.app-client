@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
@@ -9,7 +8,6 @@
 @tailwind utilities;
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -156,5 +154,23 @@ h1 {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@theme {
+  --font-playfair: "Playfair Display", serif;
+  --font-ysaebau: "Ysabeau Office", sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-ysaebau);
+
+  }
+}
+
+@layer utilities {
+  .font-playfair {
+    font-family: var(--font-playfair);
   }
 }
