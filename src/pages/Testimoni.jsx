@@ -1,6 +1,6 @@
 import React from 'react'
 import { PiUserCircleDuotone, PiStarFill, PiStarHalfFill } from "react-icons/pi";
-import Motion from "@/components/motion"
+import Motion from "@/components/Motion"
 
 const testimonial = [
     {
