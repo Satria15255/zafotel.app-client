@@ -1,5 +1,6 @@
 import React from 'react'
 import { PiUserCircleDuotone, PiStarFill, PiStarHalfFill } from "react-icons/pi";
+import Motion from "@/components/motion"
 
 const testimonial = [
     {
@@ -47,10 +48,13 @@ const testimonial = [
 const Testimoni = () => {
     return (
         <div className='h-auto lg:h-screen border flex flex-col justify-center border-yellow-300 p-5 py-6'>
+            <Motion>
             <div>
                 <p className='text-xl md:text-2xl lg:text-4xl text-center font-serif '>Testimonial</p>
                 <p className='text-[10px] md:text-sm lg:text-xl font-sans text-[#FFD700] text-center md:p-6'>We are trusted by more than 1000+ customers</p>
             </div>
+            </Motion>
+            <Motion delay={0.4}>
             <div className='w-full max-w-8xl overflow-x-auto scrollbar-hide'>
                 <div className='flex gap-6 py-6'>
                     {testimonial.map((t, index) => (
@@ -76,6 +80,7 @@ const Testimoni = () => {
                     ))}
                 </div>
             </div>
+            </Motion>
         </div>
     )
 }

@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { FaCalendarCheck } from "react-icons/fa";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
-import Autoplay from "embla-carousel-autoplay"
 import { getAllRooms } from '../Api';
 import { useNavigate } from 'react-router-dom';
 import FacilityIcon from '../components/FacilityIcon';
+import Autoplay from "embla-carousel-autoplay"
+import Motion from "@/components/Motion";
 
 const RoomTypeHomep = () => {
     const [rooms, setRooms] = useState([])
@@ -37,11 +38,14 @@ const RoomTypeHomep = () => {
 
     return (
         <div className='h-auto lg:h-screen p-10 bg-gray-900 flex flex-col justify-center items-center'>
+            <Motion>
             <div className='mb-5 md:mb-10'>
                 <p className='text-white font-serif text-xl md:text-2xl lg:text-3xl text-center'>Room and Suit Collections</p>
                 <p className='text-[#FFD700] text-[10px] md:text-xs lg:text-sm text-center mt-2  '>Find your dream type room with collections here</p>
             </div>
+            </Motion>
 
+            <Motion delay={0.4}>
             <Carousel
                 plugins={[plugin.current]}
                 onMouseEnter={plugin.current.stop}
@@ -73,13 +77,13 @@ const RoomTypeHomep = () => {
                                     <button onClick={() => navigate(`/rooms/${room._id}`)} className='text-[8px] md:text-sm py-1 md:py-2 px-4 md:px-7 bg-yellow-300 border text-white hover:bg-white hover:text-black transition duration-100'>View Room →</button>
                                 </div>
                             </div>
-
                         </CarouselItem>
                     ))}
                 </CarouselContent>
                 <CarouselPrevious className='ml-6' />
                 <CarouselNext className='mr-6 ' />
             </Carousel>
+            </Motion>
         </div >
     )
 }
