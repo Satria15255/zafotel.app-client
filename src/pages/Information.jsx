@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getAllInformations } from '../Api';
 import { useNavigate } from 'react-router-dom';
 import InformationsCard from "../components/InformationsCard"
-import Motion from "@/components/motion"
+import Motion from "@/components/Motion"
 
 const Information = () => {
     const [informations, setInformations] = useState([])
