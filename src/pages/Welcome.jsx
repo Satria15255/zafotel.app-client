@@ -17,18 +17,18 @@ const Welcome = () => {
                 </Motion>
             </div>
             <div className='ml-6'>
-                <Motion delay={0.4}>
+                <Motion >
                 <p className='text-lg lg:text-xl text-yellow-500 font-serif mt-6'>WELCOME TO ZAFOTEL</p>
                 </Motion>
-                <Motion delay={0.6}>
+                <Motion >
                 <p className='text-xl md:text-3xl lg:text-5xl font-semibold max-w-md py-4'>Luxury Hotel in the Heart of the City</p>
                 </Motion>
-                <Motion delay={0.8}>
+                <Motion >
                 <p className='text-xs mdtext-sm lg:text-lg pb-4'>Zafotel is a place where every guest comes as a visitor and leaves as family.
                     We believe that true comfort lies not only in a soft bed and a clean room, but in a warm atmosphere that makes you feel at home.
                     Enjoy the tranquility, friendly service, and modern amenities we provide to accompany your every journey.</p>
                 </Motion>
-                <Motion delay={1}>
+                <Motion>
                 <div className='flex text-yellow-300 text-lg md:text-2xl'>
                     <PiStarFill />
                     <PiStarFill />
@@ -37,10 +37,10 @@ const Welcome = () => {
                     <PiStarHalfFill />
                 </div>
                 </Motion>
-                <Motion delay={1.2}>
+                <Motion >
                 <p className='text-sm md:text-lg mt-2 font-semibold'>4,9/5 </p>
                 </Motion>
-                <Motion delay={1.4}>
+                <Motion >
                 <button onClick={() => navigate("/rooms")} className='bg-yellow-300 mt-4 font-serif py-3 hover:bg-[#FFD700] bg-yellow-200 transition duration:100 text-[10px] md:text-sm px-8'>RESERVATION NOW</button>
                 </Motion>
             </div>
