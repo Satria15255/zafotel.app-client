@@ -3,6 +3,7 @@ import { getRoomById } from '../Api';
 import { useParams, useNavigate } from 'react-router-dom'
 import BookingForm from './BookingForm';
 import FacilityIcon from './FacilityIcon';
+import Motion from "@/components/Motion";
 
 const RoomDetails = () => {
     const [room, setRoom] = useState(null)
@@ -35,12 +36,15 @@ const RoomDetails = () => {
 
     return (
         <div>
+            <Motion variant="fadeIn">
             <div className='w-full h-60 md:h-full bg-cover bg-center ' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
                 <div className='bg-black/50 w-full h-60 flex flex-col cursor-pointer justify-center items-center'>
                     <p className='text-xl md:text-4xl font-serif text-white'>Rooms Details</p>
                     <p className='text-white text-xs md:text-sm'><span onClick={() => navigate("/")}>Home</span> / {room.name}</p>
                 </div>
             </div>
+            </Motion>
+            <Motion delay={0.4}>
             <div className='flex w-full justify-center py-7 px-2'>
                     <img
                         src={room.image[0]}
@@ -48,8 +52,10 @@ const RoomDetails = () => {
                     className='w-full md:w-300 h-auto md:h-100 object-cover rounded-xl pb-1'
                 />
             </div>
+            </Motion>
             <div className='flex flex-col md:flex-row gap-5 px-2 md:px-21 pb-10'>
                 <div className='flex flex-col flex-10'>
+                    <Motion delay={0.8}>
                     <div className='w-full h-auto flex flex-col justify-between border rounded-xl py-2 px-3 '>
                         <div className='flex flex-col justify-center '>
                             <p className='flex justify-between items-center text-sm md:text-md'> <span className='font-serif text-lg md:text-2xl'>{room.name}</span>4.9 (671 Review)</p>
@@ -61,10 +67,14 @@ const RoomDetails = () => {
                             <p className="text-sm md:text-lg">Available : {room.availableUnits} Room</p>
                         </div>
                     </div>
+                    </Motion>
+                    <Motion>
                     <div className='py-6 space-y-3'>
                         <p className='text-xl font-serif'>Overview</p>
                         <p className='text-sm max-w-lg'>{room.description}</p>
                     </div>
+                    </Motion>
+                    <Motion>
                     <div className='space-y-3'>
                         <p className='text-xl font-serif'>Room Amenities</p>
                         <p className='text-sm max-w-lg'>Some of the room facilities that you get exclusively include:</p>
@@ -80,10 +90,13 @@ const RoomDetails = () => {
                             })}
                         </div>
                     </div>
+                    </Motion>
                 </div>
+                <Motion>
                 <div className='flex flex-5'>
                     <BookingForm room={room} />
                 </div>
+                </Motion>
             </div>
         </div>
     )

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PiTextAlignJustifyBold } from "react-icons/pi";
 import SidebarMobile from './SidebarMobile'
+import Motion from "@/components/Motion"
 
 const Navbar = ({ user, onToggleModals, onLogout }) => {
     const [scrolled, setScrolled] = useState(false)
@@ -34,6 +35,7 @@ const Navbar = ({ user, onToggleModals, onLogout }) => {
         }
     }
     return (
+        <Motion variant="slideDown" type="load">
         <div className={`flex justify-between items-center px-3 md:px-8 h-10 md:h-15 rounded-b-lg z-50 inset-0 fixed top-0 transition-all duration-500 bg-transparant ease-in-out ${scrolled ? 'bg-white text-gray-900 shadow-md' : 'bg-transparant text-white'}`}>
             <div>
                 <p onClick={() => navigate('/')} className='text-lg md:text-xl font-bold cursor-pointer'><span className='text-xl md:text-3xl font-serif text-[#FDD700]'>Z</span>afotel</p>
@@ -56,10 +58,10 @@ const Navbar = ({ user, onToggleModals, onLogout }) => {
             )}
             <div className='md:hidden'>
                 <PiTextAlignJustifyBold size={20} onClick={handleSidebar} />
-            </div>
-
+                </div>
             {openSidebar && <SidebarMobile onClose={() => setOpenSidebar(null)} user={user} onLogout={onLogout} />}
         </div>
+        </Motion>
     )
 }
 

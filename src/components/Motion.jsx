@@ -2,12 +2,23 @@ import { motion } from "framer-motion"
 
 const variants = {
     fadeUp: {
-        hidden: { opacity: 0, y: 0 },
+        hidden: { opacity: 0, y: 40 },
         show: {
             opacity: 1,
             y: 0,
             transition: {
                 duration: 1.5,
+                ease: "easeOut"
+            }
+        }
+    },
+    slideDown: {
+        hidden: { opacity: 0, y: -60 },
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 1.0,
                 ease: "easeOut"
             }
         }
@@ -23,20 +34,38 @@ const variants = {
             }
         }
     },
+    fadeIn: {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: { duration: 1.5 }
+        }
+    }
 }
 
 export default function Motion({
     children,
     variant = "fadeUp",
     delay = 0,
-    className = ""
+    className = "",
+    type = "scroll"
 }) {
+
+    const isScroll = type === "scroll"
+
     return (
         <motion.div
             variants={variants[variant]}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
+            {...(isScroll ?
+                {
+                    whileInView: "show",
+                    viewport: { once: true, amount: 0.2 }
+                }
+                : {
+                    animate: "show"
+                }
+            )}
             transition={{ delay }}
             className={className}
         >

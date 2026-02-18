@@ -31,7 +31,7 @@ const superiority = [
 
 const Superiority = () => {
     return (
-        <div className='z-100 bg-white w-full flex flex-col items-center md:flex-row h-auto md:h-70 py-6 gap-3 px-2 border border-[#FFD700] space-y-4'>
+        <div className='z-100 bg-white w-full flex flex-col items-center md:flex-row h-auto md:h-70 py-6 gap-3 px-2 border-b border-[#FFD700] space-y-4'>
             <div className="flex flex-col md:flex-row  justify-around space-y-6 w-full">
             {superiority.map((s) => (
                 <Motion>

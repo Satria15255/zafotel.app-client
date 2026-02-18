@@ -2,12 +2,14 @@ import React from 'react'
 import { FaCity, FaCalendarCheck } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import FacilityIcon from './FacilityIcon';
+import Motion from "@/components/Motion";
 
 
 const RoomsCard = ({ rooms }) => {
     const navigate = useNavigate()
 
     return (
+        <Motion>
         <div className='w-full rounded-lg'>
             {rooms.map((room, index) => (
                 <div key={index} className='rounded-lg  p-2 md:p-8 '>
@@ -39,6 +41,7 @@ const RoomsCard = ({ rooms }) => {
                 </div>
             ))}
         </div>
+        </Motion>
     )
 }
 

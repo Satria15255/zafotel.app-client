@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { getAllInformations } from '@/Api'
 import { useNavigate } from 'react-router-dom'
-
 import InformationsCard from '../components/InformationsCard'
+import Motion from "@/components/Motion"
 
 const InformationsPage = () => {
     const [informations, setInformations] = useState([])
@@ -24,15 +24,18 @@ const InformationsPage = () => {
 
     return (
         <div>
+            <Motion variant="fadeIn">
             <div className='w-full h-full bg-center bg-cover z-0' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
                 <div className='h-80 flex flex-col justify-center items-center bg-black/20 w-full p-9'>
-                    <p className='text-xl text-white'><span onClick={() => navigate("/")}>Home</span> / Informations</p>
-
+                        <p className='text-xl text-white'><span onClick={() => navigate("/")}>Home</span> / Informations</p>
                 </div>
             </div>
+            </Motion>
+            <Motion>
             <div className='p-8'>
                 <InformationsCard informations={informations} />
             </div>
+            </Motion>
         </div>
     )
 }
