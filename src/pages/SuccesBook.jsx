@@ -47,6 +47,9 @@ const SuccesBook = () => {
                             <p className="text-sm md:text-lg flex justify-between">Check-out: <span>{new Date(booking.checkOutDate).toLocaleDateString()}</span></p>
                             <p className="text-sm md:text-lg flex justify-between">Units:<span> {booking.unitsBooked}</span></p>
                             <p className="text-sm md:text-lg flex justify-between">Total Nights: <span>{booking.totalNights} Night</span></p>
+                            <p className="text-sm md:text-lg flex justify-between">Booking Status: <span>{booking.bookingStatus}</span></p>
+                            <p className="text-sm md:text-lg flex justify-between">Payment Method: <span>{booking.paymentMethod}</span></p>
+                            <p className="text-sm md:text-lg flex justify-between">Payment Status: <span>{booking.paymentStatus}</span></p>
                             <p className="text-sm md:text-lg flex justify-between font-bold">
                                 Total Price: <span>$ {booking.totalPrice.toLocaleString()}</span>
                             </p>
@@ -59,7 +62,7 @@ const SuccesBook = () => {
                     <div className="flex gap-3">
                         <button
                             onClick={() => navigate("/mybookings")}
-                            className="w-1/2 py-2 text-sm md:text-lg bg-[#FDD700] text-white hover:bg-white border transition duration-100 rounded"
+                            className="w-1/2 py-2 text-sm md:text-lg bg-[#FDD700] text-white hover:text-black hover:bg-white border transition duration-100 rounded"
                         >
                             My Bookings
                         </button>

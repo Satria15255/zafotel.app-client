@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { FaCalendarCheck } from "react-icons/fa";
+import { PiStarFill, PiStarHalfFill } from "react-icons/pi";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import { getAllRooms } from '../Api';
 import { useNavigate } from 'react-router-dom';
@@ -46,7 +47,7 @@ const RoomTypeHomep = () => {
             </Motion>
 
             <Motion delay={0.4}>
-            <Carousel
+                {/* <Carousel
                 plugins={[plugin.current]}
                 onMouseEnter={plugin.current.stop}
                 onMouseLeave={plugin.current.reset}
@@ -82,7 +83,35 @@ const RoomTypeHomep = () => {
                 </CarouselContent>
                 <CarouselPrevious className='ml-6' />
                 <CarouselNext className='mr-6 ' />
-            </Carousel>
+            </Carousel> */}
+                <div className="flex">
+                    {rooms.map((r) => (
+                        <div key={r.id} className='relative mx-2' onClick={() => navigate(`/rooms/${r._id}`)}>
+                            <div className='w-70 h-110 object-center hover:scale-110 transition duration-200'>
+                                <img src={r.image[0]} alt={r.name} className='w-full h-full object-cover object-center' />
+                            </div>
+                            <div className='absolute flex flex-col justify-between inset-0 p-2 bg-black/30 group'>
+                                <header className="opacity-0 group-hover:opacity-100 transition duration-300">
+                                    <p className="text-white text-lg font-bold"><span className='text-yellow-300'>${r.price}</span> / Night</p>
+                                </header>
+                                <footer className='text-white opacity-0  translate-y-10 group-hover:opacity-100 group-hover:translate-y-0  transition-all  duration-300'>
+                                    <p className='text-sm font-bold'>{r.name}</p>
+                                    <p className='text-xs h-30'>{r.description}</p>
+                                    <div className='flex justify-end'>
+                                        <div className='flex items-center text-yellow-300 text-sm'>
+                                            <PiStarFill />
+                                            <PiStarFill />
+                                            <PiStarFill />
+                                            <PiStarFill />
+                                            <PiStarHalfFill />
+                                            <p className='text-sm text-white ml-2'>4.8</p>
+                                        </div>
+                                    </div>
+                                </footer>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </Motion>
         </div >
     )

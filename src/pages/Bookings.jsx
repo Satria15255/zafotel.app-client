@@ -30,7 +30,11 @@ const Bookings = () => {
             </div>
             </Motion>
             <Motion>
+                <div className='w-full flex justify-center'>
+                    <div className='w-4/5 '>
             <BookingsCard bookings={bookings} />
+                    </div>
+                </div>
             </Motion>
         </div>
     )

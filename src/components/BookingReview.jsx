@@ -8,7 +8,7 @@ const BookingReview = () => {
     const navigate = useNavigate()
 
     const [room, setRoom] = useState(null)
-    const [paymentMethod, setPaymentMethod] = useState("pay-on-location")
+    const [paymentMethod, setPaymentMethod] = useState("Cash")
 
     useEffect(() => {
         getRoomById(state.roomId).then((res) => setRoom(res.data))
@@ -74,8 +74,8 @@ const BookingReview = () => {
                         </div>
                     </div>
                 </div>
-                <p className='text-xl font-serif mt-7 font-semibold'>Booking Details</p>
-                <div className='space-y-3 mt-2'>
+                <div className='space-y-3 mt-2 border rounded-lg px-6 py-2'>
+                    <p className='text-xl font-serif mt-7 font-semibold'>Booking Details</p>
                     <p className='flex justify-between text-sm md:text-lg'>Your Name :<span>{state.userName}</span></p>
                     <p className='flex justify-between text-sm md:text-lg'>Phone Number :<span>{state.phoneNumber}</span></p>
                     <p className='flex justify-between text-sm md:text-lg'>Check-in Date :<span>{state.checkInDate}</span></p>
@@ -85,8 +85,9 @@ const BookingReview = () => {
                     <div className='flex flex-col'>
                         <label className='flex justify-between text-sm md:text-lg'>Payment Method :</label>
                         <select value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)} className='flex justify-between text-sm md:text-lg'>
-                            <option value='pay-on-location'>Pay on location</option>
-                            <option value='transfer'>transfer</option>
+                            <option value='Cash'>Cash</option>
+                            <option value='Bank Transfer'>Bank Transfer</option>
+                            <option value='Credit Card'>Credit Card</option>
                         </select>
                     </div>
                 </div>

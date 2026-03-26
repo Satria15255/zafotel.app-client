@@ -47,40 +47,42 @@ const testimonial = [
 
 const Testimoni = () => {
     return (
-        <div className='h-auto lg:h-screen border flex flex-col justify-center border-yellow-300 p-5 py-6'>
+        <div className='w-full bg-cover bg-center' style={{ backgroundImage: 'url(/assets/testimonial.jpg)' }} >
+            <div className='h-auto lg:h-100 flex flex-col md:flex-row justify-around items-center p-5 py-6 bg-black/30' >
             <Motion>
-            <div>
-                <p className='text-xl md:text-2xl lg:text-4xl text-center font-serif '>Testimonial</p>
-                <p className='text-[10px] md:text-sm lg:text-xl font-sans text-[#FFD700] text-center md:p-6'>We are trusted by more than 1000+ customers</p>
-            </div>
+                    <div>
+                        <p className='text-xl md:text-2xl lg:text-4xl font-serif text-white'>Testimonial</p>
+                        <p className='text-[10px] md:text-sm lg:text-sm max-w-sm font-sans text-white mt-5'>Your voice is our legacy. Discover why Zafotel continues to be a symbol of luxury and comfort for those who appreciate the finer things in life. Hear candid stories from guests who have experienced firsthand the warmth of our service and the grandeur of our atmosphere.</p>
+                    </div>
             </Motion>
             <Motion delay={0.4}>
-            <div className='w-full max-w-8xl overflow-x-auto scrollbar-hide'>
-                <div className='flex gap-6 py-6'>
-                    {testimonial.map((t, index) => (
-                        <div key={index} className='min-w-[250px] md:min-w-[400px] max-w-lg h-40 md:h-60 flex flex-col justify-between p-5 shadow-lg border border-gray-100 rounded-3xl'>
-                            <div className='flex justify-between'>
-                                <PiUserCircleDuotone size={20} />
-                                <p className='text-[9px] md:text-sm'>{t.date}</p>
-                            </div>
-                            <div>
-                                <p className='text-[9px] md:text-sm'>{t.text}</p>
-                            </div>
-                            <div className='flex justify-between'>
-                                <p className='text-[9px] md:text-sm'>{t.name}</p>
-                                <div className='flex text-[10px]'>
-                                    <PiStarFill />
-                                    <PiStarFill />
-                                    <PiStarFill />
-                                    <PiStarFill />
-                                    <PiStarFill />
+                    <div className='w-full max-w-2xl overflow-x-auto scrollbar-hide'>
+                        <div className='flex gap-6 py-6'>
+                            {testimonial.map((t, index) => (
+                                <div key={index} className='min-w-[250px] md:min-w-[400px] max-w-lg h-40 md:h-60 flex flex-col items-center justify-between p-5 shadow-lg border border-gray-100 bg-white rounded-3xl'>
+                                    <div className='flex flex-col items-center justify-between'>
+                                        <PiUserCircleDuotone size={60} />
+                                        <p className='text-[9px] md:text-sm'>{t.date}</p>
+                                    </div>
+                                    <div>
+                                        <p className='text-[9px] text-center md:text-sm'>"{t.text}"</p>
+                                    </div>
+                                    <div className='flex flex-col items-center justify-between'>
+                                        <p className='text-[9px] md:text-sm'>{t.name}</p>
+                                        <div className='flex text-[10px] text-yellow-500'>
+                                            <PiStarFill />
+                                            <PiStarFill />
+                                            <PiStarFill />
+                                            <PiStarFill />
+                                            <PiStarFill />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-            </div>
+                    </div>
             </Motion>
+        </div>
         </div>
     )
 }
