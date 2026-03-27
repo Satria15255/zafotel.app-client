@@ -47,8 +47,8 @@ const testimonial = [
 
 const Testimoni = () => {
     return (
-        <div className='w-full bg-cover bg-center' style={{ backgroundImage: 'url(/assets/testimonial.jpg)' }} >
-            <div className='h-auto lg:h-100 flex flex-col md:flex-row justify-around items-center p-5 py-6 bg-black/30' >
+        <div className='w-full h-120  bg-cover bg-center' style={{ backgroundImage: 'url(/assets/testimonial.jpg)' }} >
+            <div className='h-auto h-full flex flex-col md:flex-row justify-around items-center p-5 py-6 bg-black/30' >
             <Motion>
                     <div>
                         <p className='text-xl md:text-2xl lg:text-4xl font-serif text-white'>Testimonial</p>
@@ -56,10 +56,10 @@ const Testimoni = () => {
                     </div>
             </Motion>
             <Motion delay={0.4}>
-                    <div className='w-full max-w-2xl overflow-x-auto scrollbar-hide'>
-                        <div className='flex gap-6 py-6'>
+                    <div className='w-full md:max-w-2xl overflow-x-auto scrollbar-hide'>
+                        <div className='flex max-w-sm gap-6 py-6'>
                             {testimonial.map((t, index) => (
-                                <div key={index} className='min-w-[250px] md:min-w-[400px] max-w-lg h-40 md:h-60 flex flex-col items-center justify-between p-5 shadow-lg border border-gray-100 bg-white rounded-3xl'>
+                                <div key={index} className='min-w-[250px] md:min-w-[400px] max-w-sm h-40 md:h-60 flex flex-col items-center justify-between p-5 shadow-lg border border-gray-100 bg-white rounded-3xl'>
                                     <div className='flex flex-col items-center justify-between'>
                                         <PiUserCircleDuotone size={60} />
                                         <p className='text-[9px] md:text-sm'>{t.date}</p>

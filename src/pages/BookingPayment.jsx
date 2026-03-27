@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { getBookingById, createPayment } from "../Api"
 import { useEffect, useState } from "react"
 import Motion from "@/components/Motion"
@@ -7,6 +7,7 @@ const BookingPayment = () => {
     const [booking, setBooking] = useState([])
     const { id } = useParams()
     const [file, setFile] = useState(null)
+    const navigate = useNavigate
 
     const fetchBooking = async () => {
         try {
@@ -34,6 +35,7 @@ const BookingPayment = () => {
 
         try {
             await createPayment(id, formData)
+            navigate("/mybookings")
             alert("Payment successfully,please wait confirmed payment")
         } catch (error) {
             console.log(error)

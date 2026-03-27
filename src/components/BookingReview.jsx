@@ -87,7 +87,6 @@ const BookingReview = () => {
                         <select value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)} className='flex justify-between text-sm md:text-lg'>
                             <option value='Cash'>Cash</option>
                             <option value='Bank Transfer'>Bank Transfer</option>
-                            <option value='Credit Card'>Credit Card</option>
                         </select>
                     </div>
                 </div>

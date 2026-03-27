@@ -46,45 +46,48 @@ const RoomTypeHomep = () => {
             </div>
             </Motion>
 
+
             <Motion delay={0.4}>
-                {/* <Carousel
+                <div className='md:hidden'>
+                    <Carousel
                 plugins={[plugin.current]}
                 onMouseEnter={plugin.current.stop}
                 onMouseLeave={plugin.current.reset}
                 className='w-auto'>
                 <CarouselContent>
                     {rooms.map((room, index) => (
-                        <CarouselItem key={index} className='grid grid-cols-1 lg:grid-cols-2 bg-white'>
-                            <div className='w-full h-50 md:h-80 lg:h-auto'>
+                        <CarouselItem key={index} className='relative grid grid-cols-1 lg:grid-cols-2 bg-white'>
+                            <div className='w-full h-130 md:h-80 lg:h-auto'>
                                 <img src={room.image[0]} alt='standardType' className='w-full h-full object-cover' />
                             </div>
-                            <div className='p-2 px-6 space-y-3 flex flex-col justify-around'>
-                                <p className='text-sm md:text-lg h-10 text-[#FFD700]'>Start From : <span className='text-lg md:text-2xl'>${room.price}/Night</span></p>
-                                <p className='text-xl md:text-3xl font-serif'>{room.name}</p>
-                                <p className='hidden md:flex text-xs md:text-sm lg:text-lg font-light lg:max-w-lg'>{room.description}</p>
-                                <div className='grid gap-2 grid-cols-2'>
-                                    {room.details.amenities.slice(0, 4).map((amenities) => {
-                                        const key = amenities.toLowerCase().trim()
-                                        return (
-                                            <div key={amenities} className='flex items-center gap-1 items-center'>
-                                                {FacilityIcon[key]}
-                                                <p className='text-[10px] md:text-xs lg:text-sm'>{amenities}</p>
-                                            </div>
-                                        )
-                                    })}
-                                </div>
-                                <div className='flex gap-4'>
-                                    <button className='text-[8px] md:text-sm py-1 md:py-2 px-4 md:px-7 bg-gray-900 border text-white hover:bg-white hover:text-black transition duration-100 flex items-center gap-2'><FaCalendarCheck />Book Now</button>
-                                    <button onClick={() => navigate(`/rooms/${room._id}`)} className='text-[8px] md:text-sm py-1 md:py-2 px-4 md:px-7 bg-yellow-300 border text-white hover:bg-white hover:text-black transition duration-100'>View Room →</button>
-                                </div>
+                            <div className='absolute bg-black/40 inset-0 p-2 px-6 space-y-3 flex flex-col justify-between'>
+                                <header>
+                                    <p className="text-white text-lg font-bold"><span className='text-yellow-300'>${room.price}</span> / Night</p>
+                                </header>
+                                <footer className='text-white '>
+                                    <p className='text-sm font-bold'>{room.name}</p>
+                                    <p className='text-xs h-30 max-w-xs'>{room.description}</p>
+                                    <div className='flex justify-end'>
+                                        <div className='flex items-center text-yellow-300 text-sm'>
+                                            <PiStarFill />
+                                            <PiStarFill />
+                                            <PiStarFill />
+                                            <PiStarFill />
+                                            <PiStarHalfFill />
+                                            <p className='text-sm text-white ml-2'>4.8</p>
+                                        </div>
+                                    </div>
+                                </footer>
                             </div>
                         </CarouselItem>
                     ))}
                 </CarouselContent>
                 <CarouselPrevious className='ml-6' />
                 <CarouselNext className='mr-6 ' />
-            </Carousel> */}
-                <div className="flex">
+                    </Carousel>
+                </div>
+
+                <div className="hidden md:flex">
                     {rooms.map((r) => (
                         <div key={r.id} className='relative mx-2' onClick={() => navigate(`/rooms/${r._id}`)}>
                             <div className='w-70 h-110 object-center hover:scale-110 transition duration-200'>
