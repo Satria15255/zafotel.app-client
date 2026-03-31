@@ -4,7 +4,6 @@ import { PiStarFill, PiStarHalfFill } from "react-icons/pi";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import { getAllRooms } from '../Api';
 import { useNavigate } from 'react-router-dom';
-import FacilityIcon from '../components/FacilityIcon';
 import Autoplay from "embla-carousel-autoplay"
 import Motion from "@/components/Motion";
 
@@ -41,12 +40,10 @@ const RoomTypeHomep = () => {
         <div className='h-auto lg:h-screen p-10 bg-gray-900 flex flex-col justify-center items-center'>
             <Motion>
             <div className='mb-5 md:mb-10'>
-                <p className='text-white font-serif text-xl md:text-2xl lg:text-3xl text-center'>Room and Suit Collections</p>
-                <p className='text-[#FFD700] text-[10px] md:text-xs lg:text-sm text-center mt-2  '>Find your dream type room with collections here</p>
+                    <p className='text-[#FFD700] text-sm md:text-xs lg:text-sm text-center mt-2  '>Find your dream type room with collections here</p>
+                    <p className='text-white font-serif text-4xl md:text-2xl lg:text-3xl text-center'>Room and Suit Collections</p>
             </div>
             </Motion>
-
-
             <Motion delay={0.4}>
                 <div className='md:hidden'>
                     <Carousel
@@ -56,7 +53,7 @@ const RoomTypeHomep = () => {
                 className='w-auto'>
                 <CarouselContent>
                     {rooms.map((room, index) => (
-                        <CarouselItem key={index} className='relative grid grid-cols-1 lg:grid-cols-2 bg-white'>
+                        <CarouselItem key={index} className='relative'>
                             <div className='w-full h-130 md:h-80 lg:h-auto'>
                                 <img src={room.image[0]} alt='standardType' className='w-full h-full object-cover' />
                             </div>

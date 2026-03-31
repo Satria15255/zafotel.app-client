@@ -10,12 +10,12 @@ const RoomsCard = ({ rooms }) => {
 
     return (
         <Motion>
-        <div className='w-full rounded-lg'>
+            <div className='w-full '>
             {rooms.map((room, index) => (
-                <div key={index} className='rounded-lg  p-2 md:p-8 '>
-                    <div className='border rounded-lg grid grid-cols-1 lg:grid-cols-2 '>
-                        <div className='w-full md:h-80 lg:h-auto'>
-                            <img src={room.image[0]} alt='standardType' className='md:w-full md:h-full object-cover rounded-lg' />
+                <div key={index} className='p-2 md:p-8 '>
+                    <div className='border grid grid-cols-2 '>
+                        <div className='w-full h-full md:h-80 lg:h-auto'>
+                            <img src={room.image[0]} alt='standardType' className='w-full h-full object-cover ' />
                         </div>
                         <div className=' py-5 p-2 md:px-6 flex flex-col justify-around '>
                             <p className='text-sm md:text-lg h-10 text-[#FFD700]'>Start From : <span className='text-lg md:text-2xl'>${room.price}/Night</span></p>
@@ -32,9 +32,9 @@ const RoomsCard = ({ rooms }) => {
                                     )
                                 })}
                             </div>
-                            <div className='flex gap-4 mt-3'>
-                                <button className='text-[9px] md:text-xs lg:text-sm py-1 md:py-2 px-4 md:px-7 bg-gray-900 border text-white hover:bg-white hover:text-black transition duration-100 flex items-center gap-2'><FaCalendarCheck />Book Now</button>
-                                <button onClick={() => navigate(`/rooms/${room._id}`)} className='text-[9px] md:text-xs lg:text-sm py-1 md:py-2 px-4 md:px-7 bg-yellow-300 border text-white hover:bg-white hover:text-black transition duration-100'>View Room →</button>
+                            <div className='flex w-full gap-1 md:gap-4 mt-3'>
+                                <button className='text-xs md:text-xs lg:text-sm py-2 md:py-2 w-1/2 md:px-7 bg-gray-900 border text-white hover:bg-white hover:text-black transition duration-100 flex items-center justify-center gap-2'><FaCalendarCheck />Book Now</button>
+                                <button onClick={() => navigate(`/rooms/${room._id}`)} className='text-xs md:text-xs lg:text-sm py-2 md:py-2 w-1/2 md:px-7 bg-yellow-300 border text-white hover:bg-white hover:text-black transition duration-100'>View Room→</button>
                             </div>
                         </div>
                     </div>

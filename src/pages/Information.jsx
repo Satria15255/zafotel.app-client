@@ -25,17 +25,17 @@ const Information = () => {
     return (
         <div className='h-auto pb-6'>
             <Motion>
-            <div className='text-center py-8'>
-                <p className='text-xl md:text-4xl font-serif'>Explore Us</p>
-                <p className='text-[10px] lg:text-xl font-serif text-[#FFD700] font-light mt-2'>Find information related to Zafotel by visiting our blog</p>
-            </div>
+                <div className='text-center py-8 space-y-3'>
+                    <p className='text-sm lg:text-xl font-serif text-[#FFD700] font-light mt-2'>Find information related to Zafotel by visiting our blog</p>
+                    <p className='text-4xl font-serif'>Explore the Latest</p>
+                </div>
             </Motion>
             <Motion delay={0.4}>
-            <div className='w-full h-auto p-4'> 
-                <div className='grid grid-cols-1 md:grid-cols-3 gap-5 place-items-center'>
-                    <InformationsCard informations={informations} />
+                <div className='w-full h-auto p-2 md:p-4 space-y-3'>
+                    <div className='grid grid-cols-1 md:grid-cols-3 gap-5 py-4 place-items-center'>
+                        <InformationsCard informations={informations} />
+                    </div>
                 </div>
-            </div>
             </Motion>
             <div>
                 <p onClick={() => navigate("/informations")} className='text-center py-4 text-xs md:text-sm lg:text-lg font-serif'>Explore Other</p>

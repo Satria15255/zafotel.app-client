@@ -29,9 +29,7 @@ const Room = () => {
                         <p className='text-xl text-white'><span onClick={() => navigate("/")}>Home</span> / Rooms</p>
                     </div>
                 </div>
-                {/* <div className="absolute w-full flex-justify-center bottom-5">
-                    <RoomFilter />
-                </div> */}
+
             </div>
             <div className="my-12">
                 <RoomsCard rooms={rooms} />

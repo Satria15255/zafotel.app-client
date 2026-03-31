@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { PiUserCircleDuotone, PiStarFill, PiStarHalfFill } from "react-icons/pi";
 import Motion from "@/components/Motion"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
+import Autoplay from "embla-carousel-autoplay"
+
 
 const testimonial = [
     {
@@ -46,44 +49,67 @@ const testimonial = [
 ]
 
 const Testimoni = () => {
+    const plugin = useRef(
+        Autoplay({ delay: 3000, stopOnInteraction: true })
+    )
     return (
-        <div className='w-full h-120  bg-cover bg-center' style={{ backgroundImage: 'url(/assets/testimonial.jpg)' }} >
-            <div className='h-auto h-full flex flex-col md:flex-row justify-around items-center p-5 py-6 bg-black/30' >
-            <Motion>
-                    <div>
-                        <p className='text-xl md:text-2xl lg:text-4xl font-serif text-white'>Testimonial</p>
-                        <p className='text-[10px] md:text-sm lg:text-sm max-w-sm font-sans text-white mt-5'>Your voice is our legacy. Discover why Zafotel continues to be a symbol of luxury and comfort for those who appreciate the finer things in life. Hear candid stories from guests who have experienced firsthand the warmth of our service and the grandeur of our atmosphere.</p>
-                    </div>
-            </Motion>
+        // <div className='h-120  bg-cover bg-center' style={{ backgroundImage: 'url(/assets/testimonial.jpg)' }} >
+        //     <div className='w-full h-full flex items-center justify-center p-5 py-6 bg-black/40' >
+        //         <Motion delay={0.4}>
+        //             <Carousel
+        //                 plugins={[plugin.current]}
+        //                 onMouseEnter={plugin.current.stop}
+        //                 onMouseLeave={plugin.current.reset}
+        //                 className='w-full'>
+        //                 <CarouselContent>
+        //                     {testimonial.map((t, index) => (
+        //                         <CarouselItem key={index} className='bg-transparant max-w-screen flex flex-col items-center justify-around space-y-3 p-5 rounded-3xl'>
+        //                             <div>
+        //                                 <p className='text-white text-center text-3xl max-w-lg'>"{t.text}"</p>
+        //                             </div>
+        //                             <p className='text-lg text-white'>{t.name}</p>
+        //                             <div className='flex text-lg text-yellow-500'>
+        //                                 <PiStarFill />
+        //                                 <PiStarFill />
+        //                                 <PiStarFill />
+        //                                 <PiStarFill />
+        //                                 <PiStarFill />
+        //                             </div>
+        //                         </CarouselItem>
+        //                     ))}
+        //                 </CarouselContent>
+        //             </Carousel>
+        //         </Motion>
+        //     </div>
+        // </div>
+        <div className='h-auto bg-cover bg-center' style={{ backgroundImage: 'url(/assets/testimonial.jpg)' }}>
             <Motion delay={0.4}>
-                    <div className='w-full md:max-w-2xl overflow-x-auto scrollbar-hide'>
-                        <div className='flex max-w-sm gap-6 py-6'>
+                <Carousel
+                    plugins={[plugin.current]}
+                    onMouseEnter={plugin.current.stop}
+                    onMouseLeave={plugin.current.reset}
+                    className='bg-black/40'
+                >
+                    <CarouselContent>
                             {testimonial.map((t, index) => (
-                                <div key={index} className='min-w-[250px] md:min-w-[400px] max-w-sm h-40 md:h-60 flex flex-col items-center justify-between p-5 shadow-lg border border-gray-100 bg-white rounded-3xl'>
-                                    <div className='flex flex-col items-center justify-between'>
-                                        <PiUserCircleDuotone size={60} />
-                                        <p className='text-[9px] md:text-sm'>{t.date}</p>
-                                    </div>
+                                <CarouselItem key={index} className=' max-w-screen h-120 flex flex-col items-center justify-center space-y-3 p-5 '>
                                     <div>
-                                        <p className='text-[9px] text-center md:text-sm'>"{t.text}"</p>
+                                        <p className='text-white text-center text-3xl max-w-lg'>"{t.text}"</p>
                                     </div>
-                                    <div className='flex flex-col items-center justify-between'>
-                                        <p className='text-[9px] md:text-sm'>{t.name}</p>
-                                        <div className='flex text-[10px] text-yellow-500'>
-                                            <PiStarFill />
-                                            <PiStarFill />
-                                            <PiStarFill />
-                                            <PiStarFill />
-                                            <PiStarFill />
-                                        </div>
+                                    <p className='text-lg text-white'>{t.name}</p>
+                                    <div className='flex text-lg text-yellow-500'>
+                                        <PiStarFill />
+                                        <PiStarFill />
+                                        <PiStarFill />
+                                        <PiStarFill />
+                                        <PiStarFill />
                                     </div>
-                                </div>
+                                </CarouselItem>
                             ))}
-                        </div>
-                    </div>
+                    </CarouselContent>
+                </Carousel>
             </Motion>
-        </div>
-        </div>
+        </div >
     )
 }
 

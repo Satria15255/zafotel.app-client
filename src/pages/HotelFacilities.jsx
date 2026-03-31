@@ -46,21 +46,21 @@ const HotelFacilities = () => {
     return (
         <div className='h-auto pb-6 bg-[#FFFFF0]'>
             <Motion>
-                <div className="flex flex-col justify-center items-center py-10 space-y-3">
+                <div className="flex flex-col justify-center items-center py-10 space-y-2">
                     <p className="text-sm lg:text-lg font-serif text-[#FFD700]">Facilities that you can get and enjoy</p>
-                    <p className='text-xl lg:text-4xl font-serif '>
+                    <p className='text-4xl lg:text-4xl font-serif '>
                         Hotel Facilities
                     </p>
                 </div>
             </Motion>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-2 p-4 place-items-center cursor-default'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-2 place-items-center cursor-default'>
                 {facilities.map((f) => (
                     <Motion delay={0.4}>
-                        <div className='bg-white w-90 md:w-110 h-50 gap-4 hover:text-[#FFD700] transition duration-100 flex justify-center items-center font-semibold border'>
-                            <span className="text-7xl text-yellow-500">{f.icon}</span>
+                        <div className=' w-90 md:w-110 h-50 gap-4 hover:text-[#FFD700] transition duration-100 flex justify-center items-center font-semibold '>
+                            <span className="text-8xl text-yellow-500">{f.icon}</span>
                             <div className='flex flex-col'>
-                                <p className='text-sm lg:text-sm'>{f.title}</p>
-                                <p className='text-sm lg:text-sm max-w-[180px] mt-2 font-light'>{f.description}</p>
+                                <p className='text-lg '>{f.title}</p>
+                                <p className='text-sm max-w-[180px] mt-2 font-light'>{f.description}</p>
                             </div>
                         </div>
                     </Motion>
