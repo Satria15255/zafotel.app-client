@@ -11,8 +11,8 @@ const Information = () => {
     const fetchInformations = async () => {
         try {
             const res = await getAllInformations()
-            setInformations(res.data.slice(0, 3))
-            console.log(res.data.slice(0, 3))
+            setInformations(res.data.slice(0, 4))
+            console.log(res.data.slice(0, 4))
         } catch (err) {
             console.log(err)
         }
@@ -31,10 +31,12 @@ const Information = () => {
                 </div>
             </Motion>
             <Motion delay={0.4}>
-                <div className='w-full h-auto p-2 md:p-4 space-y-3'>
-                    <div className='grid grid-cols-1 md:grid-cols-3 gap-5 py-4 place-items-center'>
-                        <InformationsCard informations={informations} />
-                    </div>
+                <div className='flex grid md:grid-cols-3 place-items-center gap-2 py-4 '>
+                    {informations.map((i, index) => (
+                        <div key={index}>
+                            <InformationsCard informations={i} />
+                        </div>
+                    ))}
                 </div>
             </Motion>
             <div>

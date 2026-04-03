@@ -54,8 +54,16 @@ const SuccesBook = () => {
                                 Total Price: <span>$ {booking.totalPrice.toLocaleString()}</span>
                             </p>
                         </div>
-                        <p className="text-sm text-green-700">
-                            Please arrive on time and show this booking confirmation at reception.
+                        {booking?.paymentMethod === "Bank Transfer" ? (
+                            <p className="text-sm text-green-700">
+                                Complete the booking process by paying on the payment page, or via the MyBookings page to view your order history.
+                            </p>
+                        ) : (
+                                <p className="text-sm text-green-700">
+                                    Please arrive on time and show this booking confirmation at reception.
+                                </p>
+                        )}
+                        <p><span className='text-red font-bold '>NOTE : </span>Complete your booking within 1 hour before your payment expires.
                         </p>
                     </div>
 
@@ -67,10 +75,10 @@ const SuccesBook = () => {
                             My Bookings
                         </button>
                         <button
-                            onClick={() => navigate("/")}
+                            onClick={() => navigate(`/mybookings/booking-payment/${booking._id}`)}
                             className="w-1/2 py-2 text-sm md:text-lg border hover:bg-black hover:text-white transition duration-100 rounded"
                         >
-                            Back to Home
+                            Pay Now
                         </button>
                     </div>
                 </div>

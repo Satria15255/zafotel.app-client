@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PiTextAlignJustifyBold } from "react-icons/pi";
+import { FaStudiovinari } from "react-icons/fa";
 import SidebarMobile from './SidebarMobile'
 import Motion from "@/components/Motion"
 
@@ -36,15 +37,15 @@ const Navbar = ({ user, onToggleModals, onLogout }) => {
     }
     return (
         <Motion variant="slideDown" type="load">
-            <div className={`flex justify-between items-center px-3 md:px-8 h-15 md:h-15 rounded-b-lg z-50 inset-0 fixed top-0 transition-all duration-500 bg-transparant ease-in-out ${scrolled ? 'bg-white text-gray-900 shadow-md' : 'bg-transparant text-white'}`}>
+            <div className={`flex justify-between items-center px-3 md:px-8 h-15 md:h-20 z-50 inset-0 fixed top-0 transition-all duration-500 bg-transparant ease-in-out ${scrolled ? 'bg-black text-white shadow-md' : 'bg-transparant text-white'}`}>
             <div>
-                    <p onClick={() => navigate('/')} className='text-lg md:text-xl font-serif cursor-pointer'><span className='text-xl md:text-3xl font-serif text-[#FDD700]'>Z</span>AFOTEL</p>
+                    <p onClick={() => navigate('/')} className='text-lg md:text-xl font-serif cursor-pointer'><span className='text-xl md:text-3xl font-serif text-[#FDD700]'>Z</span>AFOTEL ⚜</p>
             </div>
             <div className='hidden md:flex gap-4 cursor-pointer'>
-                <p onClick={() => navigate('/rooms')}>Rooms</p>
-                <p onClick={() => navigate('/about')}>About</p>
-                <p onClick={() => navigate('/informations')}>Information</p>
-                <p onClick={() => handleNavigate('/mybookings')}>Booking</p>
+                    <p className='hover:border-b border-yellow-500 transition duration-200 pb-1 w-20 flex items-center justify-center' onClick={() => navigate('/rooms')}>Rooms</p>
+                    <p className='hover:border-b border-yellow-500 transition duration-200 pb-1 w-20 flex items-center justify-center' onClick={() => navigate('/about')}>About</p>
+                    <p className='hover:border-b border-yellow-500 transition duration-200 pb-1 w-20 flex items-center justify-center' onClick={() => navigate('/informations')}>News</p>
+                    <p className='hover:border-b border-yellow-500 transition duration-200 pb-1 w-20 flex items-center justify-center' onClick={() => handleNavigate('/mybookings')}>Booking</p>
             </div>
             {!user ? (
                 <div className='hidden md:flex cursor-pointer'>

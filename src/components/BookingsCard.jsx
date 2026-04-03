@@ -78,7 +78,7 @@ const BookingsCard = ({ bookings }) => {
                         <p className='text-xs md:text-sm w-20'>Check Out: {new Date(booking.checkOutDate).toLocaleDateString()}</p>
                         <p className='w-20 flex flex-col'> Payment: <span>{booking.paymentStatus}</span></p>
                         <p className='w-20 flex flex-col'> Status: <span>{booking.bookingStatus}</span></p>
-                        <p className='w-20 flex flex-col w-30'> Method: <span onClick={() => navigate(`/mybookings/booking-payment/${booking._id}`)}>{booking.paymentMethod}</span></p>
+                        <p className='w-20 flex flex-col w-30'> Method: <span>{booking.paymentMethod}</span></p>
                     </div>
                 </div>
             ))}

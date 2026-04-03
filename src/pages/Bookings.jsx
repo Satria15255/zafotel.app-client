@@ -24,7 +24,8 @@ const Bookings = () => {
         <div className="h-auto">
             <Motion variant="fadeIn">
             <div className='w-full h-full bg-center bg-cover z-0' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
-                <div className='h-80 flex flex-col justify-center items-center bg-black/20 w-full p-9'>
+                    <div className='h-80 flex flex-col justify-center items-center bg-black/40 w-full p-9'>
+                        <p className='text-6xl text-white border-b border-yellow-500 pb-2'>My Bookings</p>
                         <p className='text-xl text-white'><span onClick={() => navigate("/")}>Home</span> / My Bookings</p>
                 </div>
             </div>

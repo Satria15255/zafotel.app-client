@@ -82,12 +82,30 @@ const BookingReview = () => {
                     <p className='flex justify-between text-sm md:text-lg'>Check-Out Date :<span>{state.checkOutDate}</span></p>
                     <p className='flex justify-between text-sm md:text-lg'>Units Booked :<span>{Number(state.unitsBooked)} Units</span></p>
                     <p className='flex justify-between text-sm md:text-lg'>Total Payment :<span className='font-bold text-[#FDD700]'>${totalPrice}</span></p>
-                    <div className='flex flex-col'>
-                        <label className='flex justify-between text-sm md:text-lg'>Payment Method :</label>
-                        <select value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)} className='flex justify-between text-sm md:text-lg'>
-                            <option value='Cash'>Cash</option>
-                            <option value='Bank Transfer'>Bank Transfer</option>
-                        </select>
+                    <div className='flex flex-col gap-2'>
+                        <label className='text-sm md:text-lg'>Payment Method :</label>
+                        <div className='flex flex-col pl-7 gap-2'>
+                            <label className='flex items-center gap-2 text-sm md:text-lg'>
+                                <input
+                                    type="radio"
+                                    name="paymentMethod"
+                                    value="Cash"
+                                    checked={paymentMethod === "Cash"}
+                                    onChange={(e) => setPaymentMethod(e.target.value)}
+                                />
+                                Cash
+                            </label>
+                            <label className='flex items-center gap-2 text-sm md:text-lg'>
+                                <input
+                                    type="radio"
+                                    name="paymentMethod"
+                                    value="Bank Transfer"
+                                    checked={paymentMethod === "Bank Transfer"}
+                                    onChange={(e) => setPaymentMethod(e.target.value)}
+                                />
+                                Bank Transfer
+                            </label>
+                        </div>
                     </div>
                 </div>
             <button onClick={handleConfirm} className='mt-12 w-full h-15 bg-[#FDD700] rounded-xl'>Book now</button>

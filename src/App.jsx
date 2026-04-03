@@ -30,11 +30,13 @@ import { useEffect, useState } from 'react'
 import AdminRoute from './components/AdminRoute'
 import AdminLoginPage from './pages/AdminLogin'
 import AccountModals from './components/AccountModals'
+import GlobalLoader from './components/GlobalLoader'
 import SuccesBook from './pages/SuccesBook'
 
 function App() {
   const [user, setUser] = useState(null)
   const [accountsModal, setAccountModal] = useState(false)
+  const [loading, setLoading] = useState(true)
   const navigate = useNavigate();
 
   const clearExpiredSession = () => {
@@ -66,6 +68,16 @@ function App() {
     const storedUser = localStorage.getItem("user");
     if (storedUser) setUser(JSON.parse(storedUser));
   }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 1500)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (loading) return <GlobalLoader />
 
   return (
     <div>

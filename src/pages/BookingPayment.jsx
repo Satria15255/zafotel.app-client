@@ -48,6 +48,7 @@ const BookingPayment = () => {
             <Motion variant="fadeIn">
                 <div className='w-full h-full bg-center bg-cover z-0' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
                     <div className='h-80 flex flex-col justify-center items-center bg-black/20 w-full p-9'>
+                        <p className='text-6xl text-white border-b border-yellow-500 pb-3'>Booking Payment</p>
                         <p className='text-xl text-white'><span onClick={() => navigate("/")}>Home</span> / My Bookings / Payment</p>
                     </div>
                 </div>
@@ -55,7 +56,7 @@ const BookingPayment = () => {
             <div className="w-full flex justify-center py-8">
                 <div className="flex flex-col justify-center w-3/5 space-y-4">
                     <div className=" justify-between border rounded-lg p-2">
-                        <img src={booking?.room?.image} className="w-full h-80 object-cover object-center rounded-xl p-2 pb-2" />
+                        <img src={booking?.room?.image[0]} className="w-full h-80 object-cover object-center rounded-xl p-2 pb-2" />
                         <div className="flex justify-between border-t p-4">
                             <p className="flex flex-col">Room Type : <span className="font-bold">{booking?.room?.name}</span></p>
                             <p className="flex flex-col">Price : <span className="text-[#FDD700] font-bold">${booking?.room?.price} / Night</span> </p>
@@ -77,6 +78,7 @@ const BookingPayment = () => {
                     </div>
                     <div className="w-full ">
                         <form onSubmit={handleSubmit} className="space-y-4">
+                            <p className="text-lg">Send Your Proof of Payment Below :</p>
                             <input
                                 type="file"
                                 accept="image/*"

@@ -33,6 +33,7 @@ const InformationsUpload = () => {
         try {
             await createInformation(formData)
             alert("Information Uploaded")
+            navigate("/admin/informations")
         } catch (err) {
             console.log(err)
         }
@@ -49,7 +50,7 @@ const InformationsUpload = () => {
                         <textarea type='text-area' name='content' onChange={handleChange} placeholder='Content' className='border min-h-[40vh] w-full rounded-xl px-2' />
                         <label className='font-bold'>Thumbnail</label>
                         <input type='file' accept='image/*' onChange={handleImageChange} className='border w-full h-10 rounded-xl px-2' />
-                        {preview && <img src={preview} />}
+                        {/* {preview && <img src={preview} />} */}
                     </form>
                     <div className='flex gap-2 mt-5'>
                         <button onClick={() => navigate('/admin/informations')} className='w-1/2 h-10 bg-black text-white border rounded-xl hover:bg-white hover:text-black transition duration-100'>Cancel</button>

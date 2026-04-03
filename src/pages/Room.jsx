@@ -22,17 +22,20 @@ const Room = () => {
         fetchRoom()
     }, [])
     return (
-        <div className='w-full'>
+        <div className='w-full bg-gray-900'>
             <div className='relative'>
             <div className='w-full h-full bg-center bg-cover z-0' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
-                <div className='h-80 flex flex-col justify-center items-center bg-black/20 w-full p-9'>
+                    <div className='h-80 flex flex-col justify-center items-center bg-black/40 w-full p-9'>
+                        <p className='text-6xl text-white border-b border-yellow-500 pb-2'>Our Rooms</p>
                         <p className='text-xl text-white'><span onClick={() => navigate("/")}>Home</span> / Rooms</p>
                     </div>
                 </div>
 
             </div>
-            <div className="my-12">
-                <RoomsCard rooms={rooms} />
+            <div className="">
+                {rooms.map((room, index) => (
+                    <RoomsCard rooms={room} index={index % 2 === 0} />
+                ))}
             </div>
         </div>
 
