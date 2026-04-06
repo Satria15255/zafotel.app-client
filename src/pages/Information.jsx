@@ -11,7 +11,7 @@ const Information = () => {
     const fetchInformations = async () => {
         try {
             const res = await getAllInformations()
-            setInformations(res.data.slice(0, 4))
+            setInformations(res.data.slice(0, 3))
             console.log(res.data.slice(0, 4))
         } catch (err) {
             console.log(err)
@@ -26,8 +26,8 @@ const Information = () => {
         <div className='h-auto pb-6'>
             <Motion>
                 <div className='text-center py-8 space-y-3'>
-                    <p className='text-sm lg:text-xl font-serif text-[#FFD700] font-light mt-2'>Find information related to Zafotel by visiting our blog</p>
-                    <p className='text-4xl font-serif'>Explore the Latest</p>
+                    <p className='text-2xl md:text-4xl font-serif'>— Zafotel Journal —</p>
+                    <p className='text-sm lg:text-lg font-serif text-[#c69c6d] font-light mt-2'>Insights, updates, and experiences</p>
                 </div>
             </Motion>
             <Motion delay={0.4}>

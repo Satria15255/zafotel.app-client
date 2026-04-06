@@ -32,7 +32,7 @@ const Bookings = () => {
             </Motion>
             <Motion>
                 <div className='w-full flex justify-center'>
-                    <div className='w-4/5 '>
+                    <div className='p-2 md:w-4/5'>
             <BookingsCard bookings={bookings} />
                     </div>
                 </div>

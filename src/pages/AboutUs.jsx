@@ -6,7 +6,7 @@ const AboutUs = () => {
     const navigate = useNavigate()
 
     return (
-        <div className='relative h-auto bg-white p-3 mb-9 md:p-6'>
+        <div className='relative h-auto bg-[#FFFFF0] p-3 pb-9 md:p-6'>
             <div className='grid grid-cols-1 md:grid-cols-3 place-items-center space-y-4'>
                 <Motion>
 

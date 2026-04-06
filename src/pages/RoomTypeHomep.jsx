@@ -37,14 +37,15 @@ const RoomTypeHomep = () => {
 
 
     return (
-        <div className='h-auto lg:h-screen p-10 bg-gray-900 flex flex-col justify-center items-center'>
+        <div className='h-auto lg:h-screen p-4 md:p-10 bg-black flex flex-col justify-center items-center'>
             <Motion>
-            <div className='mb-5 md:mb-10'>
-                    <p className='text-[#FFD700] text-sm md:text-xs lg:text-sm text-center mt-2  '>Find your dream type room with collections here</p>
-                    <p className='text-white font-serif text-4xl md:text-2xl lg:text-3xl text-center'>Room and Suit Collections</p>
+                <div className='py-8 md:pb-10'>
+                    <p className='text-white font-serif text-2xl lg:text-4xl text-center'>— Our Finest Rooms —</p>
+                    <p className='text-[#FDD700] text-sm md:text-xs lg:text-sm text-center mt-2'>Find your dream type room with collections here</p>
             </div>
             </Motion>
             <Motion delay={0.4}>
+                {/* Mobile Version */}
                 <div className='md:hidden'>
                     <Carousel
                 plugins={[plugin.current]}
@@ -78,12 +79,11 @@ const RoomTypeHomep = () => {
                             </div>
                         </CarouselItem>
                     ))}
-                </CarouselContent>
-                <CarouselPrevious className='ml-6' />
-                <CarouselNext className='mr-6 ' />
+                        </CarouselContent>
                     </Carousel>
                 </div>
 
+                {/* Desktop Version */}
                 <div className="hidden md:flex">
                     {rooms.map((r) => (
                         <div key={r.id} className='relative mx-2' onClick={() => navigate(`/rooms/${r._id}`)}>

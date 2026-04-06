@@ -5,7 +5,7 @@ const BookingsCard = ({ bookings }) => {
     const navigate = useNavigate()
 
     return (
-        <div className='space-y-5 px-12 lg:px-10 my-10 '>
+        <div className='space-y-5 px-3 lg:px-10 my-10 '>
             {/* {bookings.map((booking) => (
                 <div key={booking._id} className='grid grid-cols-1 md:grid-cols-2 justify-between border rounded-xl'>
                     <div className='flex flex-col w-full'>
@@ -66,19 +66,26 @@ const BookingsCard = ({ bookings }) => {
             ))} */}
             {bookings.map((booking) => (
                 <div key={booking.id}>
-                    <div className='border flex justify-between items-center p-1'>
-                        <div className='flex items-center gap-2'>
-                            <img src={booking.room.image[0]} className='w-50 h-30 object-cover object-center rounded-sm' />
-                            <div className='flex flex-col'>
+                    <div className='border flex flex-col md:flex-row justify-between items-center p-1'>
+                        <div className='flex flex-col md:flex-row md:items-center gap-2'>
+                            <img src={booking.room.image[0]} className='w-100 md:w-50 h-50 md:h-30 object-cover object-center rounded-sm' />
+                            <div className='flex flex-row justify-between md:flex-col pb-2 px-2 border-b'>
                                 <p className='font-bold text-lg'>{booking.room.name}</p>
                                 <p className='text-sm'><span className='text-yellow-500'>${booking.room.price}</span> / Night</p>
                             </div>
                         </div>
-                        <p className='text-xs md:text-sm w-20'>Check In: {new Date(booking.checkInDate).toLocaleDateString()}</p>
-                        <p className='text-xs md:text-sm w-20'>Check Out: {new Date(booking.checkOutDate).toLocaleDateString()}</p>
-                        <p className='w-20 flex flex-col'> Payment: <span>{booking.paymentStatus}</span></p>
-                        <p className='w-20 flex flex-col'> Status: <span>{booking.bookingStatus}</span></p>
-                        <p className='w-20 flex flex-col w-30'> Method: <span>{booking.paymentMethod}</span></p>
+                        <div className='grid grid-cols-3 md:grid-cols-1 text-sm space-y-3'>
+                            <p className='text-xs md:text-sm w-20'>Check In: {new Date(booking.checkInDate).toLocaleDateString()}</p>
+                            <p className='text-xs md:text-sm w-20'>Check Out: {new Date(booking.checkOutDate).toLocaleDateString()}</p>
+                            <p className='w-20 flex flex-col'> Payment: <span>{booking.paymentStatus}</span></p>
+                            <p className='w-20 flex flex-col'> Status: <span>{booking.bookingStatus}</span></p>
+                            <p className='w-20 flex flex-col w-30'> Method: <span>{booking.paymentMethod}</span></p>
+                            {booking.paymentStatus === "Unpaid" ? (
+                                <button onClick={() => navigate(`/mybookings/booking-payment/${booking._id}`)} className='w-1/6 h-15 border border-[#D6B585] hover:bg-black hover:text-white transition duration-100 rounded-sm'>Pay Now —▸</button>
+                            ) : (
+                                <button className='w-full md:w-1/6 h-10 md:h-15 text-sm border border-[#D6B585] hover:bg-black hover:text-white transition duration-100 rounded-sm'>View Details —▸</button>
+                            )}
+                        </div>
                     </div>
                 </div>
             ))}

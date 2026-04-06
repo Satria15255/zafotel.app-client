@@ -5,7 +5,7 @@ import { SiTripadvisor, SiTripdotcom } from "react-icons/si";
 const Footer = () => {
     return (
         <div className='bg-black cursor-default'>
-            <div className='h-70 grid grid-cols-1 md:grid-cols-3 px-5 py-7 space-y-7'>
+            <div className='h-120 md:h-70 grid grid-cols-1 md:grid-cols-3 place-items-center '>
                 <div className='flex flex-col justify-center items-center text-white text-lg'>
                     <p>Address</p>
                     <p>
@@ -32,7 +32,8 @@ const Footer = () => {
                         T. +929 333 9296
                     </p>
                     <p>
-                        M. contact@zafotel.com</p>
+                        M. contact@zafotel.com
+                    </p>
                 </div>
             </div>
             <div className='border-t border-gray-500'>
