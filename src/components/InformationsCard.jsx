@@ -17,13 +17,13 @@ const InformationsCard = ({ informations }) => {
                 </div>
             </div>
 
-            <div className='md:hidden'>
-                <div className='w-100 h-auto py-2 border-b rounded-xs cursor-pointer'>
+            <div className='md:hidden p-2 border-b'>
+                <div className='w-full h-auto py-2  rounded-xs cursor-pointer'>
                     <div className='flex' onClick={() => navigate(`/informations/${informations._id}`)}>
-                        <div className='w-2/5 h-1/5'>
+                        <div className='w-2/5 h-20'>
                             <img src={informations.image} className='w-100 h-full object-cover object-center' />
                         </div>
-                        <div className='w-4/5 flex flex-col justify-center px-4'>
+                        <div className='w-3/5 flex flex-col justify-center pl-4'>
                             <p className='text-sm lg:text-sm max-w-xs h-10 font-semibold'>{informations.title}</p>
                             <p className='text-[10px] lg:text-sm text-gray-500 py-4'>{new Date(informations.createdAt).toLocaleDateString()}</p>
                         </div>

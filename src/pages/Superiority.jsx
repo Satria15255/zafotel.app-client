@@ -33,17 +33,19 @@ const Superiority = () => {
     return (
         <div className='z-100 bg-white w-full flex flex-col items-center md:flex-row h-auto md:h-70 py-6 gap-3 px-2 border-b border-[#FFD700] space-y-4'>
             <div className="flex flex-col md:flex-row  justify-around space-y-6 w-full">
-            {superiority.map((s) => (
-                <Motion>
-                <div className='flex flex-col items-center justify-center h-40'>
-                    <span className='flex justify-center items-center text-3xl h-16 w-16 rounded-full border text-yellow-500'>
-                            {s.icons}
-                        </span>
-                    <p className='text-lg md:text-sm lg:text-lg text-center h-12 font-semibold mt-3'>{s.title}</p>
-                    <p className='text-sm md:text-xs lg:text-md text-center h-12 max-w-[200px] font-light'>{s.description}</p>
-            </div>
-                </Motion>
-            ))}
+                {superiority.map((s) => (
+                    <Motion>
+                        <div className='w-90 flex flex-row md:flex-col items-center gap-3 justify-center h-40'>
+                            <span className='flex justify-center items-center text-3xl h-16 w-16 rounded-full border text-yellow-500'>
+                                {s.icons}
+                            </span>
+                            <div className='flex flex-col'>
+                                <p className='text-lg md:text-sm lg:text-lg md:text-center w-50 md:h-12 font-semibold mt-3'>{s.title}</p>
+                                <p className='text-sm md:text-xs lg:text-md md:text-center w-50 md:h-12 max-w-[200px] font-light'>{s.description}</p>
+                            </div>
+                        </div>
+                    </Motion>
+                ))}
             </div>
         </div>
     )

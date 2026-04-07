@@ -31,7 +31,7 @@ const Information = () => {
                 </div>
             </Motion>
             <Motion delay={0.4}>
-                <div className='flex grid md:grid-cols-3 place-items-center gap-2 py-4 '>
+                <div className='flex grid md:grid-cols-3 place-items-center md:gap-2 py-4 '>
                     {informations.map((i, index) => (
                         <div key={index}>
                             <InformationsCard informations={i} />

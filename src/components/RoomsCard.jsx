@@ -11,11 +11,11 @@ const RoomsCard = ({ rooms, index }) => {
     return (
         <Motion>
             <div className='w-full bg-gray-900'>
-                <div className={`flex flex-row ${!index ? "flex-row-reverse" : ""}`}>
-                    <div className='relative w-1/2 h-full md:h-90'>
+                <div className={`flex flex-col md:flex-row ${!index ? "md:flex-row-reverse" : ""}`}>
+                    <div className='relative w-full md:w-1/2 h-full md:h-90'>
                         <img src={rooms.image[0]} alt='standardType' className='w-full h-full object-cover ' />
                     </div>
-                    <div className='w-1/2 text-white p-2 md:p-14 flex flex-col justify-around '>
+                    <div className='w-full md:w-1/2 text-white p-2 md:p-14 flex flex-col justify-around '>
                         <div className='flex justify-between'>
                             <p className='text-lg md:text-3xl font-serif'>{rooms.name}</p>
                             <p className='text-lg  md:text-2xl font-serif text-[#FDD700]'>${rooms.price} / Night</p>

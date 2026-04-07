@@ -1,6 +1,5 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import Superiority from "./Superiority"
 import Motion from '@/components/Motion'
 
 const Hero = () => {
@@ -14,7 +13,7 @@ const Hero = () => {
                         <p className='text-lg text-yellow-500'>Rest. Recharge. Rise.</p>
                     </Motion>
                     <Motion delay={0.2}>
-                        <p className='text-white text-8xl lg:text-7xl text-center font-serif'>Stay in Comfort, Feel the Elegance</p>
+                        <p className='text-white text-7xl lg:text-7xl text-center font-serif'>Stay in Comfort, Feel the Elegance</p>
                     </Motion>
                     <Motion delay={0.4}>
                         <p className='text-center text-white text-sm md:text-sm  max-w-xs md:max-w-lg mt-3'>Zafotel is here for modern professionals and travelers who need unlimited comfort amidst the hustle and bustle of the city.</p>

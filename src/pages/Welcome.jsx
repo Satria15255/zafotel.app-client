@@ -20,7 +20,7 @@ const Welcome = () => {
                     <p className='text-xl md:text-3xl lg:text-5xl font-semibold max-w-md py-4'>Luxury Hotel in the Heart of the City</p>
                 </Motion>
                 <Motion delay={0.4} >
-                    <p className='text-xs mdtext-sm lg:text-lg pb-4'>Zafotel is a place where every guest comes as a visitor and leaves as family.
+                    <p className='text-xs md:text-sm lg:text-lg pb-4'>Zafotel is a place where every guest comes as a visitor and leaves as family.
                         We believe that true comfort lies not only in a soft bed and a clean room, but in a warm atmosphere that makes you feel at home.
                         Enjoy the tranquility, friendly service, and modern amenities we provide to accompany your every journey.</p>
                     <div className='flex text-yellow-300 text-lg md:text-2xl'>

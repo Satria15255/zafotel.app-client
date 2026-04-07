@@ -9,7 +9,6 @@ const AboutUs = () => {
         <div className='relative h-auto bg-[#FFFFF0] p-3 pb-9 md:p-6'>
             <div className='grid grid-cols-1 md:grid-cols-3 place-items-center space-y-4'>
                 <Motion>
-
                 <div className='flex'>
                     <p className='text-[180px] flex mb-10 justify-center text-gray-300'>[  <span className='text-6xl text-black flex items-center mt-10 justify-center font-bold font-sans'>
                         10
@@ -28,7 +27,7 @@ const AboutUs = () => {
                 </div>
                 </Motion>
                 <Motion delay={0.8}>
-                <div className='mt-5 md:mt-0 pl-2'>
+                    <div className='mt-5 md:mt-0 p-5 md:pl-2'>
                     <p className='font-serif text-[12px] md:text-xs'><span className='font-bold text-sm md:text-lg'>Zafotel</span> is a place where every guest comes as a visitor and leaves as family.
                         We believe that true comfort lies not only in a soft bed and a clean room, but in a warm atmosphere that makes you feel at home.
                             Enjoy the tranquility, friendly service, and modern amenities we provide to accompany your every journey.</p>
