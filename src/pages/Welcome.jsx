@@ -7,7 +7,7 @@ const Welcome = () => {
     const navigate = useNavigate()
 
     return (
-        <div className='h-auto md:h-auto grid gird-cols-1 md:grid-cols-2 px-2 py-11 md:p-8 md:px-10 border border-yellow-400'>
+        <div className='relative bg-white h-auto md:h-auto grid gird-cols-1 md:grid-cols-2 px-2 py-11 md:p-8 md:px-10 border border-yellow-400'>
             <Motion>
                 <div className='flex justify-center gap-2 lg:gap-6'>
                     <img src="/assets/aboutus.jpg" alt="" className='w-45 rounded-sm h-75 md:w-45 md:h-65 lg:w-[45vh] lg:h-100 mb-12 object-cover' />

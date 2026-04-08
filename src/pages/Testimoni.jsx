@@ -54,33 +54,35 @@ const Testimoni = () => {
     )
     return (
 
-        <div className='h-auto bg-cover bg-center' style={{ backgroundImage: 'url(/assets/testimonial.jpg)' }}>
-            <Motion delay={0.4}>
-                <Carousel
-                    plugins={[plugin.current]}
-                    onMouseEnter={plugin.current.stop}
-                    onMouseLeave={plugin.current.reset}
-                    className='bg-black/40'
-                >
+        <div className='relative h-auto bg-cover bg-center' style={{ backgroundImage: 'url(/assets/testimonial.jpg)' }}>
+            <Carousel
+                plugins={[plugin.current]}
+                onMouseEnter={plugin.current.stop}
+                onMouseLeave={plugin.current.reset}
+                className='bg-black/40 w-full'
+            >
+                <Motion delay={0.4}>
                     <CarouselContent>
-                            {testimonial.map((t, index) => (
-                                <CarouselItem key={index} className=' max-w-screen text-center h-120 flex flex-col items-center justify-center space-y-3 p-2 md:p-5 '>
-                                    <div>
-                                        <p className='text-white text-center text-3xl lg:text-5xl max-w-lg lg:max-w-2xl'>"{t.text}"</p>
+                        {testimonial.map((t, index) => (
+                            <CarouselItem key={index} className='w-full h-120 flex items-center justify-center'>
+                                <div className='w-full flex flex-col items-center justify-center'>
+                                    <div className='max-w-lg lg:max-w-2xl mx-auto p-3'>
+                                        <p className='text-white text-center text-3xl lg:text-5xl '>"{t.text}"</p>
                                     </div>
-                                    <p className='text-lg text-white'>{t.name}</p>
-                                    <div className='flex text-lg text-yellow-500'>
+                                    <p className='text-lg text-white loading-relaxed'>{t.name}</p>
+                                    <div className='flex items-center justify-center text-lg text-yellow-500'>
                                         <PiStarFill />
                                         <PiStarFill />
                                         <PiStarFill />
                                         <PiStarFill />
                                         <PiStarFill />
                                     </div>
-                                </CarouselItem>
-                            ))}
+                                </div>
+                            </CarouselItem>
+                        ))}
                     </CarouselContent>
-                </Carousel>
-            </Motion>
+                </Motion>
+            </Carousel>
         </div >
     )
 }

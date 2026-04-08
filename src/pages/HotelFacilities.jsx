@@ -44,7 +44,7 @@ const facilities = [
 
 const HotelFacilities = () => {
     return (
-        <div className='h-auto pb-6 bg-[#FFFFF0]'>
+        <div className='relative h-auto pb-6 bg-[#FFFFF0]'>
             <Motion>
                 <div className="flex flex-col justify-center items-center py-10 space-y-2">
                     <p className='text-2xl lg:text-4xl font-serif'>— Exceptional Facilities —</p>
@@ -55,7 +55,7 @@ const HotelFacilities = () => {
                 {facilities.map((f) => (
                     <Motion delay={0.4}>
                         <div className=' w-90 md:w-110 h-50 gap-4 transition duration-100 flex justify-center items-center font-semibold '>
-                            <span className="text-8xl text-[#c69c6d]">{f.icon}</span>
+                            <span className="text-6xl p-4 text-white bg-[#c69c6d] border rounded-xl">{f.icon}</span>
                             <div className='flex flex-col'>
                                 <p className='text-lg '>{f.title}</p>
                                 <p className='text-sm max-w-[180px] mt-2 font-light'>{f.description}</p>

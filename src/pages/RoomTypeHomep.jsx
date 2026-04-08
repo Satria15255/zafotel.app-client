@@ -37,7 +37,7 @@ const RoomTypeHomep = () => {
 
 
     return (
-        <div className='h-auto lg:h-screen p-4 md:p-10 bg-black flex flex-col justify-center items-center'>
+        <div className='relative h-auto lg:h-screen p-4 md:p-10 bg-black flex flex-col justify-center items-center'>
             <Motion>
                 <div className='py-8 md:pb-10'>
                     <p className='text-white font-serif text-2xl lg:text-4xl text-center'>— Our Finest Rooms —</p>

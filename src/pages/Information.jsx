@@ -23,7 +23,7 @@ const Information = () => {
     }, [])
 
     return (
-        <div className='h-auto pb-6'>
+        <div className='relative bg-white h-auto pb-6'>
             <Motion>
                 <div className='text-center py-8 space-y-3'>
                     <p className='text-2xl md:text-4xl font-serif'>— Zafotel Journal —</p>

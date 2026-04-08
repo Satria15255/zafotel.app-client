@@ -7,7 +7,10 @@ const Hero = () => {
 
     return (
         <Motion variant="fadeIn">
-        <div className=' relative w-full flex items-center h-screen lg:h-screen bg-center bg-cover z-0' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
+            <div className=' relative w-full h-screen flex items-center h-screen lg:h-screen bg-center bg-cover z-0' >
+                <div className='fixed top-0 -z-10'>
+                    <img className='w-full h-screen object-cover object-center bg-cover bg-center' src="/assets/herobanner.jpg" />
+                </div>
                 <div className='h-screen lg:h-screen flex flex-col justify-center items-center bg-black/60 w-full p-4'>
                     <Motion>
                         <p className='text-lg text-yellow-500'>Rest. Recharge. Rise.</p>
