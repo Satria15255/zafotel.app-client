@@ -48,26 +48,28 @@ const BookingReview = () => {
     return (
         <div >
             <div className='w-full h-60 md:h-full bg-cover bg-center' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
-                <div className='bg-black/50 w-full h-60 flex flex-col justify-center items-center'>
-                    <p className='text-xl lg:text-4xl font-serif text-white'>Booking Details</p>
-                    <p className='text-white text-xs lg:text-sm'>Home / {room.name}</p>
+                <div className='bg-black/50 w-full h-80 flex flex-col justify-center items-center'>
+                    <p className='text-xl md:text-6xl lg:text-4xl font-serif text-white border-b border-yellow-500 pb-2'>Booking Details</p>
+                    <p className='text-white text-xs md:text-xl lg:text-sm'>Home / {room.name}</p>
                 </div>
             </div>
             <div className='h-auto w-full p-4 md:p-10'>
                 <div className='grid grid-cols-1 md:grid-cols-2 border rounded-xl'>
-                    <div>
-                        <img src={room.image[0]} alt={room.name} className='w-full h-50 md:h-90 rounded-lg md:rounded-l-xl object-cover' />
+                    <div className='w-full h-60'>
+                        <img src={room.image[0]} alt={room.name} className='w-full h-full rounded-lg md:rounded-l-xl object-cover' />
                     </div>
                     <div className='flex flex-col justify-around p-2'>
-                        <p className='text-xl md:text-3xl font-serif '>{room.name}</p>
-                        <p className='text-xl md:text-3xl font-serif text-[#FDD700]'>${room.price}/Night</p>
+                        <div className='flex justify-between border-b border-yellow-500 py-2'>
+                            <p className='text-xl lg:text-3xl font-serif '>{room.name}</p>
+                            <p className='text-xl lg:text-3xl font-serif text-[#FDD700]'>${room.price}/Night</p>
+                        </div>
                         <div className="grid grid-cols-2">
-                            {room.details.amenities.map((amenities) => {
+                            {room.details.amenities.slice(0, 6).map((amenities) => {
                                 const key = amenities.toLowerCase().trim()
                                 return (
                                     <div key={amenities} className='flex items-center gap-1 items-center'>
                                         {FacilityIcon[key]}
-                                        <p className='text-xs md:text-lg items-center py-3'>{amenities}</p>
+                                        <p className='text-xs md:text-sm lg:text-lg items-center py-3'>{amenities}</p>
                                     </div>
                                 )
                             })}

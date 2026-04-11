@@ -33,7 +33,7 @@ const InformationsPage = () => {
                 </div>
             </Motion>
             <Motion>
-                <div className='grid md:grid-cols-3 place-items-center gap-2 p-8'>
+                <div className='grid md:grid-cols-3 place-items-center gap-4 md:p-3 lg:p-8'>
                     {informations.map((i, index) => (
                         <div key={index}>
                             <InformationsCard informations={i} />

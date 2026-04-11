@@ -6,9 +6,9 @@ const InformationsCard = ({ informations }) => {
 
     return (
         <div className='w-full h-auto'>
-            <div className='w-100 h-auto hidden md:flex rounded-xs border border-gray-300 shadow-lg cursor-pointer'>
+            <div className='w-60 lg:w-100 h-auto hidden md:flex rounded-xs border border-gray-300 shadow-lg cursor-pointer'>
                 <div className='flex flex-col justify-between'>
-                    <img src={informations.image} className='w-100 h-50 object-cover object-center' />
+                    <img src={informations.image} className='w-100 h-30 lg:h-50 object-cover object-center' />
                     <div className='p-4'>
                         <p className='text-xs lg:text-sm h-10 font-semibold'>{informations.title}</p>
                         <p className='text-[10px] lg:text-sm text-gray-500 py-4'>{new Date(informations.createdAt).toLocaleDateString()}</p>

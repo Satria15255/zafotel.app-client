@@ -7,16 +7,16 @@ const Hero = () => {
 
     return (
         <Motion variant="fadeIn">
-            <div className=' relative w-full h-screen flex items-center h-screen lg:h-screen bg-center bg-cover z-0' >
-                <div className='fixed top-0 -z-10'>
-                    <img className='w-full h-screen object-cover object-center bg-cover bg-center' src="/assets/herobanner.jpg" />
+            <div className='relative w-full h-auto flex items-center lg:h-screen bg-center bg-cover z-0' >
+                <div className='fixed w-full h-full top-0 -z-10'>
+                    <img className='w-full h-full object-cover object-center' src="/assets/herobanner.jpg" />
                 </div>
-                <div className='h-screen lg:h-screen flex flex-col justify-center items-center bg-black/60 w-full p-4'>
+                <div className='h-screen md:h-160 lg:h-screen flex flex-col justify-center items-center bg-black/60 w-full p-4'>
                     <Motion>
                         <p className='text-lg text-yellow-500'>Rest. Recharge. Rise.</p>
                     </Motion>
                     <Motion delay={0.2}>
-                        <p className='text-white text-7xl lg:text-7xl text-center font-serif'>Stay in Comfort, Feel the Elegance</p>
+                        <p className='text-white text-7xl md:text-6xl lg:text-7xl text-center font-serif'>Stay in Comfort, Feel the Elegance</p>
                     </Motion>
                     <Motion delay={0.4}>
                         <p className='text-center text-white text-sm md:text-sm  max-w-xs md:max-w-lg mt-3'>Zafotel is here for modern professionals and travelers who need unlimited comfort amidst the hustle and bustle of the city.</p>

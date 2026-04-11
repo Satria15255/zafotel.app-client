@@ -31,13 +31,13 @@ const superiority = [
 
 const Superiority = () => {
     return (
-        <div className='relative z-100 bg-white w-full flex flex-col items-center md:flex-row h-auto md:h-70 py-6 gap-3 px-2 border-b border-[#FFD700] space-y-4'>
-            <div className="flex flex-col md:flex-row  justify-around space-y-6 w-full">
+        <div className='relative z-100 bg-white w-full flex flex-col items-center md:flex-row h-auto lg:h-70 py-12 gap-3 px-2 border-b border-[#FFD700] space-y-4'>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  justify-around space-y-6 w-full">
                 {superiority.map((s) => (
                     <Motion>
                         <div className='w-90 md:w-auto flex flex-row md:flex-col items-center gap-3 justify-center h-40'>
                             <div className='flex flex-row md:flex-col justify-center items-center gap-3 ml-10 md:ml-0'>
-                                <span className='flex justify-center items-center text-3xl h-16 w-16 rounded-full border text-white bg-[#c69c6d]'>
+                                <span className='flex justify-center items-center text-3xl md:text-xl h-16 w-16 rounded-full border text-white bg-[#c69c6d]'>
                                     {s.icons}
                                 </span>
                                 <div className='flex flex-col md:items-center justify-center'>

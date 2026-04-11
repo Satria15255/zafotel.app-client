@@ -15,12 +15,12 @@ const RoomsCard = ({ rooms, index }) => {
                     <div className='relative w-full md:w-1/2 h-full md:h-90'>
                         <img src={rooms.image[0]} alt='standardType' className='w-full h-full object-cover ' />
                     </div>
-                    <div className='w-full md:w-1/2 text-white p-2 md:p-14 flex flex-col justify-around '>
+                    <div className='w-full md:w-1/2 text-white p-2 lg:p-14 flex flex-col justify-around '>
                         <div className='flex justify-between'>
-                            <p className='text-lg md:text-3xl font-serif'>{rooms.name}</p>
-                            <p className='text-lg  md:text-2xl font-serif text-[#FDD700]'>${rooms.price} / Night</p>
+                            <p className='text-lg lg:text-3xl font-serif'>{rooms.name}</p>
+                            <p className='text-lg lg:text-2xl font-serif text-[#FDD700]'>${rooms.price} / Night</p>
                         </div>
-                        <p className='text-[10px] text-gray-300 md:text-sm lg:text-sm py-2'>{rooms.description}</p>
+                        <p className='text-[10px] text-gray-300 md:text-xs lg:text-sm py-2'>{rooms.description}</p>
                         <div className='grid text-gray-300 gap-2 grid-cols-2 mt-4'>
                             {rooms.details.amenities.slice(0, 4).map((amenities) => {
                                 const key = amenities.toLowerCase().trim()

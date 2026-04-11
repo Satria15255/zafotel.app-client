@@ -7,7 +7,7 @@ const BookingPayment = () => {
     const [booking, setBooking] = useState([])
     const { id } = useParams()
     const [file, setFile] = useState(null)
-    const navigate = useNavigate
+    const navigate = useNavigate()
 
     const fetchBooking = async () => {
         try {
@@ -45,16 +45,15 @@ const BookingPayment = () => {
 
     return (
         <div >
-            <Motion variant="fadeIn">
-                <div className='w-full h-full bg-center bg-cover z-0' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
-                    <div className='h-80 flex flex-col justify-center items-center bg-black/20 w-full p-9'>
-                        <p className='text-4xl md:text-6xl text-white border-b border-yellow-500 pb-3'>Booking Payment</p>
-                        <p className='text-lg md:text-xl text-white'><span onClick={() => navigate("/")}>Home</span> / My Bookings / Payment</p>
-                    </div>
+            <div className='w-full h-full bg-center bg-cover z-0' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
+                <div className='h-80 flex flex-col justify-center items-center bg-black/20 w-full p-9'>
+                    <p className='text-4xl md:text-6xl text-white border-b border-yellow-500 pb-3'>Booking Payment</p>
+                    <p className='text-lg md:text-xl text-white'><span onClick={() => navigate("/")}>Home</span> / My Bookings / Booking Payment</p>
+
                 </div>
-            </Motion >
+            </div>
             <div className="w-full flex justify-center py-8">
-                <div className="flex flex-col justify-center w-full md:w-3/5 p-3 space-y-4">
+                <div className="flex flex-col justify-center w-full md:w-4/5 p-3 space-y-4">
                     <div className=" justify-between border rounded-lg p-2">
                         <img src={booking?.room?.image[0]} className="w-full h-80 object-cover object-center rounded-xl p-2 pb-2" />
                         <div className="flex justify-between border-t p-4">
@@ -85,12 +84,22 @@ const BookingPayment = () => {
                                 onChange={(e) => setFile(e.target.files[0])}
                                 className="w-full border p-2 rounded"
                             />
-                            <button
-                                type="submit"
-                                className="w-full py-2 bg-black text-white rounded"
-                            >
-                                Submit Payment
-                            </button>
+                            {booking.paymentStatus !== "Expired" ? (
+                                <button
+                                    type="submit"
+                                    className="w-full py-2 bg-black text-white rounded"
+                                >
+                                    Submit Payment
+                                </button>
+                            ) : (
+                                <button
+                                    disabled
+                                    type="submit"
+                                    className="w-full py-2 bg-gray-200 text-white rounded"
+                                >
+                                    Paymen Expired
+                                </button>
+                            )}
                         </form>
                     </div>
                 </div>

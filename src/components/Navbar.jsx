@@ -41,23 +41,23 @@ const Navbar = ({ user, onToggleModals, onLogout }) => {
             <div>
                     <p onClick={() => navigate('/')} className='text-lg md:text-xl font-serif cursor-pointer'><span className='text-xl md:text-3xl font-serif text-[#FDD700]'>Z</span>AFOTEL ⚜</p>
             </div>
-            <div className='hidden md:flex gap-4 cursor-pointer'>
+                <div className='hidden lg:flex gap-4 cursor-pointer'>
                     <p className='hover:border-b border-yellow-500 transition duration-200 pb-1 w-20 flex items-center justify-center' onClick={() => navigate('/rooms')}>Rooms</p>
                     <p className='hover:border-b border-yellow-500 transition duration-200 pb-1 w-20 flex items-center justify-center' onClick={() => navigate('/about')}>About</p>
                     <p className='hover:border-b border-yellow-500 transition duration-200 pb-1 w-20 flex items-center justify-center' onClick={() => navigate('/informations')}>News</p>
                     <p className='hover:border-b border-yellow-500 transition duration-200 pb-1 w-20 flex items-center justify-center' onClick={() => handleNavigate('/mybookings')}>Booking</p>
             </div>
             {!user ? (
-                <div className='hidden md:flex cursor-pointer'>
+                    <div className='hidden lg:flex cursor-pointer'>
                     <p onClick={() => navigate('/login')}>Sign in / </p>
                     <p onClick={() => navigate('/register')}>Sign up</p>
                 </div>
             ) : (
-                <div className='hidden md:flex cursor-pointer'>
+                        <div className='hidden lg:flex cursor-pointer'>
                     <p onClick={onToggleModals}>Hello {user.name}</p>
                 </div>
             )}
-            <div className='md:hidden'>
+                <div className='lg:hidden'>
                 <PiTextAlignJustifyBold size={20} onClick={handleSidebar} />
                 </div>
             {openSidebar && <SidebarMobile onClose={() => setOpenSidebar(null)} user={user} onLogout={onLogout} />}

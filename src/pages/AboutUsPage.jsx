@@ -59,24 +59,24 @@ const AboutUsPage = () => {
             </Motion>
             <Motion>
                 <div>
-                    <div className='flex flex-col md:flex-row justify-around items-center space-y-4 mt-8 px-3 lg:px-6'>
+                    <div className='grid grid-cols-1 md:grid-cols-3 justify-around items-center space-y-4 mt-8 px-3 lg:px-6'>
                         <div className='flex justify-center gap-2 lg:gap-6'>
-                            <img src="/assets/aboutus.jpg" alt="" className='w-40 rounded-sm h-55 md:w-45 md:h-65 lg:w-[40vh] lg:h-100 mb-12 object-cover' />
-                            <img src="/assets/aboutus2.jpg" alt="" className='w-40 rounded-sm h-55 md:w-45 md:h-65 lg:w-[40vh] lg:h-100 mt-12 object-cover' />
+                            <img src="/assets/aboutus.jpg" alt="" className='w-40  md:w-30 rounded-sm h-55 md:h-65 lg:w-[40vh] lg:h-100 mb-12 object-cover' />
+                            <img src="/assets/aboutus2.jpg" alt="" className='w-40 md:w-30 rounded-sm h-55 md:h-65 lg:w-[40vh] lg:h-100 mt-12 object-cover' />
                         </div>
-                        <div className='flex'>
-                            <p className='text-[140px] lg:text-[180px] flex items-center justify-center text-gray-300'>[  <span className='text-6xl text-black flex items-center justify-center mt-10 font-bold font-sans'>
+                        <div className='flex items-center'>
+                            <div className='text-[140px] md:text-[120px] lg:text-[180px] flex items-center justify-center text-gray-300'>[  <span className='text-6xl text-black flex items-center justify-center mt-10 md:mt-8 lg:mt-10 font-bold font-sans'>
                                 10
                                 <div className='flex flex-col justify-center '>
                                     <p className='text-xs lg:text-sm font-bold'>Years Of</p>
                                     <p className='text-xs lg:text-sm font-bold'>Excellent </p>
                                     <p className='text-xs lg:text-sm font-bold'>Service </p>
                                 </div></span>  ]
-                            </p>
+                            </div>
                         </div>
                         <div>
                             <p className='mb-6 text-yellow-500 font-semibold'>ABOUT US</p>
-                            <p className='text-3xl md:text-4xl lg:text-5xl max-w-xs font-serif'>Where Every Stay Feels Special.</p>
+                            <p className='text-3xl lg:text-5xl max-w-xs font-serif'>Where Every Stay Feels Special.</p>
                         </div>
                     </div>
                 </div>
@@ -109,16 +109,18 @@ const AboutUsPage = () => {
                 <Motion>
                     <div>
                         <p className='text-lg text-center md:text-xl text-yellow-500 px-6 font-serif mt-12'>Zafotel Faciities</p>
-                        <div className='grid grid-cols-1 md:grid-cols-3 place-items-center cursor-default my-12'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 place-items-center cursor-default'>
                             {facilities.map((f) => (
-                                <div className='w-auto lg:w-80 h-30 md:h-60 gap-7 hover:text-[#FFD700] transition duration-100 flex justify-center items-center font-semibold'>
-                                    <span className="text-6xl text-yellow-500">{f.icon}</span>
-                                    <div className='flex flex-col'>
-                                        <p className='text-sm lg:text-sm'>{f.title}</p>
-                                        <p className='text-sm lg:text-sm max-w-[180px] mt-2 font-light'>{f.description}</p>
-                                    </div>
-                                </div>
-                            ))}
+                                           <Motion delay={0.4}>
+                                               <div className='w-90 lg:w-110 h-50 gap-4 transition duration-100 flex justify-center items-center font-semibold '>
+                                                   <span className="text-4xl lg:text-6xl p-4 text-white bg-[#c69c6d] border rounded-xl">{f.icon}</span>
+                                                   <div className='flex flex-col'>
+                                                       <p className='text-lg '>{f.title}</p>
+                                                       <p className='text-sm max-w-[180px] mt-2 font-light'>{f.description}</p>
+                                                   </div>
+                                               </div>
+                                           </Motion>
+                                       ))}
                         </div>
                     </div>
                 </Motion>
