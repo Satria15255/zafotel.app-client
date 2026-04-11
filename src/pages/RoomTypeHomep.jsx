@@ -94,9 +94,9 @@ const RoomTypeHomep = () => {
                                 <div className="lg:opacity-0 group-hover:opacity-100 transition duration-300">
                                     <p className="text-white text-sm lg:text-lg font-bold"><span className='text-yellow-300'>${r.price}</span> / Night</p>
                                 </div>
-                                <div className='text-white h-20 lg:opacity-0 translate-y-10 group-hover:opacity-100 group-hover:translate-y-0  transition-all  duration-300'>
+                                <div className='text-white h-20 lg:h-40 lg:opacity-0 translate-y-10 group-hover:opacity-100 group-hover:translate-y-0  transition-all  duration-300'>
                                     <p className='text-sm font-bold '>{r.name}</p>
-                                    <p className='hidden lg:flex text-xs '>{r.description}</p>
+                                    <p className='hidden lg:flex text-xs'>{r.description}</p>
                                     <div className='flex justify-between'>
                                         <div className='flex items-center text-yellow-300 text-sm'>
                                             <PiStarFill />
