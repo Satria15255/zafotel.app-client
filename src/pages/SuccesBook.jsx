@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getBookingById } from "../Api"
 import { useNavigate, useParams } from 'react-router-dom'
+import Loader from '../components/GlobalLoader'
 
 const SuccesBook = () => {
     const { id } = useParams()
@@ -13,7 +14,7 @@ const SuccesBook = () => {
             .catch(() => navigate("/"))
     }, [id, navigate])
 
-    if (!booking) return <p>loading booking details</p>
+    if (!booking) return <><Loader /></>
 
     return (
         <div >

@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { PiStarFill, PiStarHalfFill, PiBuildingApartmentLight, PiBusLight, PiCoffeeLight, PiFlowerLotusLight, PiPersonSimpleSwimLight } from "react-icons/pi";
 import { MdAccessTime } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import Superiority from './Superiority';
 import Motion from "@/components/Motion"
+import Loader from '../components/GlobalLoader'
 
 const facilities = [
     {
@@ -45,8 +46,18 @@ const facilities = [
 ]
 
 const AboutUsPage = () => {
+    const [loading, setLoading] = useState(true)
     const navigate = useNavigate()
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false)
+        }, 1000)
+
+        return () => clearTimeout(timer)
+    }, [])
+
+    if (loading) return <Loader />
     return (
         <div className='w-full h-auto'>
             <Motion variant="fadeIn">

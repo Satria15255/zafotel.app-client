@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import BookingForm from './BookingForm';
 import FacilityIcon from './FacilityIcon';
 import Motion from "@/components/Motion";
+import Loader from '../components/GlobalLoader'
 
 const RoomDetails = () => {
     const [room, setRoom] = useState(null)
@@ -32,7 +33,7 @@ const RoomDetails = () => {
         }
     }, [room])
 
-    if (!room) return <div>Loading...</div>
+    if (!room) return <div><Loader /></div>
 
     return (
         <div className='h-full'>

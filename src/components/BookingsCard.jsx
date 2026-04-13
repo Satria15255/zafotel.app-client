@@ -88,7 +88,7 @@ const BookingsCard = ({ bookings }) => {
                                 {booking.paymentMethod !== "Cash" ? (
                                     <button onClick={() => navigate(`/mybookings/booking-payment/${booking._id}`)} className='w-full h-10 lg:h-15 text-xs lg:text-lg border border-[#D6B585] hover:bg-black hover:text-white transition duration-100 rounded-sm'>Pay Now —▸</button>
                                 ) : (
-                                    <button className='w-full h-10 lg:h-15 text-xs lg:text-lg border border-[#D6B585] hover:bg-black hover:text-white transition duration-100 rounded-sm'>Details —▸</button>
+                                        <button onClick={() => navigate(`/mybookings/booking-detail/${booking._id}`)} className='w-full h-10 lg:h-15 text-xs lg:text-lg border border-[#D6B585] hover:bg-black hover:text-white transition duration-100 rounded-sm'>Details —▸</button>
                                 )}
                             </div>
                         </div>

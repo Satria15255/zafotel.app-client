@@ -14,6 +14,7 @@ import AdminLayout from './layout/AdminLayout'
 import MainLayout from './layout/MainLayout'
 import BookingReview from './components/BookingReview'
 import BookingPayment from './pages/BookingPayment'
+import BookingDetails from './components/BookingDetails'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import RoomPages from './pages/Room'
@@ -122,6 +123,7 @@ function App() {
           <Route path='/bookings-review' element={<BookingReview />} />
           <Route path='/booking-success/:id' element={<SuccesBook />} />
           <Route path='/mybookings/booking-payment/:id' element={<BookingPayment />} />
+          <Route path='/mybookings/booking-detail/:id' element={<BookingDetails />} />
 
         </Route>
 

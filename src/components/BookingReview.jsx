@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react'
 import { getRoomById, createBookings } from '../Api';
 import { useLocation, useNavigate } from 'react-router-dom';
 import FacilityIcon from './FacilityIcon';
+import Loader from './GlobalLoader'
 
 const BookingReview = () => {
     const { state } = useLocation();
@@ -43,7 +44,7 @@ const BookingReview = () => {
         }
     }
 
-    if (!room) return <div>Loading...</div>
+    if (!room) return <div><Loader /></div>
 
     return (
         <div >
