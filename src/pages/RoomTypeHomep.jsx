@@ -54,8 +54,8 @@ const RoomTypeHomep = () => {
                         className='w-auto'>
                         <CarouselContent>
                             {rooms.map((room, index) => (
-                                <CarouselItem key={index} className='relative'>
-                                    <div className='w-full h-130 md:h-80 lg:h-auto'>
+                                <CarouselItem key={index} className='relative' onClick={() => navigate(`/rooms/${room._id}`)}>
+                                    <div className='w-full h-130 md:h-80 lg:h-auto' >
                                         <img src={room.image[0]} alt='standardType' className='w-full h-full object-cover' />
                                     </div>
                                     <div className='absolute bg-black/40 inset-0 p-2 px-6 space-y-3 flex flex-col justify-between'>

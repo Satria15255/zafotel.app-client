@@ -85,7 +85,7 @@ const BookingsCard = ({ bookings }) => {
                                 <p className='text-xs md:text-sm lg:text-lg w-20 md:w-25 flex flex-col'> Payment: <span>{booking.paymentStatus}</span></p>
                                 <p className='text-xs md:text-sm lg:text-lg w-20 md:w-25 flex flex-col'> Status: <span>{booking.bookingStatus}</span></p>
                                 <p className='text-xs md:text-sm lg:text-lg w-20 md:w-25 flex flex-col w-30'> Method: <span>{booking.paymentMethod}</span></p>
-                                {booking.paymentMethod !== "Cash" ? (
+                                {booking.paymentMethod === "Bank Transfer" && booking.paymentStatus === "Unpaid" ? (
                                     <button onClick={() => navigate(`/mybookings/booking-payment/${booking._id}`)} className='w-full h-10 lg:h-15 text-xs lg:text-lg border border-[#D6B585] hover:bg-black hover:text-white transition duration-100 rounded-sm'>Pay Now —▸</button>
                                 ) : (
                                         <button onClick={() => navigate(`/mybookings/booking-detail/${booking._id}`)} className='w-full h-10 lg:h-15 text-xs lg:text-lg border border-[#D6B585] hover:bg-black hover:text-white transition duration-100 rounded-sm'>Details —▸</button>

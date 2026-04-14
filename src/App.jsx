@@ -33,6 +33,7 @@ import AdminLoginPage from './pages/AdminLogin'
 import AccountModals from './components/AccountModals'
 import GlobalLoader from './components/GlobalLoader'
 import SuccesBook from './pages/SuccesBook'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -82,6 +83,7 @@ function App() {
 
   return (
     <div>
+      <ScrollToTop />
       <Routes>
         <Route path='/admin-login' element={<AdminLoginPage />} />
 

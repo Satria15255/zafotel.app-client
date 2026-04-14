@@ -7,23 +7,27 @@ import Loader from '../components/GlobalLoader'
 const Bookings = () => {
     const [bookings, setBookings] = useState([])
     const [loading, setLoading] = useState(true)
+    const [visible, setVisible] = useState(5)
 
     const fetchBookings = async () => {
         try {
             setLoading(true)
             const res = await getUserBookings()
-            setBookings(res.data)
             console.log(res.data)
+            setTimeout(() => {
+                setBookings([...res.data].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
+                setLoading(false)
+            }, 400)
         } catch (err) {
             console.log(err)
-        } finally {
-            setLoading(false)
         }
     }
 
     useEffect(() => {
         fetchBookings()
     }, [])
+
+    const visibleBookings = bookings.slice(0, visible)
 
     return (
         <div>
@@ -42,8 +46,13 @@ const Bookings = () => {
                         <Motion>
                             <div className='w-full flex justify-center'>
                                 <div className='p-2 md:w-4/5'>
-                                    <BookingsCard bookings={bookings} />
+                                    <BookingsCard bookings={visibleBookings} />
                                 </div>
+                            </div>
+                            <div className='w-full flex justify-center items-center mb-12'>
+                                <button onClick={() => setVisible(prev => prev + 5)} className='text-lg lg:text-xl hover:underline transition duration-200 font-serif'>
+                                    Load More
+                                </button>
                             </div>
                         </Motion>
                 </div>
