@@ -1,5 +1,7 @@
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { jwtDecode } from 'jwt-decode'
+
+// Pages
 import Hero from './pages/Hero'
 import Superiority from './pages/Superiority'
 import AboutUs from './pages/AboutUs'
@@ -8,32 +10,38 @@ import RoomTypeHomep from './pages/RoomTypeHomep'
 import HotelFacilities from './pages/HotelFacilities'
 import Testimoni from './pages/Testimoni'
 import Information from './pages/Information'
-import RoomDetail from './components/RoomDetails'
-import InformationDetail from './components/InformationDetails'
-import AdminLayout from './layout/AdminLayout'
-import MainLayout from './layout/MainLayout'
-import BookingReview from './components/BookingReview'
 import BookingPayment from './pages/BookingPayment'
-import BookingDetails from './components/BookingDetails'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import RoomPages from './pages/Room'
 import AboutUsPages from './pages/AboutUsPage'
 import InformationsPages from './pages/InformationsPage'
 import MyBookingsRoom from './pages/Bookings'
+import SuccesBook from './pages/SuccesBook'
+import AdminLoginPage from './pages/AdminLogin'
+
+// Components
+import BookingDetails from './components/BookingDetails'
+import RoomDetail from './components/RoomDetails'
+import { useEffect, useState } from 'react'
+import AdminRoute from './components/AdminRoute'
+import AccountModals from './components/AccountModals'
+import GlobalLoader from './components/GlobalLoader'
+import ScrollToTop from './components/ScrollToTop'
+import BookingReview from './components/BookingReview'
+import InformationDetail from './components/InformationDetails'
+
+// Layout
+import AdminLayout from './layout/AdminLayout'
+import MainLayout from './layout/MainLayout'
+
+// Admin Panel
 import RoomManagement from './admin/pages/RoomManagement'
 import InformManagement from './admin/pages/InformManagement'
 import BookingsManagement from './admin/pages/BookingsManagement'
 import UploadRoomForm from './admin/components/UploadRoomForm'
 import InformationsUpload from './admin/components/InformationsUpload'
 import UpdateRoomForm from './admin/components/UpdateRoomForm'
-import { useEffect, useState } from 'react'
-import AdminRoute from './components/AdminRoute'
-import AdminLoginPage from './pages/AdminLogin'
-import AccountModals from './components/AccountModals'
-import GlobalLoader from './components/GlobalLoader'
-import SuccesBook from './pages/SuccesBook'
-import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   const [user, setUser] = useState(null)
