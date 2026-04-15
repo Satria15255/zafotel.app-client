@@ -8,10 +8,10 @@ const Hero = () => {
     return (
         <Motion variant="fadeIn">
             <div className='relative w-full h-auto flex items-center lg:h-screen bg-center bg-cover z-0' >
-                <div className='fixed w-full h-full top-0 -z-10'>
+                <div className='fixed w-full h-screen top-0 -z-10'>
                     <img className='w-full h-full object-cover object-center' src="/assets/herobanner.jpg" />
                 </div>
-                <div className='h-screen md:h-160 lg:h-screen flex flex-col justify-center items-center bg-black/60 w-full p-4'>
+                <div className='h-screen md:h-160 lg:h-screen flex flex-col justify-center items-center bg-black/50 w-full p-4'>
                     <Motion>
                         <p className='text-lg text-yellow-500'>Rest. Recharge. Rise.</p>
                     </Motion>

@@ -70,18 +70,18 @@ const AboutUsPage = () => {
             </Motion>
             <Motion>
                 <div>
-                    <div className='grid grid-cols-1 md:grid-cols-3 justify-around items-center space-y-4 mt-8 px-3 lg:px-6'>
-                        <div className='flex justify-center gap-2 lg:gap-6'>
-                            <img src="/assets/aboutus.jpg" alt="" className='w-40  md:w-30 rounded-sm h-55 md:h-65 lg:w-[40vh] lg:h-100 mb-12 object-cover' />
-                            <img src="/assets/aboutus2.jpg" alt="" className='w-40 md:w-30 rounded-sm h-55 md:h-65 lg:w-[40vh] lg:h-100 mt-12 object-cover' />
+                    <div className='grid grid-cols-1 md:grid-cols-3 place-items-center justify-around items-center space-y-4 mt-8 px-3 lg:px-6'>
+                        <div className='flex justify-center gap-2 lg:gap-6 lg:pl-6'>
+                            <img src="/assets/aboutus.jpg" alt="" className='w-40  md:w-30 rounded-sm h-55 md:h-65 lg:w-60 lg:h-100 mb-12 object-cover' />
+                            <img src="/assets/aboutus2.jpg" alt="" className='w-40 md:w-30 rounded-sm h-55 md:h-65 lg:w-60 lg:h-100 mt-12 object-cover' />
                         </div>
                         <div className='flex items-center'>
-                            <div className='text-[140px] md:text-[120px] lg:text-[180px] flex items-center justify-center text-gray-300'>[  <span className='text-6xl text-black flex items-center justify-center mt-10 md:mt-8 lg:mt-10 font-bold font-sans'>
+                            <div className='text-[140px] md:text-[120px] lg:text-[250px] flex items-center justify-center text-gray-200'>[  <span className='text-8xl text-black flex items-center justify-center mt-10 md:mt-8 lg:mt-14 font-bold font-sans'>
                                 10
                                 <div className='flex flex-col justify-center '>
-                                    <p className='text-xs lg:text-sm font-bold'>Years Of</p>
-                                    <p className='text-xs lg:text-sm font-bold'>Excellent </p>
-                                    <p className='text-xs lg:text-sm font-bold'>Service </p>
+                                    <p className='text-xs lg:text-lg font-bold'>Years Of</p>
+                                    <p className='text-xs lg:text-lg font-bold'>Excellent </p>
+                                    <p className='text-xs lg:text-lg font-bold'>Service </p>
                                 </div></span>  ]
                             </div>
                         </div>

@@ -9,13 +9,13 @@ const AboutUs = () => {
         <div className='relative h-auto bg-[#FFFFF0] p-3 pb-9 md:p-6'>
             <div className='grid grid-cols-1 md:grid-cols-3 place-items-center space-y-4'>
                 <Motion>
-                <div className='flex'>
-                    <p className='text-[180px] flex mb-10 justify-center text-gray-300'>[  <span className='text-6xl text-black flex items-center mt-10 justify-center font-bold font-sans'>
-                        10
+                    <div className='flex justify-center'>
+                        <p className='text-[230px] flex mb-10 justify-center text-gray-200'>[  <span className='text-8xl text-black flex items-center mt-12 justify-center font-bold font-sans'>
+                            10
                         <div className='flex flex-col justify-center'>
-                            <p className='text-sm font-bold'>Years Of</p>
-                            <p className='text-sm font-bold'>Excellent </p>
-                            <p className='text-sm font-bold'>Service </p>
+                                <p className='text-lg font-bold'>Years+ Of</p>
+                                <p className='text-lg font-bold'>Excellent </p>
+                                <p className='text-lg font-bold'>Service </p>
                         </div></span>  ]
                     </p>
                 </div>

@@ -33,7 +33,7 @@ const Welcome = () => {
                 </Motion>
                 <Motion delay={0.8}>
                     <p className='text-sm md:text-lg mt-2 font-semibold'>4,9/5 </p>
-                    <button onClick={() => navigate("/rooms")} className='bg-yellow-300 mt-4 font-serif py-3 hover:bg-[#FFD700] bg-yellow-200 transition duration:100 text-[10px] md:text-sm px-8'>RESERVATION NOW</button>
+                    <button onClick={() => navigate("/rooms")} className='bg-[#c69c6d] mt-4 font-serif py-4 hover:bg-[#FFD700] transition duration:100 text-[10px] md:text-sm px-12'>RESERVATION NOW</button>
                 </Motion>
             </div>
         </div>
