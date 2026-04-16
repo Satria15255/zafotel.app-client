@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { register } from '../Api'
+import { toast } from 'react-toastify'
 
 const Register = () => {
     const [name, setName] = useState("")
@@ -12,10 +13,10 @@ const Register = () => {
         e.preventDefault()
         try {
             await register({ name, email, password })
-            alert("Registration Successful")
+            toast.success("Registration Successful")
             navigate("/login")
         } catch (err) {
-            alert(err.response?.data?.message || "Something went wrong")
+            toast.warning(err.response?.data?.message || "Something went wrong")
         }
     }
 

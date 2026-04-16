@@ -1,11 +1,14 @@
-import { getBookingById } from "@/Api"
+import { getBookingById, cancelBookings } from "@/Api"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import { toast } from 'react-toastify'
 import Loader from './GlobalLoader'
+import CancelModals from './CancelModals'
 
 const BookingDetails = () => {
     const [booking, setBooking] = useState([])
     const [loading, setLoading] = useState(true)
+    const [modals, setModals] = useState(null)
     const { id } = useParams()
     const navigate = useNavigate()
 
@@ -26,6 +29,29 @@ const BookingDetails = () => {
         fetchBooking()
     }, [])
 
+    const handleCancel = async (id) => {
+        const confirmCancel = window.confirm("Are u suer cancel this booking?")
+        if (!confirmCancel) return
+
+        try {
+            await cancelBookings(id)
+
+            setBooking((prev) =>
+                prev.map((b) =>
+                    b._id === id ? { ...b, status: "Canceled" } : b
+                ))
+
+            toast.success("Booking Canceled")
+            navigate("/mybookings")
+        } catch (error) {
+            toast.error(err.response?.data?.message || "Failed Cancel Booking")
+        }
+    }
+
+    const handleModals = async () => {
+        setModals(!modals)
+    }
+
     return (
         <div>
             {loading ? (
@@ -36,8 +62,9 @@ const BookingDetails = () => {
                     <div className='w-full h-full bg-center bg-cover z-0' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
                         <div className='h-80 flex flex-col justify-center items-center bg-black/20 w-full p-9'>
                             <p className='text-4xl md:text-6xl text-white border-b border-yellow-500 pb-3'>Booking Details</p>
-                            <p className='text-lg md:text-xl text-white'><span onClick={() => navigate("/")}>Home</span> / My Bookings / Booking Details</p>
-
+                                <p className='text-lg md:text-xl text-white'>
+                                    <span onClick={() => navigate("/")}>Home</span>
+                                    <span onClick={() => navigate("/mybookings")}>/ My Booking</span> / Booking Details</p>
                         </div>
                     </div>
                     <div className="w-full flex justify-center py-8">
@@ -73,8 +100,23 @@ const BookingDetails = () => {
                                     <li>Check Out times <strong> {new Date(booking.checkOutDate).toLocaleDateString()} before 12.00 A.M</strong></li>
                                 </ol>
                             </div>
+                                {booking.bookingStatus === "Pending" && booking.bookingStatus === "Confirmed" ? (
+                                    <button
+                                        onClick={handleModals}
+                                        className="w-full py-2 bg-[#c69c6d] text-white rounded"
+                                    >
+                                        Cancel Booking
+                                    </button>
+                                ) : (
+                                    <button
+                                        className="w-full py-2 bg-gray-200 text-white rounded"
+                                    >
+                                        Cancel Booking
+                                    </button>
+                                )}
                         </div>
                     </div>
+                        {modals && <CancelModals onClose={() => setModals(null)} handleCancel={handleCancel} bookingId={booking._id} />}
                 </div>
             )}
         </div >

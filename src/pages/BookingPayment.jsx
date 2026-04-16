@@ -1,12 +1,16 @@
 import { useNavigate, useParams } from "react-router-dom"
-import { getBookingById, createPayment } from "../Api"
+import { getBookingById, createPayment, cancelBookings } from "../Api"
 import { useEffect, useState } from "react"
+import { toast } from 'react-toastify'
 import Loader from '../components/GlobalLoader'
+import CancelModals from '../components/CancelModals'
 import Motion from "@/components/Motion"
 
 const BookingPayment = () => {
     const [booking, setBooking] = useState([])
     const [loading, setLoading] = useState(true)
+    const [modals, setModals] = useState(null)
+
     const { id } = useParams()
     const [file, setFile] = useState(null)
     const navigate = useNavigate()
@@ -41,11 +45,34 @@ const BookingPayment = () => {
         try {
             await createPayment(id, formData)
             navigate("/mybookings")
-            alert("Payment successfully,please wait confirmed payment")
+            toast.success("Payment successfully,please wait confirmed payment")
         } catch (error) {
             console.log(error)
-            alert("payment failed")
+            toast.warning("payment failed")
         }
+    }
+
+    const handleCancel = async (id) => {
+        const confirmCancel = window.confirm("Are u suer cancel this booking?")
+        if (!confirmCancel) return
+
+        try {
+            await cancelBookings(id)
+
+            setBooking((prev) =>
+                prev.map((b) =>
+                    b._id === id ? { ...b, status: "Canceled" } : b
+                ))
+
+            toast.success("Booking Canceled")
+            navigate("/mybookings")
+        } catch (error) {
+            toast.error(err.response?.data?.message || "Failed Cancel Booking")
+        }
+    }
+
+    const handleModals = async () => {
+        setModals(!modals)
     }
 
     return (
@@ -53,13 +80,11 @@ const BookingPayment = () => {
             {loading ? (
                 <Loader />
             ) : (
-
                     <div >
                         <div className='w-full h-full bg-center bg-cover z-0' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
                             <div className='h-80 flex flex-col justify-center items-center bg-black/20 w-full p-9'>
                                 <p className='text-4xl md:text-6xl text-white border-b border-yellow-500 pb-3'>Booking Payment</p>
                                 <p className='text-lg md:text-xl text-white'><span onClick={() => navigate("/")}>Home</span> / My Bookings / Booking Payment</p>
-
                             </div>
                         </div>
                         <div className="w-full flex justify-center py-8">
@@ -97,7 +122,7 @@ const BookingPayment = () => {
                                         {booking.paymentStatus !== "Expired" ? (
                                             <button
                                                 type="submit"
-                                                className="w-full py-2 bg-black text-white rounded"
+                                                className="w-full py-2 bg-[#c69c6d] text-white rounded"
                                             >
                                                 Submit Payment
                                             </button>
@@ -110,9 +135,27 @@ const BookingPayment = () => {
                                             </button>
                                         )}
                                     </form>
+                                    <div className="mt-2">
+                                        {booking.paymentStatus === "Expired" ? (
+                                            <button
+                                                className="w-full py-2 bg-gray-200 text-white rounded"
+                                            >
+                                                Cancel Booking
+                                            </button>
+                                        ) : (
+                                            <button
+                                                onClick={handleModals}
+                                                className="w-full py-2 bg-[#c69c6d] text-white rounded"
+                                            >
+                                                Cancel Booking
+                                            </button>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        {modals && <CancelModals onClose={() => setModals(null)} handleCancel={handleCancel} bookingId={booking._id} />}
+
                 </div>
             )}
         </div >

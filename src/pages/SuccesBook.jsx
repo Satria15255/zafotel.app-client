@@ -18,7 +18,7 @@ const SuccesBook = () => {
 
     return (
         <div >
-            <div className='w-full h-60 md:h-full bg-cover bg-center' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
+            <div className='w-full h-80 md:h-full bg-cover bg-center' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
                 <div className='bg-black/50 w-full h-80 flex flex-col justify-center items-center'>
                     <p className='text-xl md:text-6xl lg:text-4xl font-serif text-white border-b border-yellow-500 pb-2'>Booking Maked</p>
                     <p className='text-white text-xs md:text-xl lg:text-sm'>Home / {booking.room.name}</p>

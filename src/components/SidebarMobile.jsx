@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { PiUserCircleDuotone } from "react-icons/pi";
-
+import { toast } from 'react-toastify'
 
 const SidebarMobile = ({ user, onClose, onLogout }) => {
     const navigate = useNavigate()
@@ -15,7 +15,7 @@ const SidebarMobile = ({ user, onClose, onLogout }) => {
         localStorage.removeItem('token')
         onLogout()
         navigate('/')
-        alert("Log Out success")
+        toast.success("Log Out success")
     }
     return (
         <div onClick={onClose} className='h-screen bg-black/50 w-full inset-0 z-100 fixed right-0 transition duration-100 ease-in-out'>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import { getRoomById, createBookings } from '../Api';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify'
 import FacilityIcon from './FacilityIcon';
 import Loader from './GlobalLoader'
 
@@ -40,7 +41,7 @@ const BookingReview = () => {
 
             navigate(`/booking-success/${res.data.booking._id}`)
         } catch (error) {
-            alert(err.response?.data?.message || "Booking Failed")
+            toast.warning(err.response?.data?.message || "Booking Failed")
         }
     }
 
@@ -48,12 +49,13 @@ const BookingReview = () => {
 
     return (
         <div >
-            <div className='w-full h-60 md:h-full bg-cover bg-center' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
+            <div className='w-full h-80 md:h-full bg-cover bg-center' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
                 <div className='bg-black/50 w-full h-80 flex flex-col justify-center items-center'>
                     <p className='text-xl md:text-6xl lg:text-4xl font-serif text-white border-b border-yellow-500 pb-2'>Booking Details</p>
                     <p className='text-white text-xs md:text-xl lg:text-sm'>Home / {room.name}</p>
                 </div>
             </div>
+
             <div className='h-auto w-full p-4 md:p-10'>
                 <div className='grid grid-cols-1 md:grid-cols-2 border rounded-xl'>
                     <div className='w-full h-60'>

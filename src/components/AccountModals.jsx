@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PiUserCircleDuotone } from "react-icons/pi";
+import { toast } from 'react-toastify'
 
 
 const AccountModals = ({ user, closeModals, onLogout }) => {
@@ -10,7 +11,7 @@ const AccountModals = ({ user, closeModals, onLogout }) => {
         localStorage.removeItem('token')
         onLogout()
         navigate('/')
-        alert("Log Out success")
+        toast.success("Log Out success")
     }
     console.log(user)
     return (

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { login } from "../Api"
+import { toast } from "react-toastify"
 
 const Login = ({ setUser }) => {
     const [email, setEmail] = useState("")
@@ -13,10 +14,10 @@ const Login = ({ setUser }) => {
             localStorage.setItem("token", res.data.token)
             localStorage.setItem("user", JSON.stringify(res.data.user))
             setUser(res.data.user)
-            alert("Login Successful")
+            toast.success("Login Successful")
             navigate("/")
         } catch (err) {
-            alert(err.response?.data?.message || "Something went wrong")
+            toast.warning(err.response?.data?.message || "Something went wrong")
             console.log(err)
         }
     }

@@ -1,5 +1,7 @@
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { jwtDecode } from 'jwt-decode'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Pages
 import Hero from './pages/Hero'
@@ -147,6 +149,18 @@ function App() {
           setUser(null);
           setAccountModal(false);
         }} />}
+
+      <ToastContainer position="top-center"
+        autoClose={2000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   )
 }
