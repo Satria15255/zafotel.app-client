@@ -47,7 +47,7 @@ const RoomDetails = () => {
                 </div>
             </Motion>
 
-            <div className=''>
+            <div>
                 {/* Room Image */}
                 <Motion delay={0.4} className='flex justify-center'>
                     <div className='flex w-full h-80 md:w-300 md:h-100 justify-center py-7 px-2'>
@@ -59,7 +59,9 @@ const RoomDetails = () => {
                     </div>
                 </Motion>
 
-                <div className='flex flex-col md:flex-row gap-5 px-2 md:px-21 pb-10'>
+                <div className='flex justify-center'>
+
+                    <div className='w-full md:w-340 flex flex-col md:flex-row gap-5 px-2 md:px-21 pb-10'>
                     {/* Room Section */}
                     <div className='flex flex-col w-full md:w-3/5'>
                         {/* Room Information */}
@@ -109,6 +111,7 @@ const RoomDetails = () => {
                             <BookingForm room={room} />
                         </Motion>
                     </div>
+                </div>
                 </div>
             </div>
         </div>

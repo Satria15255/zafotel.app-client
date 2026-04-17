@@ -58,7 +58,7 @@ const BookingReview = () => {
 
             <div className='h-auto w-full p-4 md:p-10'>
                 <div className='grid grid-cols-1 md:grid-cols-2 border rounded-xl'>
-                    <div className='w-full h-60'>
+                    <div className='w-full h-60 lg:h-80 p-2'>
                         <img src={room.image[0]} alt={room.name} className='w-full h-full rounded-lg md:rounded-l-xl object-cover' />
                     </div>
                     <div className='flex flex-col justify-around p-2'>

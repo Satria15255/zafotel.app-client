@@ -53,9 +53,6 @@ const BookingPayment = () => {
     }
 
     const handleCancel = async (id) => {
-        const confirmCancel = window.confirm("Are u suer cancel this booking?")
-        if (!confirmCancel) return
-
         try {
             await cancelBookings(id)
 
@@ -66,8 +63,9 @@ const BookingPayment = () => {
 
             toast.success("Booking Canceled")
             navigate("/mybookings")
-        } catch (error) {
+        } catch (err) {
             toast.error(err.response?.data?.message || "Failed Cancel Booking")
+            console.log(err)
         }
     }
 
@@ -84,7 +82,8 @@ const BookingPayment = () => {
                         <div className='w-full h-full bg-center bg-cover z-0' style={{ backgroundImage: 'url(/assets/herobanner.jpg)' }}>
                             <div className='h-80 flex flex-col justify-center items-center bg-black/20 w-full p-9'>
                                 <p className='text-4xl md:text-6xl text-white border-b border-yellow-500 pb-3'>Booking Payment</p>
-                                <p className='text-lg md:text-xl text-white'><span onClick={() => navigate("/")}>Home</span> / My Bookings / Booking Payment</p>
+                                <p className='text-lg md:text-xl text-white'><span onClick={() => navigate("/")}>Home</span>
+                                    <span onClick={() => navigate("/mybookings")}>/ My Bookings</span>  / Booking Payment</p>
                             </div>
                         </div>
                         <div className="w-full flex justify-center py-8">
@@ -122,7 +121,7 @@ const BookingPayment = () => {
                                         {booking.paymentStatus !== "Expired" ? (
                                             <button
                                                 type="submit"
-                                                className="w-full py-2 bg-[#c69c6d] text-white rounded"
+                                                className="w-full py-2 bg-[#c69c6d] hover:bg-gray-800 hover:text-white transition duration-100 text-white rounded"
                                             >
                                                 Submit Payment
                                             </button>
@@ -145,7 +144,7 @@ const BookingPayment = () => {
                                         ) : (
                                             <button
                                                 onClick={handleModals}
-                                                className="w-full py-2 bg-[#c69c6d] text-white rounded"
+                                                    className="w-full py-2 bg-[#c69c6d] hover:bg-gray-800 hover:text-white transition duration-100 text-white rounded"
                                             >
                                                 Cancel Booking
                                             </button>
@@ -155,7 +154,6 @@ const BookingPayment = () => {
                             </div>
                         </div>
                         {modals && <CancelModals onClose={() => setModals(null)} handleCancel={handleCancel} bookingId={booking._id} />}
-
                 </div>
             )}
         </div >
