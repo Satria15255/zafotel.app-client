@@ -1,35 +1,60 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import Motion from '@/components/Motion'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Motion from "@/components/Motion";
+import { PiStarFill, PiStarHalfFill } from "react-icons/pi";
 
 const Hero = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     return (
         <Motion variant="fadeIn">
-            <div className='relative w-full h-auto flex items-center lg:h-screen bg-center bg-cover z-0' >
-                <div className='fixed w-full h-screen top-0 -z-10'>
-                    <img className='w-full h-full object-cover object-center' src="/assets/herobanner.jpg" />
+            <section className="relative w-full h-auto flex items-center lg:h-screen bg-center bg-cover z-0">
+                {/*Hero Image Background*/}
+                <div className="fixed w-full h-screen top-0 -z-10">
+                    <img
+                        className="w-full h-full object-cover object-center"
+                        src="/assets/herobanner.jpg"
+                        alt="therina luxury"
+                    />
                 </div>
-                <div className='h-screen md:h-160 lg:h-screen flex flex-col justify-center items-center bg-black/50 w-full p-4'>
+
+                {/*Hero Content*/}
+                <header className="h-screen md:h-160 lg:h-screen flex flex-col justify-center items-center bg-black/50 w-full p-4">
                     <Motion>
-                        <p className='text-lg text-yellow-500'>Rest. Recharge. Rise.</p>
+                        <div className="flex space-x-3 text-lg text-yellow-600">
+                            <PiStarFill />
+                            <PiStarFill />
+                            <PiStarFill />
+                            <PiStarFill />
+                            <PiStarFill />
+                        </div>
                     </Motion>
                     <Motion delay={0.2}>
-                        <p className='text-white text-7xl md:text-6xl lg:text-7xl text-center font-serif'>Stay in Comfort, Feel the Elegance</p>
+                        <h1 className="text-white text-7xl md:text-6xl lg:text-7xl text-center font-ysabeau">
+                            THERINA, FEEL THE ELEGANCE
+                        </h1>
                     </Motion>
                     <Motion delay={0.4}>
-                        <p className='text-center text-white text-sm md:text-sm  max-w-xs md:max-w-lg mt-3'>Zafotel is here for modern professionals and travelers who need unlimited comfort amidst the hustle and bustle of the city.</p>
+                        <p className="text-center text-white text-sm md:text-sm  max-w-xs md:max-w-lg mt-3">
+                            Therina is here for modern professionals and
+                            travelers who need unlimited comfort amidst the
+                            hustle and bustle of the city.
+                        </p>
                     </Motion>
                     <Motion delay={0.6}>
-                <div className='mt-3'>
-                    <button onClick={() => navigate("/rooms")} className='rounded-full text-white px-12 py-2 border bg-transparant hover:bg-yellow-500 transition duration-100 text-sm md:text-sm'>BOOKING NOW</button>
-                </div>
+                        <div className="mt-3">
+                            <button
+                                onClick={() => navigate("/rooms")}
+                                className="rounded-full text-white px-12 py-2 border bg-transparant hover:bg-[#0C0C0C] hover:border-[#0C0C0C] transition duration-300 text-sm md:text-sm"
+                            >
+                                BOOKING NOW
+                            </button>
+                        </div>
                     </Motion>
-                </div>
-        </div>
+                </header>
+            </section>
         </Motion>
-    )
-}
+    );
+};
 
-export default Hero
+export default Hero;
