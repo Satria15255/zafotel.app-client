@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { validateCheckInDate } from "../utils/bookingValidation";
+import {
+    validateCheckInDate,
+    validateCheckOutDate,
+    getCheckInDateLimits,
+    formatDate,
+} from "../utils/bookingValidation";
 
 const BookingForm = ({ room }) => {
     const navigate = useNavigate();
@@ -10,7 +15,46 @@ const BookingForm = ({ room }) => {
     const [checkInDate, setCheckInDate] = useState("");
     const [checkInError, setCheckInError] = useState("");
     const [checkOutDate, setCheckOutDate] = useState("");
+    const [checkOutError, setCheckOutError] = useState("");
     const [unitsBooked, setUnitsBooked] = useState(1);
+    const { minCheckInDate, maxCheckInDate } = getCheckInDateLimits();
+    const minCheckIn = formatDate(minCheckInDate);
+    const maxCheckIn = formatDate(maxCheckInDate);
+
+    const handleCheckInChange = (e) => {
+        const value = e.target.value;
+
+        setCheckInDate(value);
+
+        setCheckInError(validateCheckInDate(value));
+
+        if (checkOutDate) {
+            const checkOutError = validateCheckOutDate(value, checkOutDate);
+            setCheckOutError(checkOutError);
+
+            if (checkOutError) {
+                setCheckOutDate("");
+            }
+        }
+    };
+
+    const handleCheckOutChange = (e) => {
+        const value = e.target.value;
+
+        setCheckOutDate(value);
+
+        const error = validateCheckOutDate(checkInDate, checkInDate);
+        setCheckOutError(error);
+    };
+
+    const minCheckOut = checkInDate
+        ? formatDate(
+              new Date(
+                  new Date(`${checkInDate}T00:00:00`).getTime() +
+                      24 * 60 * 60 * 1000,
+              ),
+          )
+        : "";
 
     const handleSubmit = () => {
         navigate("/bookings-review", {
@@ -31,18 +75,6 @@ const BookingForm = ({ room }) => {
     const totalNights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
 
     const totalPrice = room.price * totalNights * unitsBooked;
-
-    const handleCheckInChange = (e) => {
-        const value = e.target.value;
-
-        setCheckInDate(value);
-
-        const error = validateCheckInDate(value);
-        setCheckInError(error);
-    };
-
-    // Date Validation
-    const now = new Date();
 
     return (
         <div className="border rounded-xl w-full h-auto p-5">
@@ -72,6 +104,8 @@ const BookingForm = ({ room }) => {
                         value={checkInDate}
                         onChange={handleCheckInChange}
                         type="date"
+                        min={minCheckIn}
+                        max={maxCheckIn}
                         className="border h-10 rounded-lg px-3"
                     />
                     {checkInError && (
@@ -81,13 +115,19 @@ const BookingForm = ({ room }) => {
                     )}
                 </div>
                 <div className="flex flex-col gap-3">
-                    <label>Chek-out Date</label>
+                    <label>Check-out Date</label>
                     <input
                         value={checkOutDate}
                         onChange={(e) => setCheckOutDate(e.target.value)}
                         type="date"
+                        min={minCheckOut}
                         className="border h-10 rounded-lg px-3"
                     />
+                    {checkOutError && (
+                        <p className="mt-2 text-sm text-red-500">
+                            {checkOutError}
+                        </p>
+                    )}
                 </div>
                 <div className="flex flex-col gap-3">
                     <label>Units Booked</label>
