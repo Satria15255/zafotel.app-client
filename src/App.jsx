@@ -1,54 +1,54 @@
-import { Route, Routes, useNavigate } from 'react-router-dom'
-import { jwtDecode } from 'jwt-decode'
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Route, Routes, useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Pages
-import Hero from './pages/Hero'
-import Superiority from './pages/Superiority'
-import AboutUs from './pages/AboutUs'
-import Welcome from './pages/Welcome'
-import RoomTypeHomep from './pages/RoomTypeHomep'
-import HotelFacilities from './pages/HotelFacilities'
-import Testimoni from './pages/Testimoni'
-import Information from './pages/Information'
-import BookingPayment from './pages/BookingPayment'
-import Register from './pages/Register'
-import Login from './pages/Login'
-import RoomPages from './pages/Room'
-import AboutUsPages from './pages/AboutUsPage'
-import InformationsPages from './pages/InformationsPage'
-import MyBookingsRoom from './pages/Bookings'
-import SuccesBook from './pages/SuccesBook'
-import AdminLoginPage from './pages/AdminLogin'
+import Hero from "./pages/Hero";
+import Superiority from "./pages/Superiority";
+import AboutUs from "./pages/AboutUs";
+import Welcome from "./pages/Welcome";
+import RoomTypeHomep from "./pages/RoomTypeHomep";
+import HotelFacilities from "./pages/HotelFacilities";
+import Testimoni from "./pages/Testimoni";
+import Information from "./pages/Information";
+import BookingPayment from "./pages/BookingPayment";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import RoomPages from "./pages/Room";
+import AboutUsPages from "./pages/AboutUsPage";
+import InformationsPages from "./pages/InformationsPage";
+import MyBookingsRoom from "./pages/Bookings";
+import SuccesBook from "./pages/SuccesBook";
+import AdminLoginPage from "./pages/AdminLogin";
 
 // Components
-import BookingDetails from './components/BookingDetails'
-import RoomDetail from './components/RoomDetails'
-import { useEffect, useState } from 'react'
-import AdminRoute from './components/AdminRoute'
-import AccountModals from './components/AccountModals'
-import GlobalLoader from './components/GlobalLoader'
-import ScrollToTop from './components/ScrollToTop'
-import BookingReview from './components/BookingReview'
-import InformationDetail from './components/InformationDetails'
+import BookingDetails from "./components/BookingDetails";
+import RoomDetail from "./components/RoomDetails";
+import { useEffect, useState } from "react";
+import AdminRoute from "./components/AdminRoute";
+import AccountModals from "./components/AccountModals";
+import GlobalLoader from "./components/GlobalLoader";
+import ScrollToTop from "./components/ScrollToTop";
+import BookingReview from "./components/BookingReview";
+import InformationDetail from "./components/InformationDetails";
 
 // Layout
-import AdminLayout from './layout/AdminLayout'
-import MainLayout from './layout/MainLayout'
+import AdminLayout from "./layout/AdminLayout";
+import MainLayout from "./layout/MainLayout";
 
 // Admin Panel
-import RoomManagement from './admin/pages/RoomManagement'
-import InformManagement from './admin/pages/InformManagement'
-import BookingsManagement from './admin/pages/BookingsManagement'
-import UploadRoomForm from './admin/components/UploadRoomForm'
-import InformationsUpload from './admin/components/InformationsUpload'
-import UpdateRoomForm from './admin/components/UpdateRoomForm'
+import RoomManagement from "./admin/pages/RoomManagement";
+import InformManagement from "./admin/pages/InformManagement";
+import BookingsManagement from "./admin/pages/BookingsManagement";
+import UploadRoomForm from "./admin/components/UploadRoomForm";
+import InformationsUpload from "./admin/components/InformationsUpload";
+import UpdateRoomForm from "./admin/components/UpdateRoomForm";
 
 function App() {
-  const [user, setUser] = useState(null)
-  const [accountsModal, setAccountModal] = useState(false)
-  const [loading, setLoading] = useState(true)
+  const [user, setUser] = useState(null);
+  const [accountsModal, setAccountModal] = useState(false);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const clearExpiredSession = () => {
@@ -83,74 +83,104 @@ function App() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false)
-    }, 1500)
+      setLoading(false);
+    }, 1500);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
-  if (loading) return <GlobalLoader />
+  if (loading) return <GlobalLoader />;
 
   return (
     <div>
       <ScrollToTop />
       <Routes>
-        <Route path='/admin-login' element={<AdminLoginPage />} />
+        <Route path="/admin-login" element={<AdminLoginPage />} />
 
-        <Route path='/admin' element={
-          <AdminRoute>
-            <AdminLayout />
-          </AdminRoute>
-        }>
-          <Route path='/admin/rooms' element={<RoomManagement />} />
-          <Route path='/admin/rooms/upload' element={<UploadRoomForm />} />
-          <Route path='/admin/rooms/updateroom' element={<UpdateRoomForm />} />
-          <Route path='/admin/informations' element={<InformManagement />} />
-          <Route path='/admin/informations/upload' element={<InformationsUpload />} />
-          <Route path='/admin/bookinghistory' element={<BookingsManagement />} />
+        <Route
+          path="/admin"
+          element={
+            <AdminRoute>
+              <AdminLayout />
+            </AdminRoute>
+          }
+        >
+          <Route path="/admin/rooms" element={<RoomManagement />} />
+          <Route path="/admin/rooms/upload" element={<UploadRoomForm />} />
+          <Route path="/admin/rooms/updateroom" element={<UpdateRoomForm />} />
+          <Route path="/admin/informations" element={<InformManagement />} />
+          <Route
+            path="/admin/informations/upload"
+            element={<InformationsUpload />}
+          />
+          <Route
+            path="/admin/bookinghistory"
+            element={<BookingsManagement />}
+          />
         </Route>
 
-        <Route element={<MainLayout user={user} onToggleModals={() => setAccountModal(!accountsModal)} onLogout={() => {
-          localStorage.clear()
-          setUser(null)
-        }} />} >
-        <Route path='/' element={
-            <div>
-              <Hero />
-              <Superiority />
-              <AboutUs />
-            <Welcome />
-            <RoomTypeHomep />
-            <HotelFacilities />
-            <Testimoni />
-              <Information />
-          </div>
-        } />
-          <Route path='/rooms' element={<RoomPages />} />
-          <Route path='/rooms/:id' element={<RoomDetail />} />
-          <Route path='/about' element={<AboutUsPages />} />
-          <Route path='/informations' element={<InformationsPages />} />
-          <Route path='/informations/:id' element={<InformationDetail />} />
-          <Route path='/mybookings' element={<MyBookingsRoom />} />
-          <Route path='/bookings-review' element={<BookingReview />} />
-          <Route path='/booking-success/:id' element={<SuccesBook />} />
-          <Route path='/mybookings/booking-payment/:id' element={<BookingPayment />} />
-          <Route path='/mybookings/booking-detail/:id' element={<BookingDetails />} />
-
+        <Route
+          element={
+            <MainLayout
+              user={user}
+              onToggleModals={() => setAccountModal(!accountsModal)}
+              onLogout={() => {
+                localStorage.clear();
+                setUser(null);
+              }}
+            />
+          }
+        >
+          <Route
+            path="/"
+            element={
+              <div>
+                <Hero />
+                <Superiority />
+                <Welcome />
+                <RoomTypeHomep />
+                <HotelFacilities />
+                <Testimoni />
+                <Information />
+              </div>
+            }
+          />
+          <Route path="/rooms" element={<RoomPages />} />
+          <Route path="/rooms/:id" element={<RoomDetail />} />
+          <Route path="/about" element={<AboutUsPages />} />
+          <Route path="/informations" element={<InformationsPages />} />
+          <Route path="/informations/:id" element={<InformationDetail />} />
+          <Route path="/mybookings" element={<MyBookingsRoom />} />
+          <Route path="/bookings-review" element={<BookingReview />} />
+          <Route path="/booking-success/:id" element={<SuccesBook />} />
+          <Route
+            path="/mybookings/booking-payment/:id"
+            element={<BookingPayment />}
+          />
+          <Route
+            path="/mybookings/booking-detail/:id"
+            element={<BookingDetails />}
+          />
         </Route>
 
-        <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<Login setUser={setUser} />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
       </Routes>
 
-      {accountsModal && <AccountModals user={user} closeModals={() => setAccountModal(false)}
-        onLogout={() => {
-          localStorage.clear();
-          setUser(null);
-          setAccountModal(false);
-        }} />}
+      {accountsModal && (
+        <AccountModals
+          user={user}
+          closeModals={() => setAccountModal(false)}
+          onLogout={() => {
+            localStorage.clear();
+            setUser(null);
+            setAccountModal(false);
+          }}
+        />
+      )}
 
-      <ToastContainer position="top-center"
+      <ToastContainer
+        position="top-center"
         autoClose={2000}
         hideProgressBar
         newestOnTop={false}
@@ -162,7 +192,7 @@ function App() {
         theme="light"
       />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
