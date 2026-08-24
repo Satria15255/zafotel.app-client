@@ -41,7 +41,7 @@ const Navbar = ({ user, onToggleModals, onLogout }) => {
     return (
         <Motion variant="slideDown" type="load">
             <div
-                className={`flex justify-between items-center px-3 md:px-8 h-15 md:h-20 z-50 inset-0 fixed top-0 transition-all duration-500 bg-transparant ease-in-out ${scrolled ? "bg-black text-white shadow-md" : "bg-transparant text-white"}`}
+                className={`flex justify-between items-center px-3 md:px-8 h-15 md:h-20 z-50 inset-0 fixed top-0 transition duration-300 bg-transparant ease-in-out ${scrolled ? "bg-black text-white shadow-md" : "bg-transparant text-white"}`}
             >
                 <div>
                     <p
@@ -60,31 +60,31 @@ const Navbar = ({ user, onToggleModals, onLogout }) => {
                 </div>
                 <div className="hidden lg:flex gap-6 cursor-pointer">
                     <p
-                        className="hover:border-b border-yellow-500 transition duration-200 pb-1 w-auto flex items-center justify-center"
+                        className="hover:border-b border-yellow-500 transition duration-300 pb-1 w-auto flex items-center justify-center"
                         onClick={() => navigate("/")}
                     >
                         HOME
                     </p>
                     <p
-                        className="hover:border-b border-yellow-500 transition duration-200 pb-1 w-auto flex items-center justify-center"
+                        className="hover:border-b border-yellow-500 transition duration-300 pb-1 w-auto flex items-center justify-center"
                         onClick={() => navigate("/rooms")}
                     >
                         ROOMS & SUITES
                     </p>
                     <p
-                        className="hover:border-b border-yellow-500 transition duration-200 pb-1 w-auto flex items-center justify-center"
+                        className="hover:border-b border-yellow-500 transition duration-300 pb-1 w-auto flex items-center justify-center"
                         onClick={() => navigate("/about")}
                     >
                         EXPLORE THERINA
                     </p>
                     <p
-                        className="hover:border-b border-yellow-500 transition duration-200 pb-1 w-auto flex items-center justify-center"
+                        className="hover:border-b border-yellow-500 transition duration-300 pb-1 w-auto flex items-center justify-center"
                         onClick={() => navigate("/informations")}
                     >
                         NEWS & OFFERS
                     </p>
                     <p
-                        className="hover:border-b border-yellow-500 transition duration-200 pb-1 w-auto flex items-center justify-center"
+                        className="hover:border-b border-yellow-500 transition duration-300 pb-1 w-auto flex items-center justify-center"
                         onClick={() => handleNavigate("/mybookings")}
                     >
                         BOOKING ROOM

@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { validateCheckInDate } from "../utils/bookingValidation";
 
 const BookingForm = ({ room }) => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
-    const [userName, setUserName] = useState("")
-    const [phoneNumber, setPhoneNumber] = useState("")
-    const [checkInDate, setCheckInDate] = useState("")
-    const [checkOutDate, setCheckOutDate] = useState("")
-    const [unitsBooked, setUnitsBooked] = useState(1)
+    const [userName, setUserName] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [checkInDate, setCheckInDate] = useState("");
+    const [checkInError, setCheckInError] = useState("");
+    const [checkOutDate, setCheckOutDate] = useState("");
+    const [unitsBooked, setUnitsBooked] = useState(1);
 
     const handleSubmit = () => {
         navigate("/bookings-review", {
@@ -19,49 +21,96 @@ const BookingForm = ({ room }) => {
                 checkInDate,
                 checkOutDate,
                 unitsBooked,
-            }
-        })
-    }
+            },
+        });
+    };
 
-    const checkin = new Date(checkInDate)
-    const checkout = new Date(checkOutDate)
+    const checkin = new Date(checkInDate);
+    const checkout = new Date(checkOutDate);
 
-    const totalNights = Math.ceil(
-        (checkout - checkin) / (1000 * 60 * 60 * 24)
-    )
+    const totalNights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
 
-    const totalPrice = room.price * totalNights * unitsBooked
+    const totalPrice = room.price * totalNights * unitsBooked;
+
+    const handleCheckInChange = (e) => {
+        const value = e.target.value;
+
+        setCheckInDate(value);
+
+        const error = validateCheckInDate(value);
+        setCheckInError(error);
+    };
+
+    // Date Validation
+    const now = new Date();
 
     return (
-        <div className='border rounded-xl w-full h-auto p-5'>
-            <p className='font-serif text-lg'>Booking Form</p>
-            <div className='space-y-6 mt-5'>
-                <div className='flex flex-col gap-3'>
+        <div className="border rounded-xl w-full h-auto p-5">
+            <p className="font-serif text-lg">Booking Form</p>
+            <div className="space-y-6 mt-5">
+                <div className="flex flex-col gap-3">
                     <label>Your Name</label>
-                    <input value={userName} onChange={(e) => setUserName(e.target.value)} className='w-full border h-10 rounded-lg px-3' placeholder='Ex. Jerdn Onacrh' />
+                    <input
+                        value={userName}
+                        onChange={(e) => setUserName(e.target.value)}
+                        className="w-full border h-10 rounded-lg px-3"
+                        placeholder="Ex. Jerdn Onacrh"
+                    />
                 </div>
-                <div className='flex flex-col gap-3'>
+                <div className="flex flex-col gap-3">
                     <label>Phone Number</label>
-                    <input value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className='w-full border h-10 rounded-lg px-3' placeholder='Ex. +61 890 2375 3384' />
+                    <input
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                        className="w-full border h-10 rounded-lg px-3"
+                        placeholder="Ex. +61 890 2375 3384"
+                    />
                 </div>
-                <div className='flex flex-col gap-3'>
+                <div className="flex flex-col gap-3">
                     <label>Chek-in Date</label>
-                    <input value={checkInDate} onChange={(e) => setCheckInDate(e.target.value)} type='date' className='border h-10 rounded-lg px-3' />
+                    <input
+                        value={checkInDate}
+                        onChange={handleCheckInChange}
+                        type="date"
+                        className="border h-10 rounded-lg px-3"
+                    />
+                    {checkInError && (
+                        <p className="mt-2 text-sm text-red-500">
+                            {checkInError}
+                        </p>
+                    )}
                 </div>
-                <div className='flex flex-col gap-3'>
+                <div className="flex flex-col gap-3">
                     <label>Chek-out Date</label>
-                    <input value={checkOutDate} onChange={(e) => setCheckOutDate(e.target.value)} type='date' className='border h-10 rounded-lg px-3' />
+                    <input
+                        value={checkOutDate}
+                        onChange={(e) => setCheckOutDate(e.target.value)}
+                        type="date"
+                        className="border h-10 rounded-lg px-3"
+                    />
                 </div>
-                <div className='flex flex-col gap-3'>
+                <div className="flex flex-col gap-3">
                     <label>Units Booked</label>
-                    <input type='number' min='1' value={unitsBooked} onChange={(e) => setUnitsBooked(e.target.value)} className='w-full border h-10 rounded-lg px-3' placeholder='1 Units' />
+                    <input
+                        type="number"
+                        min="1"
+                        value={unitsBooked}
+                        onChange={(e) => setUnitsBooked(e.target.value)}
+                        className="w-full border h-10 rounded-lg px-3"
+                        placeholder="1 Units"
+                    />
                 </div>
                 <div>
-                    <button onClick={handleSubmit} className='w-full py-3 border rounded-xl bg-yellow-400 text-white hover:bg-white hover:text-black transition duration-100'>Book Now</button>
+                    <button
+                        onClick={handleSubmit}
+                        className="w-full py-3 border rounded-xl bg-yellow-400 text-white hover:bg-white hover:text-black transition duration-100"
+                    >
+                        Book Now
+                    </button>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default BookingForm
+export default BookingForm;
