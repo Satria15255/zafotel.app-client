@@ -13,12 +13,12 @@ export const getCheckInDateLimits = () => {
 	let minCheckInDate = new Date(now);
 
 	if (now > minBookingTime) {
-		minCheckInDate.setDate(minCheckInDate.getTime() + 1);
+		minCheckInDate.setDate(minCheckInDate.getDate() + 1);
 	}
 
 	// Maximum check-in : 30 days from now
 	const maxCheckInDate = new Date(now);
-	maxCheckInDate.setDate(maxCheckInDate.getTime() + 30);
+	maxCheckInDate.setDate(maxCheckInDate.getDate() + 30);
 
 	return {
 		minCheckInDate,

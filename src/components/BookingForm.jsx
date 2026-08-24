@@ -99,7 +99,7 @@ const BookingForm = ({ room }) => {
                     />
                 </div>
                 <div className="flex flex-col gap-3">
-                    <label>Chek-in Date</label>
+                    <label>Check-in Date</label>
                     <input
                         value={checkInDate}
                         onChange={handleCheckInChange}
