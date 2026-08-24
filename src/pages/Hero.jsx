@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Motion from "@/components/Motion";
-import { PiStarFill, PiStarHalfFill } from "react-icons/pi";
+import { IoMdStar } from "react-icons/io";
 
 const Hero = () => {
     const navigate = useNavigate();
@@ -21,12 +21,12 @@ const Hero = () => {
                 {/*Hero Content*/}
                 <header className="h-screen md:h-160 lg:h-screen flex flex-col justify-center items-center bg-black/50 w-full p-4">
                     <Motion>
-                        <div className="flex space-x-3 text-lg text-yellow-600">
-                            <PiStarFill />
-                            <PiStarFill />
-                            <PiStarFill />
-                            <PiStarFill />
-                            <PiStarFill />
+                        <div className="flex space-x-3 text-lg text-[#c69c6d]">
+                            <IoMdStar />
+                            <IoMdStar />
+                            <IoMdStar />
+                            <IoMdStar />
+                            <IoMdStar />
                         </div>
                     </Motion>
                     <Motion delay={0.2}>
