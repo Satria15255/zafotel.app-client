@@ -144,11 +144,11 @@ const RoomTypeHomep = () => {
                                         </div>
                                         <div className="bg-[#FAFAFA] w-full p-2 px-6 space-y-3 text-[#0C0C0C] font-ysabeau flex flex-col justify-around">
                                             <header className="flex flex-col gap-3">
-                                                <p className=" text-xl xl:text-2xl">
-                                                    from
-                                                    <span className="font-playfair">
+                                                <p className=" text-xl xl:text-xl">
+                                                    from:
+                                                    <span className="font-playfair text-3xl font-semibold">
                                                         ${room.price}
-                                                    </span>{" "}
+                                                    </span>
                                                     / Night
                                                 </p>
 
@@ -173,14 +173,14 @@ const RoomTypeHomep = () => {
                                                                     key={
                                                                         amenities
                                                                     }
-                                                                    className="flex gap-1 items-center"
+                                                                    className="flex gap-1 items-center text-[#c69c6d]"
                                                                 >
                                                                     {
                                                                         FacilityIcon[
                                                                             key
                                                                         ]
                                                                     }
-                                                                    <p className="text-[10px] md:text-xs lg:text-sm xl:text-lg">
+                                                                    <p className="text-[10px] md:text-xs lg:text-sm xl:text-lg text-[#0C0C0C]">
                                                                         {
                                                                             amenities
                                                                         }

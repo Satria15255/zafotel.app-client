@@ -24,18 +24,18 @@ const Welcome = () => {
                     />
                 </div>
             </Motion>
-            <div className="ml-6">
+            <div className="ml-6 flex flex-col justify-center ">
                 <Motion>
                     <p className="text-lg lg:text-xl text-[#c69c6d] font-serif mt-6">
-                        WELCOME TO ZAFOTEL
+                        WELCOME TO THERINA
                     </p>
-                    <h1 className="text-xl md:text-3xl lg:text-5xl font-semibold max-w-md py-4">
-                        Luxury Hotel in the Heart of the City
-                    </h1>
+                    <p className="text-xl md:text-3xl lg:text-5xl xl:text-6xl font-semibold max-w-lg py-4">
+                        Luxury Hotel in the <br /> Heart of the City
+                    </p>
                 </Motion>
                 <Motion delay={0.4}>
                     <p className="text-xs md:text-sm lg:text-lg pb-4">
-                        Zafotel is a place where every guest comes as a visitor
+                        THERINA is a place where every guest comes as a visitor
                         and leaves as family. We believe that true comfort lies
                         not only in a soft bed and a clean room, but in a warm
                         atmosphere that makes you feel at home. Enjoy the

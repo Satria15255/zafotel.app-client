@@ -1,10 +1,5 @@
 import React from "react";
-import {
-    PiCrownLight,
-    PiDiamondsFourLight,
-    PiLampLight,
-    PiMapPinAreaLight,
-} from "react-icons/pi";
+import { LiaBathSolid } from "react-icons/lia";
 import { MdSupportAgent, MdHotelClass } from "react-icons/md";
 import { IoPricetagsOutline } from "react-icons/io5";
 import { GrMapLocation } from "react-icons/gr";
@@ -26,7 +21,7 @@ const superiority = [
     },
     {
         id: 3,
-        icons: <MdHotelClass />,
+        icons: <LiaBathSolid />,
         title: "Luxurious, Modern & Comfortable Design ",
         description:
             "Experience a luxurious, modern, and fully equipped space for comfort.",
