@@ -30,7 +30,7 @@ const Footer = () => {
                         AVEN⚜
                     </p>
                     <p className="text-white text-sm text-xs lg:text-sm font-light max-w-xs  text-center">
-                        Zafotel is here for modern professionals and travelers
+                        Therina is here for modern professionals and travelers
                         who need unlimited comfort amidst the hustle and bustle
                         of the city.
                     </p>

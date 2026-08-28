@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { getRoomAvailability } from "../Api";
 import {
     validateCheckInDate,
     validateCheckOutDate,
@@ -12,10 +13,17 @@ const BookingForm = ({ room }) => {
 
     const [userName, setUserName] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
+
     const [checkInDate, setCheckInDate] = useState("");
     const [checkInError, setCheckInError] = useState("");
+
     const [checkOutDate, setCheckOutDate] = useState("");
     const [checkOutError, setCheckOutError] = useState("");
+
+    const [availability, setAvailability] = useState(null);
+    const [availabilityLoading, setAvailabilityLoading] = useState(false);
+    const [availabilityError, setAvailabilityError] = useState("");
+
     const [unitsBooked, setUnitsBooked] = useState(1);
     const { minCheckInDate, maxCheckInDate } = getCheckInDateLimits();
     const minCheckIn = formatDate(minCheckInDate);
@@ -26,7 +34,12 @@ const BookingForm = ({ room }) => {
 
         setCheckInDate(value);
 
-        setCheckInError(validateCheckInDate(value));
+        const error = validateCheckInDate(value);
+        setCheckInError(error);
+
+        // Reset availability
+        setAvailability(null);
+        setAvailabilityError("");
 
         if (checkOutDate) {
             const checkOutError = validateCheckOutDate(value, checkOutDate);
@@ -43,8 +56,12 @@ const BookingForm = ({ room }) => {
 
         setCheckOutDate(value);
 
-        const error = validateCheckOutDate(checkInDate, checkInDate);
+        const error = validateCheckOutDate(checkInDate, value);
         setCheckOutError(error);
+
+        // Reset Availability
+        setAvailability(null);
+        setAvailabilityError("");
     };
 
     const minCheckOut = checkInDate
@@ -55,6 +72,67 @@ const BookingForm = ({ room }) => {
               ),
           )
         : "";
+
+    useEffect(() => {
+        if (!checkInDate || !checkOutDate || checkInError || checkOutError) {
+            setAvailability(null);
+            return;
+        }
+
+        const fetchAvailability = async () => {
+            try {
+                setAvailabilityLoading(true);
+                setAvailabilityError("");
+
+                const res = await getRoomAvailability(
+                    room._id,
+                    checkInDate,
+                    checkOutDate,
+                );
+
+                setAvailability(res.data.availability);
+            } catch (error) {
+                console.error(error);
+
+                setAvailability(null);
+                setAvailabilityError(
+                    error.response?.data?.message ||
+                        "Failed to check room availability",
+                );
+            } finally {
+                setAvailabilityLoading(false);
+            }
+        };
+
+        fetchAvailability();
+    }, [room._id, checkInDate, checkOutDate, checkInError, checkOutError]);
+
+    // Pastikan unitsBooked tidak melebihi availability
+    useEffect(() => {
+        if (availability && unitsBooked > availability.availableUnits) {
+            setUnitsBooked(
+                availability.availableUnits > 0
+                    ? availability.availableUnits
+                    : 1,
+            );
+        }
+    }, [availability, unitsBooked]);
+
+    const handleUnitsChange = (e) => {
+        const value = Number(e.target.value);
+
+        if (value < 1) {
+            setUnitsBooked(1);
+            return;
+        }
+
+        if (availability && value > availability.availableUnits) {
+            setUnitsBooked(availability.availableUnits);
+            return;
+        }
+
+        setUnitsBooked(value);
+    };
 
     const handleSubmit = () => {
         navigate("/bookings-review", {
@@ -135,10 +213,32 @@ const BookingForm = ({ room }) => {
                         type="number"
                         min="1"
                         value={unitsBooked}
-                        onChange={(e) => setUnitsBooked(e.target.value)}
+                        onChange={(e) => setUnitsBooked(Number(e.target.value))}
                         className="w-full border h-10 rounded-lg px-3"
                         placeholder="1 Units"
                     />
+                    {/* Availability */}
+                    {availabilityLoading && (
+                        <p className="text-sm text-gray-500">
+                            Checking room availability...
+                        </p>
+                    )}
+
+                    {availabilityError && (
+                        <p className="text-sm text-red-500">
+                            {availabilityError}
+                        </p>
+                    )}
+
+                    {availability && !availabilityLoading && (
+                        <div className=" rounded-lg">
+                            <p className="text-sm">
+                                {availability.availableUnits > 0
+                                    ? `${availability.availableUnits} rooms available`
+                                    : "No rooms available for selected dates"}
+                            </p>
+                        </div>
+                    )}
                 </div>
                 <div>
                     <button

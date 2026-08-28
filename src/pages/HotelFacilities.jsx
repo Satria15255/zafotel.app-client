@@ -69,7 +69,7 @@ const HotelFacilities = () => {
                     <Motion delay={0.4}>
                         <div className=" h-50 gap-4 transition duration-100 grid grid-cols-2 place-items-center  font-semibold ">
                             <div className="flex justify-end items-center w-full">
-                                <span className="text-4xl lg:text-6xl p-4 text-white bg-[#c69c6d] w-20 h-20 flex justify-start font-light border rounded-xl">
+                                <span className="text-4xl lg:text-6xl p-4 text-white bg-[#c69c6d] w-20 h-20 flex justify-center  items-center font-light border rounded-xl">
                                     {f.icon}
                                 </span>
                             </div>
