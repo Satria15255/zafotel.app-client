@@ -65,12 +65,12 @@ const Footer = () => {
                 <div className="text-white flex flex-col justify-center items-center text-lg ">
                     <p>Contact Us</p>
                     <p>T. +929 333 9296</p>
-                    <p>M. contact@zafotel.com</p>
+                    <p>M. contact@therina.com</p>
                 </div>
             </div>
             <div className="border-t border-gray-500">
                 <p className="text-center text-[8px] md:text-xs lg:text-sm text-white py-3">
-                    Copyright© 2025 zafotel.com All rights reserved.
+                    Copyright© 2025 therina.com All rights reserved.
                 </p>
             </div>
         </section>

@@ -64,16 +64,14 @@ const HotelFacilities = () => {
                     </p>
                 </header>
             </Motion>
-            <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 items-center cursor-default">
+            <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2  cursor-default">
                 {facilities.map((f) => (
                     <Motion delay={0.4}>
-                        <div className=" h-50 gap-4 transition duration-100 grid grid-cols-2 place-items-center  font-semibold ">
-                            <div className="flex justify-end items-center w-full">
-                                <span className="text-4xl lg:text-6xl p-4 text-white bg-[#c69c6d] w-20 h-20 flex justify-center  items-center font-light border rounded-xl">
-                                    {f.icon}
-                                </span>
-                            </div>
-                            <div className="flex flex-col w-full">
+                        <div className="h-50  md:gap-4 transition duration-100 flex gap-4 justify-center items-center p-5 font-semibold ">
+                            <span className="w-1/2 text-4xl lg:text-6xl p-4 text-white bg-[#c69c6d] w-20 h-20 flex justify-center  items-center font-light border rounded-xl">
+                                {f.icon}
+                            </span>
+                            <div className="flex flex-col w-1/2">
                                 <p className="text-lg xl:text-2xl">{f.title}</p>
                                 <p className="text-sm xl:text-lg max-w-[180px] xl:w-auto mt-2 font-light">
                                     {f.description}
