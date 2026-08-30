@@ -45,7 +45,7 @@ const RoomTypeHomep = () => {
     return (
         <section className="relative h-auto py-12 p-4 md:p-10 bg-[#FFFFF0] border border-yellow-400 flex flex-col justify-center items-center">
             <Motion>
-                <header className=" md:pb-10">
+                <header className="pb-10">
                     <p className="text-black font-serif text-2xl lg:text-4xl text-center">
                         — Our Finest Rooms —
                     </p>
@@ -58,7 +58,7 @@ const RoomTypeHomep = () => {
             <main>
                 <Motion delay={0.4}>
                     {/* Mobile Version */}
-                    <div className="md:hidden">
+                    <div className="hidden">
                         <Carousel
                             plugins={[plugin.current]}
                             onMouseEnter={plugin.current.stop}
@@ -118,7 +118,7 @@ const RoomTypeHomep = () => {
                     </div>
 
                     {/* Desktop Version */}
-                    <div className="hidden md:flex max-w-8xl">
+                    <div className="xl:max-w-8xl">
                         <Carousel
                             plugins={[plugin.current]}
                             onMouseEnter={plugin.current.stop}
@@ -133,20 +133,20 @@ const RoomTypeHomep = () => {
                                         onClick={() =>
                                             navigate(`/rooms/${room._id}`)
                                         }
-                                        className="grid grid-cols-2 "
+                                        className="grid grid-cols-1 md:grid-cols-2 "
                                     >
-                                        <div className="w-full h-130 md:h-80 lg:h-auto xl:h-120">
+                                        <div className="w-full h-50 md:h-auto xl:h-120">
                                             <img
                                                 src={room.image[0]}
                                                 alt={room.name}
                                                 className="w-full h-full object-cover"
                                             />
                                         </div>
-                                        <div className="bg-[#FAFAFA] w-full p-2 px-6 space-y-3 text-[#0C0C0C] font-ysabeau flex flex-col justify-around">
+                                        <div className="bg-[#FAFAFA] w-full p-2 border border-gray-100 md:px-6 space-y-3 text-[#0C0C0C] font-ysabeau flex flex-col justify-around">
                                             <header className="flex flex-col gap-3">
-                                                <p className=" text-xl xl:text-xl">
+                                                <p className="text-sm lg:text-xl xl:text-xl">
                                                     from:
-                                                    <span className="font-playfair text-3xl font-semibold">
+                                                    <span className="font-playfair text-xl lg:text-3xl font-semibold">
                                                         ${room.price}
                                                     </span>
                                                     / Night
@@ -157,10 +157,10 @@ const RoomTypeHomep = () => {
                                                 </p>
                                             </header>
                                             <main>
-                                                <p className="text-sm xl:text-lg h-30 ">
+                                                <p className="hidden lg:flex text-sm xl:text-lg h-30 ">
                                                     {room.description}
                                                 </p>
-                                                <div className="grid grid-cols-2">
+                                                <div className="grid grid-cols-2 gap-1">
                                                     {room.details.amenities
                                                         .slice(0, 6)
                                                         .map((amenities) => {
@@ -173,7 +173,7 @@ const RoomTypeHomep = () => {
                                                                     key={
                                                                         amenities
                                                                     }
-                                                                    className="flex gap-1 items-center text-[#c69c6d]"
+                                                                    className="flex gap-1  h-5 md:h-8 items-center text-[#c69c6d]"
                                                                 >
                                                                     {
                                                                         FacilityIcon[
@@ -190,11 +190,11 @@ const RoomTypeHomep = () => {
                                                         })}
                                                 </div>
                                             </main>
-                                            <footer className="flex gap-2">
-                                                <button className="flex gap-2 items-center justify-center w-1/2 xl:w-1/3 py-2 bg-[#c69c6d] text-white">
+                                            <footer className="flex gap-2  text-sm md:text-xs lg:text-xl">
+                                                <button className="flex gap-2 items-center justify-center w-1/2 xl:w-1/3 py-2 bg-[#c69c6d] hover:bg-[#0C0C0C] transition duration-200 text-white">
                                                     <FaCalendarCheck /> BOOK NOW
                                                 </button>
-                                                <button className="flex gap-2 items-center justify-center w-1/2 xl:w-1/3 py-2 bg-[#FAFAFA] text-[#0C0C0C] border border-[#c69c6d]">
+                                                <button className="flex gap-2 items-center justify-center w-1/2 xl:w-1/3 py-2 bg-[#FAFAFA] hover:bg-[#0C0C0C] transition duration-200 hover:text-white text-[#0C0C0C] border border-[#c69c6d]">
                                                     VIEW ROOM
                                                     <IoIosArrowRoundForward />
                                                 </button>
