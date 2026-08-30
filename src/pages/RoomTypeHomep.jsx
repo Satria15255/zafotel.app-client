@@ -194,7 +194,7 @@ const RoomTypeHomep = () => {
                                                 <button className="flex gap-2 items-center justify-center w-1/2 xl:w-1/3 py-2 bg-[#c69c6d] hover:bg-[#0C0C0C] transition duration-200 text-white">
                                                     <FaCalendarCheck /> BOOK NOW
                                                 </button>
-                                                <button className="flex gap-2 items-center justify-center w-1/2 xl:w-1/3 py-2 bg-[#FAFAFA] hover:bg-[#0C0C0C] transition duration-200 hover:text-white text-[#0C0C0C] border border-[#c69c6d]">
+                                                <button className="flex gap-2 items-center justify-center w-1/2 xl:w-1/3 py-2 bg-[#FAFAFA] hover:bg-[#0C0C0C] transition duration-200 hover:text-white text-[#0C0C0C] border border-[#c69c6d] hover:border-[#0C0C0C]">
                                                     VIEW ROOM
                                                     <IoIosArrowRoundForward />
                                                 </button>

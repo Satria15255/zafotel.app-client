@@ -1,46 +1,78 @@
-import React from 'react'
+import React from "react";
 import { FaCalendarCheck } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom';
-import FacilityIcon from './FacilityIcon';
+import { useNavigate } from "react-router-dom";
+import FacilityIcon from "./FacilityIcon";
 import Motion from "@/components/Motion";
 
-
 const RoomsCard = ({ rooms, index }) => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     return (
         <Motion>
-            <div className='w-full bg-gray-900'>
-                <div className={`flex flex-col md:flex-row ${!index ? "md:flex-row-reverse" : ""}`}>
-                    <div className='relative w-full md:w-1/2 h-full md:h-90'>
-                        <img src={rooms.image[0]} alt='standardType' className='w-full h-full object-cover ' />
+            <div className="w-full bg-[#FAFAFA] border border-gray-200">
+                <div
+                    className={`flex flex-col md:flex-row ${!index ? "md:flex-row-reverse" : ""}`}
+                >
+                    <div className="relative w-full md:w-1/2 h-full md:h-90  lg:h-auto">
+                        <img
+                            src={rooms.image[0]}
+                            alt="standardType"
+                            className="w-full h-full object-cover "
+                        />
                     </div>
-                    <div className='w-full md:w-1/2 text-white p-2 lg:p-14 flex flex-col justify-around '>
-                        <div className='flex justify-between'>
-                            <p className='text-lg lg:text-3xl font-serif'>{rooms.name}</p>
-                            <p className='text-lg lg:text-2xl font-serif text-[#FDD700]'>${rooms.price} / Night</p>
+                    <div className="w-full md:w-1/2 text-[#0C0C0C] p-2 lg:p-14 flex flex-col justify-around space-y-5">
+                        <div className="flex justify-between items-center">
+                            <p className="text-lg lg:text-3xl font-serif">
+                                {rooms.name}
+                            </p>
+                            <p className="text-sm lg:text-xl xl:text-xl">
+                                from:
+                                <span className="font-playfair text-xl lg:text-3xl font-semibold">
+                                    ${rooms.price}
+                                </span>
+                                / Night
+                            </p>
                         </div>
-                        <p className='text-[10px] text-gray-300 md:text-xs lg:text-sm py-2'>{rooms.description}</p>
-                        <div className='grid text-gray-300 gap-2 grid-cols-2 mt-4'>
-                            {rooms.details.amenities.slice(0, 4).map((amenities) => {
-                                const key = amenities.toLowerCase().trim()
-                                return (
-                                    <div key={amenities} className='flex gap-1 items-center'>
-                                        {FacilityIcon[key]}
-                                        <p className='text-[10px] md:text-xs lg:text-sm'>{amenities}</p>
-                                    </div>
-                                )
-                            })}
+                        <div>
+                            <p className="text-[10px] text-[#0C0C0C] md:text-xs lg:text-sm  ">
+                                {rooms.description}
+                            </p>
                         </div>
-                        <div className='flex w-full gap-1 md:gap-4 mt-3'>
-                            <button className='text-xs md:text-xs lg:text-sm py-2 md:py-2 w-1/2 md:px-7 bg-gray-900 border text-white hover:bg-white hover:text-black transition duration-100 flex items-center justify-center gap-2'><FaCalendarCheck />Book Now</button>
-                            <button onClick={() => navigate(`/rooms/${rooms._id}`)} className='text-xs md:text-xs lg:text-sm py-2 md:py-2 w-1/2 md:px-7 bg-yellow-500 text-white hover:bg-white hover:text-black transition duration-100'>View Room→</button>
+                        <div className="grid  gap-2 grid-cols-2 ">
+                            {rooms.details.amenities
+                                .slice(0, 4)
+                                .map((amenities) => {
+                                    const key = amenities.toLowerCase().trim();
+                                    return (
+                                        <div
+                                            key={amenities}
+                                            className="flex gap-1 md:text-lg h-5 md:h-8 items-center text-[#c69c6d]"
+                                        >
+                                            {FacilityIcon[key]}
+                                            <p className="text-[10px] md:text-xs lg:text-sm xl:text-lg text-[#0C0C0C]">
+                                                {amenities}
+                                            </p>
+                                        </div>
+                                    );
+                                })}
+                        </div>
+                        <div className="flex w-full gap-1 md:gap-4 ">
+                            <button className="text-xs md:text-xs lg:text-sm py-2 md:py-2 w-1/2 md:px-7   border   flex items-center justify-center gap-2 bg-[#c69c6d] hover:bg-[#0C0C0C] transition duration-200 text-white">
+                                <FaCalendarCheck />
+                                BOOK NOW
+                            </button>
+                            <button
+                                onClick={() => navigate(`/rooms/${rooms._id}`)}
+                                className="text-xs md:text-xs lg:text-sm py-2 md:py-2 w-1/2 md:px-7  bg-[#FAFAFA] hover:bg-[#0C0C0C] transition duration-200 hover:text-white text-[#0C0C0C] border border-[#c69c6d] hover:border-[#0C0C0C]"
+                            >
+                                VIEW ROOM
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </Motion>
-    )
-}
+    );
+};
 
-export default RoomsCard
+export default RoomsCard;
