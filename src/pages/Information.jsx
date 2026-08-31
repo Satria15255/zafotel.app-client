@@ -45,7 +45,7 @@ const Information = () => {
             </Motion>
             <footer>
                 <p
-                    onClick={() => navigate("/informations")}
+                    onClick={() => navigate("/news")}
                     className="text-center py-4 text-xs md:text-sm lg:text-lg font-serif"
                 >
                     Explore Other

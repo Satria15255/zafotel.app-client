@@ -80,7 +80,7 @@ const Navbar = ({ user, onToggleModals, onLogout }) => {
                     </p>
                     <p
                         className="hover:border-b border-yellow-500 transition duration-300 pb-1 w-auto flex items-center justify-center"
-                        onClick={() => navigate("/informations")}
+                        onClick={() => navigate("/news")}
                     >
                         NEWS & OFFERS
                     </p>

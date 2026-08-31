@@ -73,7 +73,7 @@ const AboutUsPage = () => {
             <Motion variant="fadeIn">
                 <header
                     className="w-full h-full bg-center bg-cover z-0"
-                    style={{ backgroundImage: "url(/assets/herobanner.jpg)" }}
+                    style={{ backgroundImage: "url(/assets/herobanner.webp)" }}
                 >
                     <div className="h-80 flex flex-col justify-center items-center bg-black/40 w-full p-9">
                         <p className="text-4xl md:text-6xl text-white border-b border-yellow-500 pb-2">
@@ -91,12 +91,12 @@ const AboutUsPage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 place-items-center justify-around items-center space-y-4 mt-8 px-3 lg:px-6">
                         <div className="flex justify-center gap-2 lg:gap-6 lg:pl-6">
                             <img
-                                src="/assets/aboutus.jpg"
+                                src="/assets/aboutus.webp"
                                 alt=""
                                 className="w-40  md:w-30 rounded-sm h-55 md:h-65 lg:w-60 lg:h-100 mb-12 object-cover"
                             />
                             <img
-                                src="/assets/aboutus2.jpg"
+                                src="/assets/aboutus2.webp"
                                 alt=""
                                 className="w-40 md:w-30 rounded-sm h-55 md:h-65 lg:w-60 lg:h-100 mt-12 object-cover"
                             />

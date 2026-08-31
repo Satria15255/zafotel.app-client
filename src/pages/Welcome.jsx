@@ -13,12 +13,12 @@ const Welcome = () => {
             <Motion>
                 <div className="flex justify-center gap-2 lg:gap-6">
                     <img
-                        src="/assets/aboutus.jpg"
+                        src="/assets/aboutus.webp"
                         alt=""
                         className="w-45   h-75 md:w-45 md:h-65 lg:w-[45vh] lg:h-100 xl:h-150 mb-12 object-cover"
                     />
                     <img
-                        src="/assets/aboutus2.jpg"
+                        src="/assets/aboutus2.webp"
                         alt=""
                         className="w-45   h-75 md:w-45 md:h-65 lg:w-[45vh] lg:h-100 xl:h-150 mt-12 object-cover"
                     />

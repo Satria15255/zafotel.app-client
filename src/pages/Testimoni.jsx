@@ -1,9 +1,12 @@
-import React, { useRef } from 'react'
+import React, { useRef } from "react";
 import { PiStarFill } from "react-icons/pi";
-import Motion from "@/components/Motion"
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
-import Autoplay from "embla-carousel-autoplay"
-
+import Motion from "@/components/Motion";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const testimonial = [
     {
@@ -46,31 +49,38 @@ const testimonial = [
         text: "Strategic location, close to the city center, suitable for vacations and business.",
         date: "1 mounth ago",
     },
-]
+];
 
 const Testimoni = () => {
-    const plugin = useRef(
-        Autoplay({ delay: 3000, stopOnInteraction: true })
-    )
+    const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
     return (
-
-        <div className='relative h-auto bg-cover bg-center' style={{ backgroundImage: 'url(/assets/testimonial.jpg)' }}>
+        <div
+            className="relative h-auto bg-cover bg-center"
+            style={{ backgroundImage: "url(/assets/testimonial.webp)" }}
+        >
             <Carousel
                 plugins={[plugin.current]}
                 onMouseEnter={plugin.current.stop}
                 onMouseLeave={plugin.current.reset}
-                className='bg-black/40 w-full'
+                className="bg-black/40 w-full"
             >
                 <Motion delay={0.4}>
                     <CarouselContent>
                         {testimonial.map((t, index) => (
-                            <CarouselItem key={index} className='w-full h-120 flex items-center justify-center'>
-                                <div className='w-full flex flex-col items-center justify-center'>
-                                    <div className='max-w-lg lg:max-w-2xl mx-auto p-3'>
-                                        <p className='text-white text-center text-3xl lg:text-5xl '>"{t.text}"</p>
+                            <CarouselItem
+                                key={index}
+                                className="w-full h-120 flex items-center justify-center"
+                            >
+                                <div className="w-full flex flex-col items-center justify-center">
+                                    <div className="max-w-lg lg:max-w-2xl mx-auto p-3">
+                                        <p className="text-white text-center text-3xl lg:text-5xl ">
+                                            "{t.text}"
+                                        </p>
                                     </div>
-                                    <p className='text-lg text-white loading-relaxed'>{t.name}</p>
-                                    <div className='flex items-center justify-center text-lg text-yellow-500'>
+                                    <p className="text-lg text-white loading-relaxed">
+                                        {t.name}
+                                    </p>
+                                    <div className="flex items-center justify-center text-lg text-yellow-500">
                                         <PiStarFill />
                                         <PiStarFill />
                                         <PiStarFill />
@@ -83,8 +93,8 @@ const Testimoni = () => {
                     </CarouselContent>
                 </Motion>
             </Carousel>
-        </div >
-    )
-}
+        </div>
+    );
+};
 
-export default Testimoni
+export default Testimoni;

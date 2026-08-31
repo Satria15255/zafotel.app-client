@@ -13,7 +13,7 @@ const Hero = () => {
                 <div className="fixed w-full h-screen top-0 -z-10">
                     <img
                         className="w-full h-full object-cover object-center"
-                        src="/assets/herobanner.jpg"
+                        src="/assets/herobanner.webp"
                         alt="therina luxury"
                     />
                 </div>

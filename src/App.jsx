@@ -108,7 +108,7 @@ function App() {
           <Route path="/admin/rooms" element={<RoomManagement />} />
           <Route path="/admin/rooms/upload" element={<UploadRoomForm />} />
           <Route path="/admin/rooms/updateroom" element={<UpdateRoomForm />} />
-          <Route path="/admin/informations" element={<InformManagement />} />
+          <Route path="/admin/news" element={<InformManagement />} />
           <Route
             path="/admin/informations/upload"
             element={<InformationsUpload />}

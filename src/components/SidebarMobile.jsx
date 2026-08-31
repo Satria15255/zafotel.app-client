@@ -66,7 +66,7 @@ const SidebarMobile = ({ user, onClose, onLogout }) => {
                             </p>
                             <p
                                 className="flex gap-2 items-center text-sm w-full border-b py-3 hover:text-[#FFD700] transition duration-100"
-                                onClick={() => handleNavigate("/informations")}
+                                onClick={() => handleNavigate("/news")}
                             >
                                 <TbNews />
                                 News
@@ -109,9 +109,7 @@ const SidebarMobile = ({ user, onClose, onLogout }) => {
                                 </p>
                                 <p
                                     className="flex gap-2 items-center text-sm w-full border-b py-3 hover:text-[#FFD700] transition duration-100"
-                                    onClick={() =>
-                                        handleNavigate("/informations")
-                                    }
+                                    onClick={() => handleNavigate("/news")}
                                 >
                                     <TbNews />
                                     News

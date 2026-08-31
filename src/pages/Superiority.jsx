@@ -50,7 +50,7 @@ const Superiority = () => {
                                     <h2 className="text-lg md:text-xs lg:text-lg xl:text-3xl md:text-center w-60 md:w-40 xl:w-80 md:h-12 xl:h-auto font-semibold mt-3">
                                         {s.title}
                                     </h2>
-                                    <p className="text-sm md:text-xs lg:text-lg md:text-center w-40  lg:h-12 max-w-[200px] xl:max-w-2xl font-light">
+                                    <p className="text-sm md:text-xs lg:text-lg md:text-center w-40 lg:w-60 lg:h-12 max-w-[200px] xl:max-w-2xl font-light">
                                         {s.description}
                                     </p>
                                 </header>
