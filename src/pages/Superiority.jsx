@@ -42,7 +42,7 @@ const Superiority = () => {
                 {superiority.map((s) => (
                     <Motion>
                         <div className="w-90 md:w-auto flex flex-row md:flex-col items-center gap-3 justify-center h-40 md:h-auto">
-                            <div className="flex flex-row md:flex-col justify-center items-center lg:gap-3 ml-10 md:ml-0">
+                            <div className="flex flex-row md:flex-col justify-center items-center gap-3 ml-10 md:ml-0">
                                 <span className="flex justify-center items-center text-3xl md:text-2xl  lg:text-5xl p-4 rounded-full border border-[#c69c6d] text-[#c69c6d]">
                                     {s.icons}
                                 </span>

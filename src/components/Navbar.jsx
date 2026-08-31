@@ -46,7 +46,7 @@ const Navbar = ({ user, onToggleModals, onLogout }) => {
                 <div>
                     <p
                         onClick={() => navigate("/")}
-                        className="text-lg md:text-xl font-serif cursor-pointer"
+                        className="text-lg md:text-xl font-serif cursor-pointer hidden md:flex"
                     >
                         <span className="text-xl md:text-3xl font-serif text-[#c69c6d]">
                             T
@@ -57,6 +57,7 @@ const Navbar = ({ user, onToggleModals, onLogout }) => {
                         </span>
                         AVEN⚜
                     </p>
+                    <p className="text-3xl md:hidden text-[#c69c6d]">⚜</p>
                 </div>
                 <div className="hidden lg:flex gap-6 cursor-pointer">
                     <p
