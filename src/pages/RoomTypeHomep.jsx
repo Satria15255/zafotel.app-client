@@ -57,67 +57,6 @@ const RoomTypeHomep = () => {
 
             <main>
                 <Motion delay={0.4}>
-                    {/* Mobile Version */}
-                    <div className="hidden">
-                        <Carousel
-                            plugins={[plugin.current]}
-                            onMouseEnter={plugin.current.stop}
-                            onMouseLeave={plugin.current.reset}
-                            className="w-auto"
-                        >
-                            <CarouselContent>
-                                {rooms.map((room, index) => (
-                                    <CarouselItem
-                                        key={index}
-                                        className="relative"
-                                        onClick={() =>
-                                            navigate(`/rooms/${room._id}`)
-                                        }
-                                    >
-                                        <div className="w-full h-130 md:h-80 lg:h-auto">
-                                            <img
-                                                src={room.image[0]}
-                                                alt="standardType"
-                                                className="w-full h-full object-cover"
-                                            />
-                                        </div>
-                                        <div className="absolute bg-black/40 inset-0 p-2 px-6 space-y-3 flex flex-col justify-between">
-                                            <header>
-                                                <p className="text-white text-lg font-bold">
-                                                    <span className="text-yellow-300">
-                                                        ${room.price}
-                                                    </span>{" "}
-                                                    / Night
-                                                </p>
-                                            </header>
-                                            <footer className="text-white ">
-                                                <p className="text-sm font-bold">
-                                                    {room.name}
-                                                </p>
-                                                <p className="text-xs h-30 max-w-xs">
-                                                    {room.description}
-                                                </p>
-                                                <div className="flex justify-end">
-                                                    <div className="flex items-center text-yellow-300 text-sm">
-                                                        <PiStarFill />
-                                                        <PiStarFill />
-                                                        <PiStarFill />
-                                                        <PiStarFill />
-                                                        <PiStarHalfFill />
-                                                        <p className="text-sm text-white ml-2">
-                                                            4.8
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </footer>
-                                        </div>
-                                    </CarouselItem>
-                                ))}
-                            </CarouselContent>
-                        </Carousel>
-                    </div>
-
-                    {/* Desktop Version */}
                     <div className="xl:max-w-8xl">
                         <Carousel
                             plugins={[plugin.current]}
