@@ -51,7 +51,7 @@ const Room = () => {
                             </div>
                         </div>
                     </header>
-                    <main className="w-full xl:max-w-7xl flex flex-col space-y-5  py-5">
+                    <main className="w-full xl:max-w-7xl flex flex-col space-y-5 px-3  py-5">
                         {rooms.map((room, index) => (
                             <RoomsCard rooms={room} index={index % 2 === 0} />
                         ))}
