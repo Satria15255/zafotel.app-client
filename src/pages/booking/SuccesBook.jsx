@@ -23,9 +23,9 @@ const SuccesBook = () => {
 
     return (
         <div>
-            <div
+            <header
                 className="w-full h-80 md:h-full bg-cover bg-center"
-                style={{ backgroundImage: "url(/assets/herobanner.jpg)" }}
+                style={{ backgroundImage: "url(/assets/herobanner.webp)" }}
             >
                 <div className="bg-black/50 w-full h-80 flex flex-col justify-center items-center">
                     <p className="text-xl md:text-6xl lg:text-4xl font-serif text-white border-b border-yellow-500 pb-2">
@@ -35,9 +35,9 @@ const SuccesBook = () => {
                         Home / {booking.room.name}
                     </p>
                 </div>
-            </div>
-            <div className="p-1 md:p-8">
-                <div className="bg-white rounded-xl shadow p-6 space-y-4">
+            </header>
+            <main className="p-1 md:p-8  flex justify-center">
+                <div className="bg-white rounded-xl shadow p-6 space-y-4 w-full xl:max-w-7xl">
                     <p className="text-xl md:text-2xl font-bold text-green-600">
                         ✅ Booking Successful
                     </p>
@@ -97,50 +97,63 @@ const SuccesBook = () => {
                             </p>
                             <p className="text-sm md:text-lg flex justify-between font-bold">
                                 Total Price:{" "}
-                                <span>
+                                <span className="text-[#c69c6d]">
                                     $ {booking.totalPrice.toLocaleString()}
                                 </span>
                             </p>
                         </div>
                         {booking?.paymentMethod === "Bank Transfer" ? (
-                            <p className="text-sm text-green-700">
-                                Complete the booking process by paying on the
-                                payment page, or via the MyBookings page to view
-                                your order history.
-                            </p>
+                            <div>
+                                <p className="text-sm text-green-700">
+                                    Complete the booking process by paying on
+                                    the payment page, or via the MyBookings page
+                                    to view your order history.
+                                </p>
+                                <p>
+                                    <span className="text-red font-bold ">
+                                        NOTE :{" "}
+                                    </span>
+                                    Complete your booking within 1 hour before
+                                    your payment expires.
+                                </p>
+                            </div>
                         ) : (
                             <p className="text-sm text-green-700">
                                 Please arrive on time and show this booking
                                 confirmation at reception.
                             </p>
                         )}
-                        <p>
-                            <span className="text-red font-bold ">NOTE : </span>
-                            Complete your booking within 1 hour before your
-                            payment expires.
-                        </p>
                     </div>
 
                     <div className="flex gap-3">
                         <button
                             onClick={() => navigate("/mybookings")}
-                            className="w-1/2 py-2 text-sm md:text-lg bg-[#FDD700] text-white hover:text-black hover:bg-white border transition duration-100 rounded"
+                            className="w-1/2 py-2 text-sm md:text-lg  hover:bg-black hover:text-white hover:bg-[#0C0C0C] hover:text-white border transition duration-100 rounded"
                         >
                             My Bookings
                         </button>
-                        <button
-                            onClick={() =>
-                                navigate(
-                                    `/mybookings/booking-payment/${booking._id}`,
-                                )
-                            }
-                            className="w-1/2 py-2 text-sm md:text-lg border hover:bg-black hover:text-white transition duration-100 rounded"
-                        >
-                            Pay Now
-                        </button>
+                        {booking?.paymentMethod === "Bank Transfer" ? (
+                            <button
+                                onClick={() =>
+                                    navigate(
+                                        `/mybookings/booking-payment/${booking._id}`,
+                                    )
+                                }
+                                className="w-1/2 py-2 text-sm md:text-lg border bg-[#c69c6d] text-white hover:text-white hover:bg-[#0C0C0C]  transition duration-100 rounded"
+                            >
+                                Pay Now
+                            </button>
+                        ) : (
+                            <button
+                                onClick={() => navigate(`/`)}
+                                className="w-1/2 py-2 text-sm md:text-lg border bg-[#c69c6d] text-white hover:text-white hover:bg-[#0C0C0C]  transition duration-100 rounded"
+                            >
+                                Back To Home
+                            </button>
+                        )}
                     </div>
                 </div>
-            </div>
+            </main>
         </div>
     );
 };

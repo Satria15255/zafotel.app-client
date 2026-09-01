@@ -80,7 +80,7 @@ const BookingPayment = () => {
                 <Loader />
             ) : (
                 <div>
-                    <div
+                    <header
                         className="w-full h-full bg-center bg-cover z-0"
                         style={{
                             backgroundImage: "url(/assets/herobanner.webp)",
@@ -98,9 +98,9 @@ const BookingPayment = () => {
                                 / Booking Payment
                             </p>
                         </div>
-                    </div>
-                    <div className="w-full flex justify-center py-8">
-                        <div className="flex flex-col justify-center w-full md:w-4/5 p-3 space-y-4">
+                    </header>
+                    <main className="w-full flex justify-center py-8">
+                        <div className="flex flex-col justify-center w-full md:w-4/5 xl:max-w-7xl p-3 space-y-4">
                             <div className=" justify-between border rounded-lg p-2">
                                 <img
                                     src={booking?.room?.image[0]}
@@ -115,8 +115,9 @@ const BookingPayment = () => {
                                     </p>
                                     <p className="flex flex-col">
                                         Price :{" "}
-                                        <span className="text-[#FDD700] font-bold">
-                                            ${booking?.room?.price} / Night
+                                        <span className="text-[#c69c6d] font-bold">
+                                            ${booking?.room?.price.toFixed(2)} /
+                                            Night
                                         </span>{" "}
                                     </p>
                                     <p className="flex flex-col justify-center ">
@@ -170,7 +171,9 @@ const BookingPayment = () => {
                                 </p>
                                 <p className="flex justify-between">
                                     Total Price :{" "}
-                                    <span>${booking.totalPrice}</span>
+                                    <span className="text-[#c69c6d]">
+                                        ${booking.totalPrice.toFixed(2)}
+                                    </span>
                                 </p>
                                 <p className="flex justify-between">
                                     Payment Method :{" "}
@@ -229,7 +232,7 @@ const BookingPayment = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </main>
                     {modals && (
                         <CancelModals
                             onClose={() => setModals(null)}

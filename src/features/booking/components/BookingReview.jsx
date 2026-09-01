@@ -82,7 +82,7 @@ const BookingReview = () => {
                             <p className="text-xl lg:text-3xl font-serif ">
                                 {room.name}
                             </p>
-                            <p className="text-xl lg:text-3xl font-serif text-[#FDD700]">
+                            <p className="text-xl lg:text-3xl font-serif text-[#c69c6d]">
                                 ${room.price}/Night
                             </p>
                         </div>
@@ -128,7 +128,7 @@ const BookingReview = () => {
                     </p>
                     <p className="flex justify-between text-sm md:text-lg">
                         Total Payment :
-                        <span className="font-bold text-[#FDD700]">
+                        <span className="font-bold text-[#c69c6d]">
                             ${totalPrice}
                         </span>
                     </p>
@@ -166,7 +166,7 @@ const BookingReview = () => {
                 </div>
                 <button
                     onClick={handleConfirm}
-                    className="mt-12 w-full h-15 bg-[#FDD700] rounded-xl"
+                    className="mt-12 w-full h-15 bg-[#c69c6d] hover:bg-[#0C0C0C] hover:text-white transition duration-200 rounded-xl"
                 >
                     Book now
                 </button>

@@ -243,7 +243,7 @@ const BookingForm = ({ room }) => {
                 <div>
                     <button
                         onClick={handleSubmit}
-                        className="w-full py-3 border rounded-xl bg-yellow-400 text-white hover:bg-white hover:text-black transition duration-100"
+                        className="w-full py-3 border rounded-xl bg-[#c69c6d] text-white hover:bg-[#0C0C0C] hover:text-white transition duration-100"
                     >
                         Book Now
                     </button>
