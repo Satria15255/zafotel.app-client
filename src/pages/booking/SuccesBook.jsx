@@ -8,11 +8,19 @@ const SuccesBook = () => {
     const navigate = useNavigate();
     const [booking, setBooking] = useState(null);
 
+    const fetchBooking = async () => {
+        try {
+            const res = await getBookingById(id);
+            setBooking(res.data.booking);
+            console.log(res.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     useEffect(() => {
-        getBookingById(id)
-            .then((res) => setBooking(res.data))
-            .catch(() => navigate("/"));
-    }, [id, navigate]);
+        fetchBooking();
+    }, []);
 
     if (!booking)
         return (
@@ -32,7 +40,7 @@ const SuccesBook = () => {
                         Booking Maked
                     </p>
                     <p className="text-white text-xs md:text-xl lg:text-sm">
-                        Home / {booking.room.name}
+                        Home / {booking?.room?.name}
                     </p>
                 </div>
             </header>
@@ -43,7 +51,7 @@ const SuccesBook = () => {
                     </p>
 
                     <p className="text-gray-600">
-                        Thank you, <strong>{booking.user.name}</strong>. Your
+                        Thank you, <strong>{booking?.user?.name}</strong>. Your
                         booking has been confirmed.
                     </p>
 
@@ -51,20 +59,22 @@ const SuccesBook = () => {
 
                     <div className="flex gap-4">
                         <img
-                            src={booking.room.image[0]}
-                            alt={booking.room.name}
+                            src={booking?.room?.image[0]}
+                            alt={booking?.room?.name}
                             className="w-full h-50 md:h-90 rounded-xl object-cover"
                         />
                     </div>
 
                     <div className="bg-green-50 p-4 rounded">
                         <div>
-                            <p className="font-semibold">{booking.room.name}</p>
+                            <p className="font-semibold">
+                                {booking?.room?.name}
+                            </p>
                             <p className="text-sm md:text-lg flex justify-between">
                                 Check-in:{" "}
                                 <span>
                                     {new Date(
-                                        booking.checkInDate,
+                                        booking?.checkInDate,
                                     ).toLocaleDateString()}
                                 </span>{" "}
                             </p>
@@ -72,33 +82,33 @@ const SuccesBook = () => {
                                 Check-out:{" "}
                                 <span>
                                     {new Date(
-                                        booking.checkOutDate,
+                                        booking?.checkOutDate,
                                     ).toLocaleDateString()}
                                 </span>
                             </p>
                             <p className="text-sm md:text-lg flex justify-between">
-                                Units:<span> {booking.unitsBooked}</span>
+                                Units:<span> {booking?.unitsBooked}</span>
                             </p>
                             <p className="text-sm md:text-lg flex justify-between">
                                 Total Nights:{" "}
-                                <span>{booking.totalNights} Night</span>
+                                <span>{booking?.totalNights} Night</span>
                             </p>
                             <p className="text-sm md:text-lg flex justify-between">
                                 Booking Status:{" "}
-                                <span>{booking.bookingStatus}</span>
+                                <span>{booking?.bookingStatus}</span>
                             </p>
                             <p className="text-sm md:text-lg flex justify-between">
                                 Payment Method:{" "}
-                                <span>{booking.paymentMethod}</span>
+                                <span>{booking?.paymentMethod}</span>
                             </p>
                             <p className="text-sm md:text-lg flex justify-between">
                                 Payment Status:{" "}
-                                <span>{booking.paymentStatus}</span>
+                                <span>{booking?.paymentStatus}</span>
                             </p>
                             <p className="text-sm md:text-lg flex justify-between font-bold">
                                 Total Price:{" "}
                                 <span className="text-[#c69c6d]">
-                                    $ {booking.totalPrice.toLocaleString()}
+                                    $ {booking?.totalPrice?.toLocaleString()}
                                 </span>
                             </p>
                         </div>

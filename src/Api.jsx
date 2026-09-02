@@ -54,4 +54,8 @@ export const getBookingById = (id) => API.get(`/api/bookings/${id}`);
 export const createPayment = (id, formData) =>
     API.post(`/api/bookings/${id}/confirm-payment`, formData);
 
+export const getPayment = (paymentId) => API.get(`/api/${paymentId}`);
+export const paidBooking = (paymentId) =>
+    API.post(`/api/payment/${paymentId}/pay`);
+
 export default API;

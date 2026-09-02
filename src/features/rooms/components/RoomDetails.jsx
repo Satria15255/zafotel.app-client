@@ -41,9 +41,9 @@ const RoomDetails = () => {
         );
 
     return (
-        <div className="h-full">
+        <div className=" w-full flex flex-col items-center">
             {/* Header */}
-            <Motion variant="fadeIn">
+            <Motion variant="fadeIn w-full">
                 <div
                     className="w-full h-80 md:h-full bg-cover bg-center "
                     style={{ backgroundImage: "url(/assets/herobanner.webp)" }}
@@ -60,10 +60,10 @@ const RoomDetails = () => {
                 </div>
             </Motion>
 
-            <div>
+            <div className="w-full xl:max-w-7xl">
                 {/* Room Image */}
                 <Motion delay={0.4} className="flex justify-center">
-                    <div className="flex w-full h-80 md:w-300 md:h-100 justify-center py-7 px-2">
+                    <div className="flex w-full h-80  md:h-100 justify-center py-7 px-2">
                         <img
                             src={room.image[0]}
                             alt="Room preview"
@@ -73,7 +73,7 @@ const RoomDetails = () => {
                 </Motion>
 
                 <div className="flex justify-center">
-                    <div className="w-full md:w-340 flex flex-col md:flex-row gap-5 px-2 md:px-21 pb-10">
+                    <div className="w-full flex flex-col md:flex-row gap-5 px-2   pb-10">
                         {/* Room Section */}
                         <div className="flex flex-col w-full md:w-3/5">
                             {/* Room Information */}

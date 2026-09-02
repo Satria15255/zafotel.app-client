@@ -1,5 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { getBookingById, createPayment, cancelBookings } from "@/Api";
+import {
+    getBookingById,
+    createPayment,
+    cancelBookings,
+    paidBooking,
+} from "@/Api";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Loader from "@/components/common/GlobalLoader";
@@ -8,6 +13,7 @@ import Motion from "@/components/common/Motion";
 
 const BookingPayment = () => {
     const [booking, setBooking] = useState([]);
+    const [payment, setPayment] = useState([]);
     const [loading, setLoading] = useState(true);
     const [modals, setModals] = useState(null);
 
@@ -20,7 +26,8 @@ const BookingPayment = () => {
             setLoading(true);
             const res = await getBookingById(id);
             console.log(res.data);
-            setBooking(res.data);
+            setBooking(res.data.booking);
+            setPayment(res.data.payment);
         } catch (error) {
             console.log(error);
         } finally {
@@ -31,24 +38,21 @@ const BookingPayment = () => {
         fetchBooking();
     }, []);
 
-    const handleSubmit = async (e) => {
+    console.log(payment);
+    const handlePayment = async (e) => {
         e.preventDefault();
 
-        if (!file) {
-            alert("Please upload payment proof");
-            return;
-        }
-
-        const formData = new FormData();
-        formData.append("paymentProof", file);
-
         try {
-            await createPayment(id, formData);
+            await paidBooking(payment._id);
+
+            toast.success(
+                "Payment successfully, please wait confirmed payment",
+            );
+
             navigate("/mybookings");
-            toast.success("Payment successfully,please wait confirmed payment");
         } catch (error) {
             console.log(error);
-            toast.warning("payment failed");
+            toast.error(error.response?.data?.message || "Payment failed");
         }
     };
 
@@ -116,8 +120,8 @@ const BookingPayment = () => {
                                     <p className="flex flex-col">
                                         Price :{" "}
                                         <span className="text-[#c69c6d] font-bold">
-                                            ${booking?.room?.price.toFixed(2)} /
-                                            Night
+                                            ${booking?.room?.price?.toFixed(2)}{" "}
+                                            / Night
                                         </span>{" "}
                                     </p>
                                     <p className="flex flex-col justify-center ">
@@ -172,7 +176,7 @@ const BookingPayment = () => {
                                 <p className="flex justify-between">
                                     Total Price :{" "}
                                     <span className="text-[#c69c6d]">
-                                        ${booking.totalPrice.toFixed(2)}
+                                        ${booking?.totalPrice?.toFixed(2)}
                                     </span>
                                 </p>
                                 <p className="flex justify-between">
@@ -186,7 +190,7 @@ const BookingPayment = () => {
                             </div>
                             <div className="w-full ">
                                 <form
-                                    onSubmit={handleSubmit}
+                                    onSubmit={handlePayment}
                                     className="space-y-4"
                                 >
                                     <p className="text-lg">

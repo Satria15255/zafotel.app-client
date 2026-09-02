@@ -39,6 +39,8 @@ const BookingReview = () => {
                 paymentMethod,
             });
 
+            console.log("Deatil Booking", res);
+
             navigate(`/booking-success/${res.data.booking._id}`);
         } catch (error) {
             toast.warning(err.response?.data?.message || "Booking Failed");

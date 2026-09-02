@@ -17,7 +17,7 @@ const BookingDetails = () => {
         try {
             setLoading(true);
             const res = await getBookingById(id);
-            setBooking(res.data);
+            setBooking(res.data.booking);
             console.log(res.data);
         } catch (error) {
             console.log(error);
@@ -101,7 +101,7 @@ const BookingDetails = () => {
                                     </p>
                                     <p className="flex flex-col">
                                         Price :{" "}
-                                        <span className="text-[#FDD700] font-bold">
+                                        <span className="text-[#c69c6d] font-bold">
                                             ${booking?.room?.price} / Night
                                         </span>{" "}
                                     </p>
@@ -150,7 +150,9 @@ const BookingDetails = () => {
                                 </p>
                                 <p className="flex justify-between">
                                     Total Price :{" "}
-                                    <span>${booking.totalPrice}</span>
+                                    <span className="text-[#c69c6d]">
+                                        ${booking.totalPrice}
+                                    </span>
                                 </p>
                                 <p className="flex justify-between">
                                     Payment Method :{" "}
