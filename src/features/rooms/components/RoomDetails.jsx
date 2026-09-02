@@ -43,22 +43,20 @@ const RoomDetails = () => {
     return (
         <div className=" w-full flex flex-col items-center">
             {/* Header */}
-            <Motion variant="fadeIn w-full">
-                <div
-                    className="w-full h-80 md:h-full bg-cover bg-center "
-                    style={{ backgroundImage: "url(/assets/herobanner.webp)" }}
-                >
-                    <div className="bg-black/50 w-full h-80 flex flex-col cursor-pointer justify-center items-center">
-                        <p className="text-4xl md:text-6xl text-white border-b border-yellow-500 pb-2">
-                            Room Details
-                        </p>
-                        <p className="text-lg md:text-xl text-white text-xs md:text-sm">
-                            <span onClick={() => navigate("/")}>Home</span> /{" "}
-                            {room.name}
-                        </p>
-                    </div>
+            <div
+                className="w-full h-80 md:h-full bg-cover bg-center "
+                style={{ backgroundImage: "url(/assets/herobanner.webp)" }}
+            >
+                <div className="bg-black/50 w-full h-80 flex flex-col cursor-pointer justify-center items-center">
+                    <p className="text-4xl md:text-6xl text-white border-b border-yellow-500 pb-2">
+                        Room Details
+                    </p>
+                    <p className="text-lg md:text-xl text-white text-xs md:text-sm">
+                        <span onClick={() => navigate("/")}>Home</span> /{" "}
+                        {room.name}
+                    </p>
                 </div>
-            </Motion>
+            </div>
 
             <div className="w-full xl:max-w-7xl">
                 {/* Room Image */}
@@ -88,7 +86,7 @@ const RoomDetails = () => {
                                             4.9 (671 Review)
                                         </p>
                                         <p className="text-lg mt-5 ">
-                                            <span className="font-serif text-[#FFD700]">
+                                            <span className="font-serif text-[#c69c6d]">
                                                 ${room.price}
                                             </span>{" "}
                                             / Night
@@ -97,13 +95,6 @@ const RoomDetails = () => {
                                     <div className="flex justify-between border-t pt-5 mt-5">
                                         <p className="text-sm md:text-lg">
                                             Units : {room.totalUnits} Room
-                                        </p>
-                                        <p className="text-sm md:text-lg">
-                                            Booked : {room.bookedUnits} Room
-                                        </p>
-                                        <p className="text-sm md:text-lg">
-                                            Available : {room.availableUnits}{" "}
-                                            Room
                                         </p>
                                     </div>
                                 </div>

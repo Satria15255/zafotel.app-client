@@ -45,9 +45,7 @@ const BookingPayment = () => {
         try {
             await paidBooking(payment._id);
 
-            toast.success(
-                "Payment successfully, please wait confirmed payment",
-            );
+            toast.success("Payment successfully");
 
             navigate("/mybookings");
         } catch (error) {
@@ -189,37 +187,23 @@ const BookingPayment = () => {
                                 </p>
                             </div>
                             <div className="w-full ">
-                                <form
-                                    onSubmit={handlePayment}
-                                    className="space-y-4"
-                                >
-                                    <p className="text-lg">
-                                        Send Your Proof of Payment Below :
-                                    </p>
-                                    <input
-                                        type="file"
-                                        accept="image/*"
-                                        onChange={(e) =>
-                                            setFile(e.target.files[0])
-                                        }
-                                        className="w-full border p-2 rounded"
-                                    />
-                                    {booking.paymentStatus !== "Expired" ? (
-                                        <button
-                                            type="submit"
-                                            className="w-full py-2 bg-[#c69c6d] hover:bg-gray-800 hover:text-white transition duration-100 text-white rounded"
-                                        >
-                                            Submit Payment
-                                        </button>
-                                    ) : (
-                                        <button
-                                            type="submit"
-                                            className="w-full py-2 bg-gray-200 text-white rounded"
-                                        >
-                                            Paymen Expired
-                                        </button>
-                                    )}
-                                </form>
+                                {booking.paymentStatus !== "Expired" ? (
+                                    <button
+                                        onClick={handlePayment}
+                                        type="submit"
+                                        className="w-full py-2 bg-[#c69c6d] hover:bg-gray-800 hover:text-white transition duration-100 text-white rounded"
+                                    >
+                                        Simulate Payment
+                                    </button>
+                                ) : (
+                                    <button
+                                        type="submit"
+                                        className="w-full py-2 bg-gray-200 text-white rounded"
+                                    >
+                                        Paymen Expired
+                                    </button>
+                                )}
+
                                 <div className="mt-2">
                                     {booking.paymentStatus === "Expired" ? (
                                         <button className="w-full py-2 bg-gray-200 text-white rounded">

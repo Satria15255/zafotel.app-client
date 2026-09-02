@@ -51,8 +51,6 @@ export const cancelBookings = (id) => API.patch(`/api/bookings/${id}/cancel`);
 export const getUserBookings = () => API.get("/api/bookings/mybookingsroom");
 export const getAllBookings = () => API.get("/api/bookings");
 export const getBookingById = (id) => API.get(`/api/bookings/${id}`);
-export const createPayment = (id, formData) =>
-    API.post(`/api/bookings/${id}/confirm-payment`, formData);
 
 export const getPayment = (paymentId) => API.get(`/api/${paymentId}`);
 export const paidBooking = (paymentId) =>
