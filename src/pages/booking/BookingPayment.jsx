@@ -1,10 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import {
-    getBookingById,
-    createPayment,
-    cancelBookings,
-    paidBooking,
-} from "@/Api";
+import { getBookingById, cancelBookings, paidBooking } from "@/Api";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Loader from "@/components/common/GlobalLoader";
