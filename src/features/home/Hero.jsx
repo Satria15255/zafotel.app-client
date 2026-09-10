@@ -29,19 +29,19 @@ const Hero = () => {
                             <IoMdStar />
                         </div>
                     </Motion>
-                    <Motion delay={0.2}>
+                    <Motion delay={0.1}>
                         <h1 className="text-white text-7xl md:text-6xl lg:text-7xl text-center font-ysabeau">
                             THERINA, FEEL THE ELEGANCE
                         </h1>
                     </Motion>
-                    <Motion delay={0.4}>
+                    <Motion delay={0.2}>
                         <p className="text-center text-white text-sm md:text-sm  max-w-xs md:max-w-lg mt-3">
                             Therina is here for modern professionals and
                             travelers who need unlimited comfort amidst the
                             hustle and bustle of the city.
                         </p>
                     </Motion>
-                    <Motion delay={0.6}>
+                    <Motion delay={0.3}>
                         <div className="mt-3">
                             <button
                                 onClick={() => navigate("/rooms")}
