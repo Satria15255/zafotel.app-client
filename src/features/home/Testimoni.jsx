@@ -56,7 +56,9 @@ const Testimoni = () => {
     return (
         <div
             className="relative h-auto bg-cover bg-center"
-            style={{ backgroundImage: "url(/assets/testimonial.webp)" }}
+            style={{
+                backgroundImage: "url(/images/testimonial_1400x933.webp)",
+            }}
         >
             <Carousel
                 plugins={[plugin.current]}
