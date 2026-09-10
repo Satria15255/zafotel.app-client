@@ -9,10 +9,10 @@ const InformationsCard = ({ informations }) => {
         <div className="w-full h-auto">
             <div className="w-60 lg:w-100 h-auto hidden md:flex rounded-xs border border-gray-300 shadow-lg cursor-pointer">
                 <div className="flex flex-col justify-between w-full">
-                    <div className="aspect-[2/1]  w-full overflow-hidden">
+                    <div className="md:aspect-[2/1]  w-full overflow-hidden">
                         <img
                             src={cloudinaryResize(informations.image, 400)}
-                            alt={informations.title}
+                            alt="News Thumbnail"
                             loading="lazy"
                             className="w-full h-full object-cover object-center  hover:scale-100"
                         />
@@ -47,7 +47,9 @@ const InformationsCard = ({ informations }) => {
                     >
                         <div className="w-2/5 h-20">
                             <img
-                                src={informations.image}
+                                src={cloudinaryResize(informations.image, 400)}
+                                alt="News Thumbnail"
+                                loading="lazy"
                                 className="w-100 h-full object-cover object-center"
                             />
                         </div>
