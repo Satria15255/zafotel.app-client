@@ -58,7 +58,9 @@ const BookingReview = () => {
         <section className="w-full flex flex-col items-center">
             <header
                 className="w-full h-80 md:h-full bg-cover bg-center"
-                style={{ backgroundImage: "url(/assets/herobanner.webp)" }}
+                style={{
+                    backgroundImage: "url(/images/herobanner_1800x1200.webp)",
+                }}
             >
                 <div className="bg-black/50 w-full h-80 flex flex-col justify-center items-center">
                     <p className="text-xl md:text-6xl lg:text-4xl font-serif text-white border-b border-yellow-500 pb-2">

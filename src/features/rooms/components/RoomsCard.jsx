@@ -17,7 +17,7 @@ const RoomsCard = ({ rooms, index }) => {
                 >
                     <div className="w-full md:w-1/2 h-50 md:h-60 lg:h-90 xl:h-110">
                         <img
-                            src={cloudinaryResize(room.image[0], 600)}
+                            src={cloudinaryResize(rooms.image[0], 600)}
                             srcSet={`
     ${cloudinaryResize(rooms.image[0], 400)} 400w,
     ${cloudinaryResize(rooms.image[0], 600)} 600w,

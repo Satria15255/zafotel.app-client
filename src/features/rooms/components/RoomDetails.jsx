@@ -46,7 +46,9 @@ const RoomDetails = () => {
             {/* Header */}
             <div
                 className="w-full h-80 md:h-full bg-cover bg-center "
-                style={{ backgroundImage: "url(/assets/herobanner.webp)" }}
+                style={{
+                    backgroundImage: "url(/images/herobanner_1800x1200.webp)",
+                }}
             >
                 <div className="bg-black/50 w-full h-80 flex flex-col cursor-pointer justify-center items-center">
                     <p className="text-4xl md:text-6xl text-white border-b border-yellow-500 pb-2">

@@ -61,7 +61,8 @@ const BookingDetails = () => {
                     <div
                         className="w-full h-full bg-center bg-cover z-0"
                         style={{
-                            backgroundImage: "url(/assets/herobanner.webp)",
+                            backgroundImage:
+                                "url(/images/herobanner_1800x1200.webp)",
                         }}
                     >
                         <div className="h-80 flex flex-col justify-center items-center bg-black/20 w-full p-9">
