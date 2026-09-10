@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { cloudinaryResize } from "@/utils/cloudinaryResize";
 
 const InformationsCard = ({ informations }) => {
     const navigate = useNavigate();
@@ -7,11 +8,16 @@ const InformationsCard = ({ informations }) => {
     return (
         <div className="w-full h-auto">
             <div className="w-60 lg:w-100 h-auto hidden md:flex rounded-xs border border-gray-300 shadow-lg cursor-pointer">
-                <div className="flex flex-col justify-between">
-                    <img
-                        src={informations.image}
-                        className="w-100 h-30 lg:h-50 object-cover object-center hover:scale-100"
-                    />
+                <div className="flex flex-col justify-between w-full">
+                    <div className="aspect-[2/1]  w-full overflow-hidden">
+                        <img
+                            src={cloudinaryResize(informations.image, 400)}
+                            alt={informations.title}
+                            loading="lazy"
+                            className="w-full h-full object-cover object-center  hover:scale-100"
+                        />
+                    </div>
+
                     <div className="p-4">
                         <p className="text-xs lg:text-sm h-10 font-semibold">
                             {informations.title}
