@@ -5,6 +5,7 @@ import BookingForm from "@/features/booking/components/BookingForm";
 import FacilityIcon from "@/components/icons/FacilityIcon";
 import Motion from "@/components/common/Motion";
 import Loader from "@/components/common/GlobalLoader";
+import { cloudinaryResize } from "@/utils/cloudinaryResize";
 
 const RoomDetails = () => {
     const [room, setRoom] = useState(null);
@@ -63,8 +64,19 @@ const RoomDetails = () => {
                 <Motion delay={0.4} className="flex justify-center">
                     <div className="flex w-full h-80  md:h-100 justify-center py-7 px-2">
                         <img
-                            src={room.image[0]}
-                            alt="Room preview"
+                            src={cloudinaryResize(room.image[0], 600)}
+                            srcSet={`
+    ${cloudinaryResize(room.image[0], 400)} 400w,
+    ${cloudinaryResize(room.image[0], 600)} 600w,
+    ${cloudinaryResize(room.image[0], 800)} 800w
+  `}
+                            sizes="
+    (max-width: 640px) 100vw,
+    (max-width: 1024px) 50vw,
+    33vw
+  "
+                            alt={room.name}
+                            loading="lazy"
                             className="w-full h-auto object-cover object-center rounded-xl pb-1"
                         />
                     </div>

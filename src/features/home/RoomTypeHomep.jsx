@@ -13,6 +13,7 @@ import {
 import { getAllRooms } from "@/Api";
 import { useNavigate } from "react-router-dom";
 import Autoplay from "embla-carousel-autoplay";
+import { cloudinaryResize } from "@/utils/cloudinaryResize";
 import Motion from "@/components/common/Motion";
 import FacilityIcon from "@/components/icons/FacilityIcon";
 
@@ -76,8 +77,22 @@ const RoomTypeHomep = () => {
                                     >
                                         <div className="w-full h-50 md:h-auto xl:h-120">
                                             <img
-                                                src={room.image[0]}
+                                                src={cloudinaryResize(
+                                                    room.image[0],
+                                                    600,
+                                                )}
+                                                srcSet={`
+    ${cloudinaryResize(room.image[0], 400)} 400w,
+    ${cloudinaryResize(room.image[0], 600)} 600w,
+    ${cloudinaryResize(room.image[0], 800)} 800w
+  `}
+                                                sizes="
+    (max-width: 640px) 100vw,
+    (max-width: 1024px) 50vw,
+    33vw
+  "
                                                 alt={room.name}
+                                                loading="lazy"
                                                 className="w-full h-full object-cover"
                                             />
                                         </div>

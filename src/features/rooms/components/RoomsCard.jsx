@@ -2,6 +2,7 @@ import React from "react";
 import { FaCalendarCheck } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { cloudinaryResize } from "@/utils/cloudinaryResize";
 import FacilityIcon from "@/components/icons/FacilityIcon";
 import Motion from "@/components/common/Motion";
 
@@ -16,9 +17,19 @@ const RoomsCard = ({ rooms, index }) => {
                 >
                     <div className="w-full md:w-1/2 h-50 md:h-60 lg:h-90 xl:h-110">
                         <img
-                            src={rooms.image[0]}
-                            alt="standardType"
-                            className="w-full h-full object-cover "
+                            src={cloudinaryResize(room.image[0], 600)}
+                            srcSet={`
+    ${cloudinaryResize(rooms.image[0], 400)} 400w,
+    ${cloudinaryResize(rooms.image[0], 600)} 600w,
+    ${cloudinaryResize(rooms.image[0], 800)} 800w
+  `}
+                            sizes="
+    (max-width: 640px) 100vw,
+    (max-width: 1024px) 50vw,
+    33vw
+  "
+                            alt={rooms.name}
+                            loading="lazy"
                         />
                     </div>
                     <div className="w-full md:w-1/2 text-[#0C0C0C] p-2 lg:p-5 xl:p-14 flex flex-col font-ysabeau justify-around space-y-5">
