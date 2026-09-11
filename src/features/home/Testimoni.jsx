@@ -60,13 +60,13 @@ const Testimoni = () => {
                 backgroundImage: "url(/images/testimonial_1400x933.webp)",
             }}
         >
-            <Carousel
-                plugins={[plugin.current]}
-                onMouseEnter={plugin.current.stop}
-                onMouseLeave={plugin.current.reset}
-                className="bg-black/40 w-full"
-            >
-                <Motion delay={0.4}>
+            <Motion delay={0.4}>
+                <Carousel
+                    plugins={[plugin.current]}
+                    onMouseEnter={plugin.current.stop}
+                    onMouseLeave={plugin.current.reset}
+                    className="bg-black/40 w-full"
+                >
                     <CarouselContent>
                         {testimonial.map((t, index) => (
                             <CarouselItem
@@ -93,8 +93,8 @@ const Testimoni = () => {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                </Motion>
-            </Carousel>
+                </Carousel>
+            </Motion>
         </div>
     );
 };

@@ -44,7 +44,7 @@ const RoomTypeHomep = () => {
     }, []);
 
     return (
-        <section className="relative h-auto py-12 p-4 md:p-10 bg-[#FFFFF0] border border-yellow-400 flex flex-col justify-center items-center">
+        <main className="relative h-auto py-12 p-4 md:p-10 bg-[#FFFFF0] border border-yellow-400 flex flex-col justify-center items-center">
             <Motion>
                 <header className="pb-10">
                     <p className="text-black font-serif text-2xl lg:text-4xl text-center">
@@ -56,7 +56,7 @@ const RoomTypeHomep = () => {
                 </header>
             </Motion>
 
-            <main>
+            <section>
                 <Motion delay={0.4}>
                     <div className="xl:max-w-8xl">
                         <Carousel
@@ -69,11 +69,10 @@ const RoomTypeHomep = () => {
                                 {rooms.map((room, index) => (
                                     <CarouselItem
                                         key={index}
-                                        className="relative"
                                         onClick={() =>
                                             navigate(`/rooms/${room._id}`)
                                         }
-                                        className="grid grid-cols-1 md:grid-cols-2 "
+                                        className="relative grid grid-cols-1 md:grid-cols-2 "
                                     >
                                         <div className="w-full h-50 md:h-auto xl:h-120">
                                             <img
@@ -92,6 +91,8 @@ const RoomTypeHomep = () => {
     33vw
   "
                                                 alt={room.name}
+                                                width="800"
+                                                height="600"
                                                 loading="lazy"
                                                 className="w-full h-full object-cover"
                                             />
@@ -160,8 +161,8 @@ const RoomTypeHomep = () => {
                         </Carousel>
                     </div>
                 </Motion>
-            </main>
-        </section>
+            </section>
+        </main>
     );
 };
 
